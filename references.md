@@ -1,7 +1,6 @@
 ---
 layout: stranka
 title:  Reference
-date:   2014-03-14 14:03:03
 ---
 
 Gelman, A., & Hill, J. (2007). Data analysis using regression and multilevel/hierarchical models. Cambridge University Press.
