@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Have we any use for this control group?
+title:  No Way Anova - The Challenge
 ---
 <!DOCTYPE html>
 <html>
@@ -1698,18 +1698,10 @@ init_mathjax();
 <body>
 
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Johannes Keyser <a href="http://doing-bayesian-data-analysis.12272.x6.nabble.com/How-to-compare-different-conditions-between-patients-and-controls-td5000744.html">asks</a> on the DBDA forum what is the best way to analyze his data. From what I understood his data have the following structure.</p>
-<p>A group of patients was measured four times. The first time is a no treatment baseline condition. The following three times were three different treatment conditions. In addition a control group was measured twice with no treatment being applied. We would like to compare the three treatments. What should we do? Can we utilize the control group anyhow?</p>
-<p>We write \(y_{it}\) for measurement of patient \(i\) at time \(t \in [0,1,2,3]\). Similar, the measurements of control subjects are given by \(w_{it}\). The most straightforward thing to do is</p>
-<p>\[ y_{it} \sim \mathcal{N}(\mu_t,\sigma)\] \[ w_{it} \sim \mathcal{N}(\mu_0,\sigma)\]</p>
-<p>and we look at the posterior estimates of \(\mu_t - \mu_0\) for \(t \in [1,2,3]\). In proposing this model I made a ton of assumptions. I assumed that measurements are normally distributed and that two groups are exchangeable in terms of the measurement variability but also in terms of their performance when given no treatment. Furthermore I assumed that the variance does not vary across the repeated measurements. The model should be adjusted if these assumptions do not apply. For instance if subjects are not exchangeable we should write</p>
-<p>\[ y_{it} \sim \mathcal{N}(\mu_t,\sigma^y)\] \[ w_{it} \sim \mathcal{N}(\nu,\sigma^w)\]</p>
-<p>In such a case we can drop the control group from the analysis since it doesn't provide any information about the treatment benefit.</p>
-<p>If there the measurements at consecutive points in time are correlated (because the measurement comes from the same subject) then we should model the differences directly.</p>
-<p>\[ y_{i1}-y_{i0} \sim \mathcal{N}(\alpha_1,\sigma)\] \[ w_{i1}-w_{i0} \sim \mathcal{N}(\alpha_0,\sigma)\]</p>
-<p>We then compare \(\alpha_1\) and \(\alpha_0\). The advantage here is that we don't have to assume that \(\mu_0\) and \(\nu\) are identical. Though we assume that patients would gain \(\alpha_0\) in performance if they were measured second time with no treatment. We can similarly estimate</p>
-<p>\[ y_{i2}-y_{i0} \sim \mathcal{N}(\alpha_2,\sigma)\] \[ y_{i3}-y_{i0} \sim \mathcal{N}(\alpha_3,\sigma)\]</p>
-<p>However, here we have a further difficulty in the fact that there was an intermediate measurement at \(t=1\) which may influence the performance at time \(t=2\) or \(t=3\).</p>
+<p>There has been lot of discussion lately about the problems hampering statistical analysis (significance, \(p\)-values, replicability, \(p\)-hacking) and scientific communication (publication system, dysfunctional incentives) and their potential solutions (open science, preregistration, new statistics, bayesian statistics). These are all important problems and the proposed solutions deserve serious consideration. Indeed I will consider some in later posts. However, before I do so I want to highlight what I consider the single most problem hampering data analysis and scientific communication in psychological research. The problem is Anova. When doing analysis Anova should be avoided. There is always a better way to analyze the data, notably the regression approach where we look at the magnitude of the regression coefficients instead at the variance.</p>
+<p>To be clear, I don't mind Anova per se. It can be useful as a supplemental analysis or in specialized exploratory settings. Because that's what Anova is: a specialized tools applicable in specialized context. In psychology it is instead used as a default option whenever the data can't be analyzed with \(t\)-test or with correlation test. Just like \(p\) values from \(t\)-test and correlation test don't give researcher the information he is interested so does not the \(p\) value, \(F\) value and in fact any variance derived statistic provide the information that the researcher is most interested in. The consequence are journals full of results that are difficult to interpret. We can't compare results across similar studies, across replications and not even across experiments from a single study with identical design. And if we try we inevitably commit fallacies such as the the difference between significant and non-significant results is significant (Gelmen &amp; Stern, 2006).</p>
+<p>Speaking more generally, the main problem of Anova is that it is a tool for model comparison. As highlighted by the New Statistics movement (Kline, 2004; Cumming, 2013) we should do parameter estimation - estimation of effect sizes instead. New Statistics people unfortunately failed to realized what the relevant effect size is when we compute Anova or linear regression. The effect size is not any variance derived quantity. The magnitude of the regression coefficient is the measure of effect size. I consider this to be the terminal failure of New Statistics. On the other hand, some authors (for instance Kruschke, 2010) use the term Anova even if they do not look at variance or any variance-derived quantity. Anova is then a regression where all predictors are categorical variables and the usual regression approach is applied. Obviously I have no issues with this kind of Anova (except that we should avoid the label Anova).</p>
+<p>So what is the challenge? The challenge is to find a case in psychological research where Anova is applicable and it provides more information than a regression analysis. I will blog about some cases typical of the psychological literature. In all of these cases regression turns out to be superior. You can suggest other cases below.</p>
 </div>
 </body>
 </html>
