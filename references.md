@@ -11,6 +11,8 @@ Gelman, A., & Hill, J. (2007). Data analysis using regression and multilevel/hie
 
 Gelman, A., & Shalizi, C. R. (2013). Philosophy and the practice of Bayesian statistics. British Journal of Mathematical and Statistical Psychology, 66(1), 8-38.
 
+Graham, R. L., Knuth, D. E., & Patashnik, O. (1989). Concrete Mathematics. Massachusetts: Addison-Wesley.
+
 Ibrahim, J. G., Chen, M. H., & Sinha, D. (2005). Bayesian survival analysis. John Wiley & Sons, Ltd.
 
 Kline, R. B. (2004). Beyond significance testing: Reforming data analysis methods in behavioral research.
