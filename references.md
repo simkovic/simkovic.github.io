@@ -23,6 +23,8 @@ Kline, R. B. (2004). Beyond significance testing: Reforming data analysis method
 
 Kruschke, J. (2010). Doing Bayesian data analysis: a tutorial introduction with R. Academic Press.
 
+Miller, J. (2009). What is the probability of replicating a statistically significant effect?. Psychonomic Bulletin & Review, 16(4), 617-640.
+
 Montgomery, D. C., Jennings, C. L., & Kulahci, M. (2011). Introduction to time series analysis and forecasting (Vol. 526). John Wiley & Sons.
 
 Tukey, J. W. (1969). Analyzing data: Sanctification or detective work?. American Psychologist, 24(2), 83.
