@@ -23,6 +23,8 @@ Graham, R. L., Knuth, D. E., & Patashnik, O. (1989). Concrete Mathematics. Massa
 
 Ibrahim, J. G., Chen, M. H., & Sinha, D. (2005). Bayesian survival analysis. John Wiley & Sons, Ltd.
 
+Jaynes, E. T. (2003). Probability theory: the logic of science. Cambridge university press.
+
 Jones, M., & Love, B. C. (2011). Bayesian fundamentalism or enlightenment? On the explanatory status and theoretical contributions of Bayesian models of cognition. Behavioral and Brain Sciences, 34(04), 169-188.
 
 Kline, R. B. (2004). Beyond significance testing: Reforming data analysis methods in behavioral research.
