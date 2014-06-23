@@ -39,4 +39,6 @@ Oaksford, M., & Chater, N. (1998). Rationality in an uncertain world: Essays on 
 
 Skinner, B.F. (1959) A case history in scientific method. The American Psychologist. 221-233.
 
+Trueblood, J. S., Brown, S. D., & Heathcote, A. (2014). The multiattribute linear ballistic accumulator model of context effects in multialternative choice. Psychological review, 121(2), 179.
+
 Tukey, J. W. (1969). Analyzing data: Sanctification or detective work?. American Psychologist, 24(2), 83.
