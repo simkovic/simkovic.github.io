@@ -2,6 +2,7 @@
 layout: post
 title:  Guess what?! Another Analysis of the Schnall-Johnson Data
 ---
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -1674,7 +1675,7 @@ pre {
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-<script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
 <script type="text/javascript">
 init_mathjax = function() {
     if (window.MathJax) {
@@ -1695,19 +1696,25 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 </head>
-<body>
 
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>By now basically everyone (<a href="http://datacolada.org/2014/06/04/23-ceiling-effects-and-replications/?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+DataColada+%28Data+Colada+Feed%29">here</a>, <a href="http://yorl.tumblr.com/post/87428392426/ceiling-effects">here</a>, <a href="http://www.talyarkoni.org/blog/2014/06/01/there-is-no-ceiling-effect-in-johnson-cheung-donnellan-2014/">here</a>, <a href="http://pigee.wordpress.com/2014/05/24/additional-reflections-on-ceiling-effects-in-recent-replication-research/">here</a> and <a href="http://www.nicebread.de/reanalyzing-the-schnalljohnson-cleanliness-data-sets-new-insights-from-bayesian-and-robust-approaches/">here</a>, and there is likely even more out there) who writes a blog and knows how to do a statistical analysis has analysed data from a recent replication study and from the original study (data repository is <a href="https://osf.io/4j8db/files/">here</a>).</p>
-<p>The study consists of two experiments. Let's focus on Experiment 1 here. The experiment tests a treatment and a control group. The performance is measured by six likert-scale items. The scale of each item has 9 levels. All responses are averaged together and we obtain a single composite score for each group. We are interested whether the treatment works, which would show up as a positive difference between the composite score of the treatment and the control group. Replication study did the same with more subjects.</p>
-<p>Let's perform the original analysis to see why this dataset is so &quot;popular&quot;.</p>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>By now basically everyone (<a href="http://datacolada.org/2014/06/04/23-ceiling-effects-and-replications/?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+DataColada+%28Data+Colada+Feed%29">here</a>, <a href="http://yorl.tumblr.com/post/87428392426/ceiling-effects">here</a>, <a href="http://www.talyarkoni.org/blog/2014/06/01/there-is-no-ceiling-effect-in-johnson-cheung-donnellan-2014/">here</a>, <a href="http://pigee.wordpress.com/2014/05/24/additional-reflections-on-ceiling-effects-in-recent-replication-research/">here</a> and <a href="http://www.nicebread.de/reanalyzing-the-schnalljohnson-cleanliness-data-sets-new-insights-from-bayesian-and-robust-approaches/">here</a>, and there is likely even more out there) who writes a blog and knows how to do a statistical analysis has analysed data from a recent replication study and from the original study (data repository is <a href="https://osf.io/4j8db/files/">here</a>). </p>
+<p>The study consists of two experiments. Let&#39;s focus on Experiment 1 here. The experiment tests a treatment and a control group. The performance is measured by six likert-scale items. The scale of each item has 9 levels. All responses are averaged together and we obtain a single composite score for each group. We are interested whether the treatment works, which would show up as a positive difference between the composite score of the treatment and the control group. Replication study did the same with more subjects.</p>
+<p>Let&#39;s perform the original analysis to see why this dataset is so &quot;popular&quot;.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[1]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="o">%</span><span class="k">pylab</span> <span class="n">inline</span>
 <span class="kn">import</span> <span class="nn">pystan</span>
 <span class="kn">from</span> <span class="nn">matustools.matusplotlib</span> <span class="kn">import</span> <span class="o">*</span>
@@ -1718,13 +1725,14 @@ In&nbsp;[1]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
+<div class="output_wrapper">
+<div class="output">
 
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stdout">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
 <pre>
 Populating the interactive namespace from numpy and matplotlib
 
@@ -1736,12 +1744,13 @@ Populating the interactive namespace from numpy and matplotlib
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[2]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="n">il</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;dog&#39;</span><span class="p">,</span><span class="s">&#39;trolley&#39;</span><span class="p">,</span><span class="s">&#39;wallet&#39;</span><span class="p">,</span><span class="s">&#39;plane&#39;</span><span class="p">,</span><span class="s">&#39;resume&#39;</span><span class="p">,</span>
     <span class="s">&#39;kitten&#39;</span><span class="p">,</span><span class="s">&#39;mean score&#39;</span><span class="p">,</span><span class="s">&#39;median score&#39;</span><span class="p">]</span>
 <span class="n">D</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s">&#39;schnallstudy1.csv&#39;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s">&#39;,&#39;</span><span class="p">)</span>
@@ -1757,33 +1766,35 @@ In&nbsp;[2]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
+<div class="output_wrapper">
+<div class="output">
 
 
-<div class="hbox output_area"><div class="prompt output_prompt">
+<div class="output_area"><div class="prompt output_prompt">
     Out[2]:</div>
-<div class="box-flex1 output_subarea output_pyout">
 
 
+<div class="output_text output_subarea output_pyout">
 <pre>
 (40, 9)
 </pre>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[3]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">dts</span><span class="o">=</span><span class="p">[</span><span class="n">DS</span><span class="p">[</span><span class="n">DS</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span><span class="n">DS</span><span class="p">[</span><span class="n">DS</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span>
@@ -1806,13 +1817,14 @@ In&nbsp;[3]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
+<div class="output_wrapper">
+<div class="output">
 
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stdout">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
 <pre>
 [ 0.825  1.537  0.113  1.113  0.537]
 [ 0.01   0.267 -0.247  0.115 -0.095]
@@ -1821,10 +1833,10 @@ In&nbsp;[3]:
 </div>
 </div>
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_area"><div class="prompt"></div>
 
 
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjgAAADQCAYAAAAK/RswAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAHA1JREFUeJzt3X9wFPX9x/HXkcMcmICJBER+VAeZIJnSQPFI1EZMBaSg
 nerYENGQhAOEIRCTYEUUr4LSTj1piaJGqfkxRFLslNAZO5aU2qaRAVtx7KQlRU0QgkYZBEmUJJfs
@@ -1953,27 +1965,35 @@ FRXq6OjQ9ddfr7i4OIurNNdXx7xt27azbroJ++jLe3vYsGF68cUXQ22zZs3ST3/6U8XExKitrU2/
 +c1v5HK5tG7dOs2bN0/Dhg3T8ePHtW7dOiuGhDC+7v29dOlSLV26VJK0a9cuGYYhl8ulZ555RjNn
 zlRycrICgYCWLFmioUOH6uTJk1qxYoUlY4kkpokDAADbccwpKgAA4BwEHAAAYDsEHAAAYDsEHAAA
 YDsEHAAAYDsEHAAAYDv/B42svyNAhqL6AAAAAElFTkSuQmCC
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Legend: O - original study, R - replication, C - control group, T - treatment group</p>
-<p>In the original study the difference between the treatment and control is significantly greater than zero. In the replication, it is not. However the ratings in the replication study are overall higher. The author of the original study therefore raised a concern that no difference was obtained in replication because of the presence of ceiling effects.</p>
-<p>How do we show that there are ceiling efects in the replication? The authors and bloggers presented various arguments that support some conclusion (mostly that there are no ceiling effects). Ultimately ceiling effects are a matter of degree and since no one knows how to quantify them the whole discussion of the validity of the conclusions from the replication study is heading into an inferential limbo.</p>
-<p>My point here is that if the analysis computed the proper effect size - the causal effect size, we would avoid these kinds of arguments and discussions. Actually, this is fairly easy to see. If we interpret T-C estimate causally then it says that by giving people the treatment we increase their score by 0.83 points on average. So when their base score is 9.5 points we predict that the treatment will increase it to 10.33. This however can't happen because the scale goes only from 1 to 10. A quick fix is to say that the resulting score will be a minimum of the raw score and the upper ceiling value 10. This implies that a group with a base score 9.1 will end up with a score 9.93 which is again implausible. We need some function that maps from \([-\infty,\infty]\) (logit scale) into \([1,10]\) in a continuous fashion. The <a href="https://en.wikipedia.org/wiki/Logistic_function">logistic</a> function is the usual choice. (Probit function is also popular.) This is what it looks like:</p>
+<p>In the original study the difference between the treatment and control is significantly greater than zero. In the replication, it is not. However the ratings in the replication study are overall higher. The author of the original study therefore raised a concern that no difference was obtained in replication because of the presence of ceiling effects. </p>
+<p>How do we show that there are ceiling efects in the replication? The authors and bloggers presented various arguments that support some conclusion (mostly that there are no ceiling effects). Ultimately ceiling effects are a matter of degree and since no one knows how to quantify them the whole discussion of the validity of the conclusions from the replication study is heading into an inferential limbo. </p>
+<p>My point here is that if the analysis computed the proper effect size - the causal effect size, we would avoid these kinds of arguments and discussions. Actually, this is fairly easy to see. If we interpret T-C estimate causally then it says that by giving people the treatment we increase their score by 0.83 points on average. So when their base score is 9.5 points we predict that the treatment will increase it to 10.33. This however can&#39;t happen because the scale goes only from 1 to 10. A quick fix is to say that the resulting score will be a minimum of the raw score and the upper ceiling value 10. This implies that a group with a base score 9.1 will end up with a score 9.93 which is again implausible. We need some function that maps from $[-\infty,\infty]$ (logit scale) into $[1,10]$ in a continuous fashion. The <a href="https://en.wikipedia.org/wiki/Logistic_function">logistic</a> function is the usual choice. (Probit function is also popular.) This is what it looks like:</p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[4]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">101</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">mylgs</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="mi">9</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span>
 
@@ -1989,15 +2009,16 @@ In&nbsp;[4]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_wrapper">
+<div class="output">
 
 
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAagAAAEYCAYAAAAJeGK1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3XlcVNX7B/DPCIoLiCiCC26hYvLra2qBtriF5m6Kqam5
 5BKppJna133BNZcQlLQktbLcMrOkTfu6pAWaW6G44y7iAriynt8fp0FRQWDmzj0z83m/Xvc1M8zl
@@ -2198,25 +2219,33 @@ wKhRo+Dg4IBZs2bh5s2bGD58OI4dO4axY8fC1dU1R409T09P7NixA23atEGVKlXg4OCANWvWoESJ
 EihTpgxq1qyJp59+GtOnT8fVq1cxbtw41KtXDyEhIbh79y6GDRuGX375BQaDAc7Oznj55Zcxfvx4
 3Lp1C0OHDtWrO4g0w1p8RGa2ceNGHDlyBFlZWfD19cVrr72md0hEVokJioiIlMRp5kREpCQmKCIi
 UhITFBERKYkJioiIlMQERURESvp/S1QxVAn+2YsAAAAASUVORK5CYII=
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We measure and report the effect size on the logit scale. To obtain precise prediction we can always transform into raw score. Then a claim that a treatment increases logit score, say, by 2 units does not produce any counter-intuitive results. This is illustrated above for two groups with base logit score of 1 and 7 respectively. The increase by 2 units on the logit scale leads to big jump in the raw score in the former case while in the latter case the raw score remains the same.</p>
-<p>The author of the original study voiced concern that the ceiling effects may not be detectable in the composite score and we should focus on individual items. Let's look at the distribution of the scores of the individual items in the original study and in the replication.</p>
+<p>We measure and report the effect size on the logit scale. To obtain precise prediction we can always transform into raw score. Then a claim that a treatment increases logit score, say, by 2 units does not produce any counter-intuitive results. This is illustrated above for two groups with base logit score of 1 and 7 respectively. The increase by 2 units on the logit scale leads to big jump in the raw score in the former case while in the latter case the raw score remains the same.  </p>
+<p>The author of the original study voiced concern that the ceiling effects may not be detectable in the composite score and we should focus on individual items. Let&#39;s look at the distribution of the scores of the individual items in the original study and in the replication.</p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[5]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">plotComparison</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">stan</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">16</span><span class="p">))</span>
     <span class="n">cl</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;control&#39;</span><span class="p">,</span><span class="s">&#39;treatment&#39;</span><span class="p">]</span>
@@ -2246,15 +2275,16 @@ In&nbsp;[5]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_wrapper">
+<div class="output">
 
 
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjgAAAR4CAYAAAAL/aygAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3X1YVGXCBvB7HAhYHQkQzA9QMx3fsGxNTSzNb800bavN
 1FXz8isEMy/UzQBLN4tXsQ1XXdv1VdcttdXK7MPKcncNzay1L1bILwwxyEJRFGGA5/2jZVaUmXPO
@@ -3143,30 +3173,38 @@ ZmaivLwcycnJ6Nixo645lDKlpaUhJiYGsbGxCA4ORocOHTB9+nTT8qSnpzv+eh49ejQWLlxo6Pvm
 tWXatm0bsrKyUF5ejpSUFDz00EOGZdIau8T9POyS2jOxS9Rl0rtLvHLAISIiInLGK96iIiIiInIF
 BxwiIiLyORxwiIiIyOdwwCEiIiKfwwGHiIiIfA4HHCIiIvI5/x88yz6qEEJxkgAAAABJRU5ErkJg
 gg==
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We see that RC shows higher scores than OC on all items. We see also that the response distribution is multimodal (see the resume item). Furthermore the outcome variable is discrete. In contrast, the logistic distribution is unimodal and continuous.</p>
-<p>As a consequence we need a better model. We will use ordered logit model which can be seen as an extension of the simple logit model. The probability of a response \(k=1,\dots,K\) (in our case \(K=10\)) is \(P(x=k) = \mathrm{logistic}(\beta-c_k)-\mathrm{logistic}(\beta-c_{k-1})\). \(c_0=-\infty\) and \(c_K=\infty\). The remaining coefficients \(c_i\) are estimated from the data. \(\beta\) is the item difficulty. \(c_k\) can be interpreted as the response thresholds. For instance if \(\beta\) equals \(c_5\) then a response higher than 5 is given half of the times. The coefficients \(\beta, c_i\) give only ordinal information and we may wish to fix one of them to a constant value (say \(\beta=0\)). If we have two groups we can fix the difficulty for the control group to zero and estimate the difficulty in the treatment group. This quantity then gives the causal effect size.</p>
-<p>As with the logistic model above, the ordered logit accounts for ceiling effects in accord with our intuition. We already saw one aspect of how this works - big differences in logit score get squashed into small differences in the raw score. How does this work in the other way? At first blush small differences in the raw score at the ceiling should be transformed into big differences in the logit score. However, while the raw score differences quickly get small at the ceiling the estimation error does not decrease so quickly. As a consequence we get a poor signal-to-noise ratio at the ceiling and what we obtain is an uncertain logit-score estimate. Intuitively, this is what we would expect from a ceiling effect - in its presence it is difficult to say whether a reliable difference between two scores exists and what its magnitude is.</p>
-<p>I hope you are appetized now, so let's see what the ordered logit model tells us.</p>
+<p>We see that RC shows higher scores than OC on all items. We see also that the response distribution is multimodal (see the resume item). Furthermore the outcome variable is discrete. In contrast, the logistic distribution is unimodal and continuous.  </p>
+<p>As a consequence we need a better model. We will use ordered logit model which can be seen as an extension of the simple logit model. The probability of a response $k=1,\dots,K$ (in our case $K=10$) is $P(x=k) = \mathrm{logistic}(\beta-c_k)-\mathrm{logistic}(\beta-c_{k-1})$. $c_0=-\infty$ and $c_K=\infty$. The remaining coefficients $c_i$ are estimated from the data. $\beta$ is the item difficulty. $c_k$ can be interpreted as the response thresholds. For instance if $\beta$ equals $c_5$ then a response higher than 5 is given half of the times. The coefficients $\beta, c_i$ give only ordinal information and we may wish to fix one of them to a constant value (say $\beta=0$). If we have two groups we can fix the difficulty for the control group to zero and estimate the difficulty in the treatment group. This quantity then gives the causal effect size. </p>
+<p>As with the logistic model above, the ordered logit accounts for ceiling effects in accord with our intuition. We already saw one aspect of how this works - big differences in logit score get squashed into small differences in the raw score. How does this work in the other way? At first blush small differences in the raw score at the ceiling should be transformed into big differences in the logit score. However, while the raw score differences quickly get small at the ceiling the estimation error does not decrease so quickly. As a consequence we get a poor signal-to-noise ratio at the ceiling and what we obtain is an uncertain logit-score estimate. Intuitively, this is what we would expect from a ceiling effect - in its presence it is difficult to say whether a reliable difference between two scores exists and what its magnitude is. </p>
+<p>I hope you are appetized now, so let&#39;s see what the ordered logit model tells us. </p>
 <p>To make it precise we will use the following model.</p>
-<p>\(y_{n,m}^g \sim \mathrm{orderedLogit}(\beta_m +\delta_g,c)\)</p>
-<p>\(y_{n,m}^g\) is the response of subject \(n\) to item \(m\), i.e. a value in \([1,10]\). \(g\) indexes the four groups which are of main interest to us. These are OC,OT,RC and RT. \(\beta_m\) gives the difficulty for each of the six items. \(c\) is the threshold vector. \(\delta_g\) gives the ability of each group. We fix \(\delta_{\mathrm{oc}}\) to zero.</p>
+<p>$y_{n,m}^g \sim \mathrm{orderedLogit}(\beta_m +\delta_g,c)$</p>
+<p>$y_{n,m}^g$ is the response of subject $n$ to item $m$, i.e. a value in $[1,10]$. $g$ indexes the four groups which are of main interest to us. These are OC,OT,RC and RT. $\beta_m$ gives the difficulty for each of the six items. $c$ is the threshold vector. $\delta_g$ gives the ability of each group. We fix $\delta_{\mathrm{oc}}$ to zero. </p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[6]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="n">model</span><span class="o">=</span><span class="s">&#39;&#39;&#39;</span>
 <span class="s">data {</span>
 <span class="s">    int&lt;lower=2&gt; K;</span>
@@ -3203,14 +3241,16 @@ In&nbsp;[6]:
 
 </div>
 </div>
+</div>
 
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[7]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="n">dat</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;y&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">(</span><span class="n">D</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:</span><span class="mi">8</span><span class="p">])</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="s">&#39;K&#39;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="s">&#39;M&#39;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span>
     <span class="s">&#39;x&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">(</span><span class="n">D</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]),</span><span class="s">&#39;N&#39;</span><span class="p">:</span><span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">}</span>
 <span class="n">fit6</span> <span class="o">=</span> <span class="n">sm5</span><span class="o">.</span><span class="n">sampling</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dat</span><span class="p">,</span><span class="nb">iter</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">chains</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
@@ -3222,13 +3262,14 @@ In&nbsp;[7]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
+<div class="output_wrapper">
+<div class="output">
 
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stdout">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
 <pre>
 Inference for Stan model: anon_model_49eb9ff852a47d3536e8cefa052d1f67.
 4 chains, each with iter=5000; warmup=100; thin=2; 
@@ -3262,8 +3303,8 @@ convergence, Rhat=1).
 </div>
 </div>
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stderr">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
 <pre>
 INFO:pystan:NOW ON CHAIN 0
 INFO:pystan:NOW ON CHAIN 3
@@ -3278,15 +3319,22 @@ INFO:pystan:NOW ON CHAIN 2
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The estimated values are displayed below. Reacall that the zero on the vertical axis shows the difficulty of the dog item and the OC group. We see that the trolley item is most difficult while the kitten item is easiest. The estimates of group ability show identical pattern as the raw score estimates. In particular, there is a control-treatment difference of 0.67 [0.21,1.13] in the original study while the estimate from the replication study -0.02 [-0.22,0.19] excludes the possibility of such a big difference in ability.</p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[8]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="n">w</span><span class="o">=</span><span class="n">loadStanFit</span><span class="p">(</span><span class="s">&#39;fit6&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">c</span><span class="o">=</span><span class="n">w</span><span class="p">[</span><span class="s">&#39;c&#39;</span><span class="p">]</span>
@@ -3310,13 +3358,14 @@ In&nbsp;[8]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
+<div class="output_wrapper">
+<div class="output">
 
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stdout">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
 <pre>
 var 0.669, CI 0.212, 1.131
 var 1.227, CI 0.880, 1.578
@@ -3327,10 +3376,10 @@ var -0.019, CI -0.221, 0.186
 </div>
 </div>
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_area"><div class="prompt"></div>
 
 
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjgAAAEYCAYAAABRMYxdAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAGaJJREFUeJzt3XtwjXfix/HPOQnRSkqw0lApi1XVCdEVlK7VrUbcumHH
 pXUv27qkY8S4bUmyRVilU7qsW1eWBrOri5nSMGYwNsROaapZm3FZQ6lr3OKWRM7vj/6cOhI5nOQ5
@@ -3448,26 +3497,34 @@ O3cO6HIjlR7j+vXrnYfgfIm3iaNKSU1NVUJCgqKjo30dBU9oz549ev311zVr1ixNnjxZ27dvV0ZG
 hsLCwtS5c2c9++yz2r9/v+7evau4uDjl5eUpMzPTWdy6du2qr776Snv27NGcOXN8PZwKW7NmjQ4d
 OqSSkhK1bdtWQ4cO9XUkwK9QcABUCbt27dLChQv12WefqV69er6OA8BiFBwAAGCcwDxwCwAAUA4K
 DgAAMA4FBwAAGIeCAwAAjEPBAQAAxvk/h3MID5rZv3wAAAAASUVORK5CYII=
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>These results confirm the original analysis. However, in this case, there can be no discussion of ceiling effects. Unlike with the raw score difference, the ceiling effect does not bias the the value towards zero but rather increase the uncertainty. We can demonstrate this by comparing the raw score difference with the logit score difference in a simulation.</p>
-<p>Assume that the true values of \(c\) are the ones we just estimated above. Assume that the true effect of the treatment is equal to the one measured in the original study \(\delta_T-\delta_C = \delta_{OT}-\delta_{OC}=0.67\). We systematically vary the ability of the control group C. For each ability value, we simulate data from the model for single item and 200 subjects (100 in each group). We then estimate the \(\delta_T-\delta_C\). We can then ask how does the magnitude of the base ability (\(\delta_C\)) influence the ability of our method to detect the effect size. In particular we are interested in cases where \(\delta_C\) is very high (or very low).</p>
+<p>These results confirm the original analysis. However, in this case, there can be no discussion of ceiling effects. Unlike with the raw score difference, the ceiling effect does not bias the the value towards zero but rather increase the uncertainty. We can demonstrate this by comparing the raw score difference with the logit score difference in a simulation. </p>
+<p>Assume that the true values of $c$ are the ones we just estimated above. Assume that the true effect of the treatment is equal to the one measured in the original study $\delta_T-\delta_C = \delta_{OT}-\delta_{OC}=0.67$. We systematically vary the ability of the control group C. For each ability value, we simulate data from the model for single item and 200 subjects (100 in each group).  We then estimate the $\delta_T-\delta_C$. We can then ask how does the magnitude of the base ability ($\delta_C$) influence the ability of our method to detect the effect size. In particular we are interested in cases where $\delta_C$ is very high (or very low).</p>
 <p>First, generate data.</p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[9]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">ordinalLogitERvs</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; generate data with expected response</span>
 <span class="sd">        frequency from n subjects</span>
@@ -3505,17 +3562,25 @@ In&nbsp;[9]:
 
 </div>
 </div>
+</div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Here we use a simplified model - one item, two groups.</p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[10]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="n">model</span><span class="o">=</span><span class="s">&#39;&#39;&#39;</span>
 <span class="s">data {</span>
 <span class="s">    int&lt;lower=2&gt; K;</span>
@@ -3538,13 +3603,14 @@ In&nbsp;[10]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
+<div class="output_wrapper">
+<div class="output">
 
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stderr">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
 <pre>
 INFO:pystan:COMPILING THE C++ CODE FOR MODEL anon_model_3863612723aa87f9526232c8bb8a40a0 NOW.
 
@@ -3556,15 +3622,22 @@ INFO:pystan:COMPILING THE C++ CODE FOR MODEL anon_model_3863612723aa87f9526232c8
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Run estimation. I will spare you the output here.</p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="n">ds</span><span class="o">=</span><span class="p">[];</span><span class="n">cs</span><span class="o">=</span><span class="p">[]</span>
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">)):</span>
     <span class="k">if</span> <span class="n">S</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span> <span class="k">continue</span>
@@ -3577,14 +3650,16 @@ In&nbsp;[]:
 
 </div>
 </div>
+</div>
 
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[12]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="n">ds</span><span class="o">=</span><span class="p">[];</span><span class="n">xs</span><span class="o">=</span><span class="p">[]</span>
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
@@ -3603,32 +3678,34 @@ In&nbsp;[12]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_wrapper">
+<div class="output">
 
 
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
 <pre>
 &lt;matplotlib.figure.Figure at 0x7f2a7ed5a350&gt;
 </pre>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[13]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="n">d1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="s">&#39;dd&#39;</span><span class="p">][:,</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">d2</span><span class="o">=</span><span class="n">DS</span><span class="p">[</span><span class="n">DS</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">-</span><span class="n">DS</span><span class="p">[</span><span class="n">DS</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
@@ -3670,15 +3747,16 @@ In&nbsp;[13]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_wrapper">
+<div class="output">
 
 
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjgAAAEYCAYAAABRMYxdAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsvXl4HOd95/l5q6rvRh+4L4LgKVKiKYqibpGRZE8U29ms
 42TsHLaix9YmkzwbWfGTTA5NtJ5nsnZmn9XjXU+ezDpjre04GWcnyYw1u3HsWIcjWbRkURRPUeAB
@@ -4305,19 +4383,25 @@ dgAYgoADIBbLshRFkaTfkx3lclmDwUDdblfVavVP/XQ61e12U6PR0Pv9VqVS0eFw0Ov1kiSdz2c2
 zwKIjREVgFh6vZ5Go5Gy2ayiKFI6ndZ4PNb9flcQBJ+6YrGoxWKhXC6n/X6v4/GoRCKhTCajTqej
 fr8vx3H0eDw0HA6/2BEAE3CqAQAAGIcRFQAAMA4BBwAAGIeAAwAAjEPAAQAAxiHgAAAA4xBwAACA
 cX4AnqscSrClg6QAAAAASUVORK5CYII=
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The figure sums up this post. The estimates from the two methods (grey and magenta) share the y-axis, such that the vertical position of ground true treatment efect (red) and zero (black) is the same. The horizontal axis shows the ability of the control group (\(\delta_C\)). The ceiling effect is located on the right. Raw score difference (magenta) suffers from ceiling effect. To put the ceiling effects into context the blue and green circles show the neg-difficulty of each item in the original and replication study respectively. In this way we can say what kind of bias due to ceiling effect we would expect if we use items with the degree of difficulty observed in the original and replication study. The items in the original study (possibly with the exception of the kitten item) do not suffer from ceiling effects. However, several of the items in the replication study are located in the region with noticeable bias. At the same time it is clear that even if the replication study used the kitten item only, the ceiling effects would cut the effect size into half, but would not set it to zero. So ceiling effect yes, but not of a magnitude that could explain the zero raw score difference obtained in the replication.</p>
-<p>However, this is not my main message. The figure shows that we should avoid the raw score difference in the first place. The magnitude of \(T-C\) is biased towards zero. Even worse \(T-C\) falsely claims high precision in the boundary regions - in the regions where the estimate is biased. In comparison, magnitude of \(\delta_T-\delta_C\) is not biased by boundary effect. (The jumping around at the ends of the black line is due to discretization error introduced in the data generation proces.) Rather the boundary effect translates into worse precision of the estimate. Note also that the 95% interval of \(\delta_T-\delta_C\) always includes the true effect size while \(T-C\) incorrectly excludes it in the boundary regions.</p>
+<p>The figure sums up this post. The estimates from the two methods (grey and magenta) share the y-axis, such that the vertical position of ground true treatment efect (red) and zero (black) is the same. The horizontal axis shows the ability of the control group ($\delta_C$). The ceiling effect is located on the right. Raw score difference (magenta) suffers from ceiling effect. To put the ceiling effects into context the blue and green circles show the neg-difficulty of each item in the original and replication study respectively. In this way we can say what kind of bias due to ceiling effect we would expect if we use items with the degree of difficulty observed in the original and replication study. The items in the original study (possibly with the exception of the kitten item) do not suffer from ceiling effects. However, several of the items in the replication study are located in the region with noticeable bias. At the same time it is clear that even if the replication study used the kitten item only, the ceiling effects would cut the effect size into half, but would not set it to zero. So ceiling effect yes, but not of a magnitude that could explain the zero raw score difference obtained in the replication.</p>
+<p>However, this is not my main message. The figure shows that we should avoid the raw score difference in the first place. The magnitude of $T-C$ is biased towards zero. Even worse $T-C$ falsely claims high precision in the boundary regions - in the regions where the estimate is biased. In comparison, magnitude of $\delta_T-\delta_C$ is not biased by boundary effect. (The jumping around at the ends of the black line is due to discretization error introduced in the data generation proces.) Rather the boundary effect translates into worse precision of the estimate. Note also that the 95% interval of $\delta_T-\delta_C$ always includes the true effect size while $T-C$ incorrectly excludes it in the boundary regions.  </p>
 <p>What will you do next time when you analyse data where the values are constrained by boundaries? You can use some linear method such as the raw group difference or Anova and pray that your results are not be biased. This post showed you that you should fit a model from the logit family instead.</p>
 </div>
-</body>
+</div>
+</div>
 </html>

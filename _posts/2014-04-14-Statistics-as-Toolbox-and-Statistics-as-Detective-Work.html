@@ -2,6 +2,7 @@
 layout: post
 title:  Statistics as Toolbox and Statistics as Detective Work
 ---
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -1674,7 +1675,7 @@ pre {
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-<script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
 <script type="text/javascript">
 init_mathjax = function() {
     if (window.MathJax) {
@@ -1695,18 +1696,33 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 </head>
-<body>
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>I will write lot about how statistical inference is done in psychological research. I think however that it will be helpfull to first point out few issues which I think are paramount to all my other opinions. In this post I write about the general attitude towards statistics that is imprinted on psychology students in their introductory stats classes.</p>
 </div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Toolbox">Toolbox<a class="anchor-link" href="#Toolbox">&#182;</a></h2>
 </div>
+</div>
+</div>
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This is how the statistics works for psychologists.</p>
-<ol style="list-style-type: decimal">
+<p>This is how the statistics works for psychologists. </p>
+<ol>
 <li>Formulate hypothesis</li>
 <li>Design a study to test it</li>
 <li>Collect data</li>
@@ -1714,47 +1730,93 @@ init_mathjax();
 <li>Draw a conclusion and publish</li>
 </ol>
 <p>When we zoom in at point 4 we get following instructions. First, see whether the data are at categorical, ordinal or nominal scale. Second, what design do we have? How many conditions/groups do we have? How many levels does each variable have? Do we have repeated measurements or independent samples? Once we have determined the answers we look at our toolbox and choose the appropriate method. This is what our toolbox looks like.</p>
-<img src="/assets/nominaltable.png">
+<p><img src="/assets/nominaltable.png" width="600"></p>
 </div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Then students are told how to perform the analyses in the cells with a statistical software, which values to copy from the software output and how one does report them. In almost all cases p-values are available in the output and are reported along with the test statistic. Since late 90s most software also offers effect size estimates and students are told where to look for them.</p>
-<p>Let's go back to the toolbox table. As an example if we measured the performance of two groups (treatment group and control) at three consecutive time points then we have one nominal DV and two IVs: two independent groups and three repeated measurements. Looking at the table, we see that we have to perform Mixed-design Anova.</p>
+<p>Then students are told how to perform the analyses in the cells with a statistical software, which values to copy from the software output and how one does report them. In almost all cases p-values are available in the output and are reported along with the test statistic. Since late 90s most software also offers effect size estimates and students are told where to look for them. </p>
+<p>Let&#39;s go back to the toolbox table. As an example if we measured the performance of two groups (treatment group and control) at three consecutive time points then we have one nominal DV and two IVs: two independent groups and three repeated measurements. Looking at the table, we see that we have to perform Mixed-design Anova. </p>
 <p>In the case where the scale of DV is not nominal the following alternative table is provided. Ordinal scale is assumed.</p>
-<img src="/assets/ordinaltable.png">
-<p>Finally, psychologists are also taught \(\chi^2\) test which is applied when the DV is dichotomic categorical (i.e. count data).</p>
-<p>That's the toolbox approach in a nutshell. It has problems.</p>
+<p><img src="/assets/ordinaltable.png" width="600"></p>
+<p>Finally, psychologists are also taught $\chi^2$ test which is applied when the DV is dichotomic categorical (i.e. count data).</p>
+<p>That&#39;s the toolbox approach in a nutshell. It has problems. </p>
 </div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Problems-with-toolbox">Problems with toolbox<a class="anchor-link" href="#Problems-with-toolbox">&#182;</a></h2>
 </div>
+</div>
+</div>
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>First, there is a discrepancy between how it is taught and how it is applied. The procedure sketched above is slavishly obeyed even when it doesn't make any sense. For instance, Anova is used as default model even in context where it is inappropriate (i.e. the assumptions of linearity, normality or heteroskedasticity are not satisfied).</p>
-<p>Second, the above mentioned approach is intended as a one-way street. You can go only in one direction from step 1 to 5. This is extremely inflexible. The toolbox approach does not allow for the fitted model to be discarded. The model is fitted and the obtained estimates are reported. The 1972 APA manual captures the toolbox spirit: &quot;Caution: Do not infer trends from data that fail by a small margin to meet the usual levels of significance. Such results are best interpreted as caused by chance and are best reported as such. Treat the result section like an income tax return. Take what's coming to you, but no more&quot; One may protest that too much flexibility is a bad thing. Obviously, too much rigidity - reporting models that are (in hindsight but nevertheless) incorrect is not the solution.</p>
-<p>Third, the toolbox implicitly claims to be exhaustive - it aplies as a tool to all research problems. Of course this doesn't happen and as a consequence two cases arise. First, inappropriate models are being fit and reported. We discussed this already in the previous paragraph. Second, the problem is defined in more general terms, such that not all available information (provided by data or prior knowledge) is used. That is, we throw away information so that some tool becomes available, because we would have no tool available if we included the information in the analysis. Good example are non-normal measurements (e.g. skewed response times) which are handled by rank tests listed in the second table. This is done even where it would be perfectly appropriate to fit a parametric model at the nominal scale. For instance we could fit response times with Gamma regression. Unfortunately, Gamma regression didn't make it into the toolbox. At other times structural information is discarded. In behavioral experiments we mostly obtain data with hierarchical structure. We have several subjects and many consecutive trials for each subject and condition. The across-trials variability (due to learning or order effects) can be difficult to analyze with the tools in the toolbox (i.e. time series methods are not in the toolbox). Common strategy is to build single score for each subject (e.g. average performance across trials) and then to analyze the obtained scores across subjects and conditions.</p>
-<p>There is one notable strategy to ensure that you have the appropriate tool in the toolbox. If you can't fit a model to the data, then ensure that your data fit some tool in the toolbox. Psychologists devise experiments with manipulations that map the hypothesis onto few measured variables. Ideally the critical comparison is mapped onto single dimension and can be evaluated with a simple t-test. For example, we test two conditions which are identical except for a single manipulation. In this case we discard all the additional information and structure of the data since this is the same across the two conditions (and we do not expect that it will interact with the manipulation).</p>
+<p>First, there is a discrepancy between how it is taught and how it is applied. The procedure sketched above is slavishly obeyed even when it doesn&#39;t make any sense. For instance, Anova is used as default model even in context where it is inappropriate (i.e. the assumptions of linearity, normality or heteroskedasticity are not satisfied). </p>
+<p>Second, the above mentioned approach is intended as a one-way street. You can go only in one direction from step 1 to 5. This is extremely inflexible. The toolbox approach does not allow for the fitted model to be discarded. The model is fitted and the obtained estimates are reported. The 1972 APA manual captures the toolbox spirit: &quot;Caution: Do not infer trends from data that fail by a small margin to meet the usual levels of significance. Such results are best interpreted as caused by chance and are best reported as such. Treat the result section like an income tax return. Take what&#39;s coming to you, but no more&quot;
+One may protest that too much flexibility is a bad thing. Obviously, too much rigidity - reporting models that are (in hindsight but nevertheless) incorrect is not the solution. </p>
+<p>Third, the toolbox implicitly claims to be exhaustive - it aplies as a tool to all research problems. Of course this doesn&#39;t happen and as a consequence two cases arise. First, inappropriate models are being fit and reported. We discussed this already in the previous paragraph. Second, the problem is defined in more general terms, such that not all available information (provided by data or prior knowledge) is used. That is, we throw away information so that some tool becomes available, because we would have no tool available if we included the information in the analysis. Good example are non-normal measurements (e.g. skewed response times) which are handled by rank tests listed in the second table. This is done even where it would be perfectly appropriate to fit a parametric model at the nominal scale. For instance we could fit response times with Gamma regression. Unfortunately, Gamma regression didn&#39;t make it into the toolbox. At other times structural information is discarded. In behavioral experiments we mostly obtain data with hierarchical structure. We have several subjects and many consecutive trials for each subject and condition. The across-trials variability (due to learning or order effects) can be difficult to analyze with the tools in the toolbox (i.e. time series methods are not in the toolbox). Common strategy is to build single score for each subject (e.g. average performance across trials) and then to analyze the obtained scores across subjects and conditions.</p>
+<p>There is one notable strategy to ensure that you have the appropriate tool in the toolbox. If you can&#39;t fit a model to the data, then ensure that your data fit some tool in the toolbox. Psychologists devise experiments with manipulations that map the hypothesis onto few measured variables. Ideally the critical comparison is mapped onto single dimension and can be evaluated with a simple t-test. For example, we test two conditions which are identical except for a single manipulation. In this case we discard all the additional information and structure of the data since this is the same across the two conditions (and we do not expect that it will interact with the manipulation). </p>
 <p>Unfortunately, there are other more important considerations which should influence the choice of design than the limits of our toolbox. Ecological validity is more important than convenient analysis. In fact, I think that this is the biggest trouble with the toolbox approach. It not only cripples the analysis, it also cripples the experiment design and in turn the choice of the research question.</p>
 </div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Detective-Work">Detective Work<a class="anchor-link" href="#Detective-Work">&#182;</a></h2>
 </div>
-
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's now have a look at the detective approach. The most vocal recent advocate has been Andrew Gelman (Shalizi &amp; Gelman, 2013) but the idea goes back to George Box and John Tukey (1969). This approach has been most prevalent in fields that heavily rely on observational data - econometry, sociology and political science. Here, researchers were not able to off-load their problems to experimental design. Instead they had to tackle the problems head on by developing flexible data analysis methods.<br />While the toolbox approach is a one-way street, the detective approach contains a loop that iterates between model estimation and model checking. The purpose of the model checking part is to see whether the model describes the data appropriately. This can be done for instance by looking at the residuals and whether their distribution does not deviate from the distribution postulated by the model. Another option (the so-called predictive checking) is to generate data from the model and to look whether these are reasonably similar to the actual data. In any case, model checking is informal and doesn't even need to be quantitative. Whether a model is appropriate depends on the purpose of the analysis and which aspects of the data are crucial. Still, model checking is part of the results. It should be transparent and replicable. Even if it is informal there are instances which are rather formal up to the degree that can be written down as an algorithm (e.g. the Box-Jenkins method for analyzing time series). Once an appropriate model has been identified this model is used to estimate the quantities of interest. Often however the (structure of the) model itself is of theoretical interest.</p>
 </div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let&#39;s now have a look at the detective approach. The most vocal recent advocate has been Andrew Gelman (Shalizi &amp; Gelman, 2013) but the idea goes back to George Box and John Tukey (1969). This approach has been most prevalent in fields that heavily rely on observational data - econometry, sociology and political science. Here, researchers were not able to off-load their problems to experimental design. Instead they had to tackle the problems head on by developing flexible data analysis methods.<br>While the toolbox approach is a one-way street, the detective approach contains a loop that iterates between model estimation and model checking. The purpose of the model checking part is to see whether the model describes the data appropriately. This can be done for instance by looking at the residuals and whether their distribution does not deviate from the distribution postulated by the model. Another option (the so-called predictive checking) is to generate data from the model and to look whether these are reasonably similar to the actual data. In any case, model checking is informal and doesn&#39;t even need to be quantitative. Whether a model is appropriate depends on the purpose of the analysis and which aspects of the data are crucial. Still, model checking is part of the results. It should be transparent and replicable. Even if it is informal there are instances which are rather formal up to the degree that can be written down as an algorithm (e.g. the Box-Jenkins method for analyzing time series). Once an appropriate model has been identified this model is used to estimate the quantities of interest. Often however the (structure of the) model itself is of theoretical interest.  </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="An-Application-of-Detective-Approach">An Application of Detective Approach<a class="anchor-link" href="#An-Application-of-Detective-Approach">&#182;</a></h2>
 </div>
-
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>I already presented an example of detective approach when I discussed modeling of data with skewed distributions. Here, let's take a look at a non-psychological example which illustrates the logic of the detective approach more clearly. The example is taken from Montgomery, Jennings and Kulahci (2008). The data are available from the <a href="ftp://ftp.wiley.com/public/sci_tech_med/time_series/">companion website</a>.</p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I already presented an example of detective approach when I discussed modeling of data with skewed distributions. Here, let&#39;s take a look at a non-psychological example which illustrates the logic of the detective approach more clearly. The example is taken from Montgomery, Jennings and Kulahci (2008). The data are available from the <a href="ftp://ftp.wiley.com/public/sci_tech_med/time_series/">companion website</a>. </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[15]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="o">%</span><span class="k">pylab</span> <span class="n">inline</span>
 <span class="n">d</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s">&#39;b5.dat&#39;</span><span class="p">)</span>
 <span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">d</span><span class="o">.</span><span class="n">size</span><span class="p">)</span><span class="o">/</span><span class="mf">12.</span><span class="o">+</span><span class="mi">1992</span>
@@ -1766,13 +1828,14 @@ In&nbsp;[15]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
+<div class="output_wrapper">
+<div class="output">
 
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stdout">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
 <pre>
 Populating the interactive namespace from numpy and matplotlib
 
@@ -1780,10 +1843,10 @@ Populating the interactive namespace from numpy and matplotlib
 </div>
 </div>
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_area"><div class="prompt"></div>
 
 
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAagAAAEYCAYAAAAJeGK1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXl4U3W+/99JN9qsXei+0BYatrasZZsW24LDqIzouIxa
 9ao/Rh1xGRQdL86MjMzFK/MoLvdir9erwoDj6BUc9DpKB5CKCJa9pXRf03RJkzRp0ibN8vujzzkm
@@ -2245,25 +2308,34 @@ ehQVFdmLj8ViwbPPPosdO3YgMjISy5Yts3+fXE4TH+TbgQoUIdOkqKgIer0e+/btQ0pKCrZu3Yrh
 4WHI5XKUlZVh6dKlWL9+PR566CGoVKrpbi4h9xydZk7INLly5QqOHj2Kl19+ebqbQohPorkCQqbB
 +fPn8corr6C0tHS6m0KIz6IRFCGEEJ9EIyhCCCE+iQoUIYQQn0QFihBCiE+iAkUIIcQnUYEihBDi
 k/4Pg0DALllw+5IAAAAASUVORK5CYII=
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The data are U.S. Beverage Manufacturer Product Shipments from 1992 to 2006 as provided by www.census.gov. The shipments show rising trend and yearly seasonal fluctuations. We first get rid of the trend to obtain a better look at the seasonal changes.</p>
+<p>The data are U.S. Beverage Manufacturer Product Shipments from 1992 to 2006 as provided by www.census.gov. The shipments show rising trend and yearly seasonal fluctuations. We first get rid of the trend to obtain a better look at the seasonal changes. </p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[16]:
 </div>
-<div class="input_area box-flex1">
-<div class="highlight"><pre><span class="n">res</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">size</span><span class="p">)),</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">t</span><span class="p">)])</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">res</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">size</span><span class="p">)),</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">t</span><span class="p">)])</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>
 <span class="n">y</span><span class="o">=</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">t</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
@@ -2273,15 +2345,16 @@ In&nbsp;[16]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_wrapper">
+<div class="output">
 
 
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAagAAAEYCAYAAAAJeGK1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsvXlgVPd57/2ZfdVol9h3I2/geIMYAheEcEgTahybNGlk
 N35T3OStk9y6jhvXXeLErX3r2960dnND87Y3doJzYxGMDSFeMBDjmJgY4wUZMIvYtKFt9uWs7x+j
@@ -2834,24 +2907,32 @@ VkbKy8vJb37zG0HtezweUl5eTsrLy0lZWRk5cuSIoOfAcVyUjR/+8IdxF1iz+Y1uvPFGUlpaSr79
 biN2u50QQkhDQwMpLi4mlZWVpLW1VXD7Tz/9NJk+fTqZNm0aeeqppwS3n8p1nKn9VK/jbI6fJ9E1
 nI39VK7hbPeRynU81KGNuhQKhUIZktBGXQqFQqEMSaiDolAoFMqQhDooCoVCoQxJqIOiUCgUypCE
 OigKhUKhDEmog6JQKBTKkIQ6KAqFQqEMSf4/mU+2bqE3p9wAAAAASUVORK5CYII=
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The fit of the linear curve is acceptable and we continue with model building. We now subtract the trend from the data to obtain the residuals. These show the remaining paterns in the data that require modeling.</p>
+<p>The fit of the linear curve is acceptable and we continue with model building. We now subtract the trend from the data to obtain the residuals. These show the remaining paterns in the data that require modeling. </p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[17]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">d</span><span class="o">-</span><span class="n">y</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">d</span><span class="o">.</span><span class="n">size</span><span class="o">/</span><span class="mi">12</span><span class="p">)</span><span class="o">+</span><span class="mi">1992</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1000</span><span class="p">]);</span>
@@ -2870,15 +2951,16 @@ In&nbsp;[17]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_wrapper">
+<div class="output">
 
 
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAagAAAEYCAYAAAAJeGK1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsfXmUXFWd/+dV19a1995ZO4HQnUA6GpaEEBLZh0UWHZkj
 DjjjeBhFZVxmwNEfZwAHRh2OgoNzRsblqAg44CjiAmdCAA0YAgFJ0oEs3dm703tX19K11/v90ee+
@@ -3354,15 +3436,16 @@ MyorK5GcnIyioiL34xQK/hKEzV08QTEWAoqLi2E2m7F//35kZmZi165dsNvtUCgU2Lt3LwoKCrBp
 0yZkZGRApVIFu1zGZgVfzZyxEHD16lXU1dXhrbfeCnYpjIUM/n6AsSC7ePEidu7cibKysmCXwlhI
 4SMoxhhjIYmPoBhjjIUknqAYY4yFJJ6gGGOMhSSeoBhjjIUknqAYY4yFpP8B0FuD/SB2fJEAAAAA
 SUVORK5CYII=
-">
+"
+>
+</div>
 
 </div>
-</div>
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_area"><div class="prompt"></div>
 
 
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAagAAAEYCAYAAAAJeGK1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3X1wVeWdB/DvOffk5iYpyU0Q4lBHiIQEYmGL0FBeEojy
 YreEdaWIVbS1O+6OL7jqlNad3Zk6W1zfulOnWccyto4urQ6yKARbYEAiBpeGolYSQt6E1IItqDc3
@@ -3599,24 +3682,32 @@ EiiKgmnTpgHoP8PHalw7ceJEJBIJlJWVAQC+8pWv4KOPPgIA+/sLCwtx7ty5pP/m1KlT7b8X2ZyV
 yClMUESSjHQkwpQpU+yjQBobG3H11Vcnfb9pmtA0bdDhh9bfs70muQUTFJEkAxPOwK9zc3PR0dGB
 devWoaOjwz78bej3l5SU4L333sPDDz884n+LaCxjN3MiIkpLHEEREVFaYoIiIqK0xARFRERpiQmK
 iIjSEhMUERGlJSYoIiJKS0xQRESUlv4PRO2k57nhkJgAAAAASUVORK5CYII=
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We add the yearly fluctuations to the model. The rough idea is to use sinusoid \(\alpha sin(2\pi (t+\phi))\) where \(\alpha\) is the amplitude and \(\phi\) is the shift. Here is a sketch what we are looking for. (The parameter values were found through trial and error).</p>
+<p>We add the yearly fluctuations to the model. The rough idea is to use sinusoid $\alpha sin(2\pi (t+\phi))$ where $\alpha$ is the amplitude and $\phi$ is the shift. Here is a sketch what we are looking for. (The parameter values were found through trial and error).</p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[18]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">size</span><span class="p">),</span><span class="mi">12</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="o">-</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;o&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">12.5</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">)</span>
@@ -3630,15 +3721,16 @@ In&nbsp;[18]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_wrapper">
+<div class="output">
 
 
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAagAAAEYCAYAAAAJeGK1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3XtcFOfZB/zf7A7LLgi7gIDiCeQoiGfxCIKimEZtGmNM
 jDFN3ydtfNQ0ydMc+rbP2zxPk+bUp7VFk9gcmtQmqbEmEU2i1YgKxmDwxPmk4AETUHcXENjD7M77
@@ -3968,24 +4060,33 @@ eBEAxOeHh4ejpaWl2/eMjo4WPy9ncVZCpEIBihCF9NYSITIyUmwFUlxcjLFjx3Z7Ps/zYFm2U/ND
 4fNUXpN4CgpQhCikY8Dp+P/AwEDU1NRg7dq1qKmpEZu/dX1+XFwcTp06hSeffLLX70XIUEbVzAkh
 hLglmkERQghxSxSgCCGEuCUKUIQQQtwSBShCCCFuiQIUIYQQt0QBihBCiFuiAEUIIcQt/f8q5cMz
 UDhDXAAAAABJRU5ErkJggg==
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We fit the model. We simplify the fitting process by writing \[\alpha sin(2\pi (t+\phi))= \alpha cos(2\pi \phi) sin(2\pi t)+\alpha cos(2\pi t) sin(2\pi \phi)= \beta_1  sin(2\pi t)+\beta_2  cos(2\pi t) \]</p>
+<p>We fit the model. We simplify the fitting process by writing 
+$$\alpha sin(2\pi (t+\phi))= \alpha cos(2\pi \phi) sin(2\pi t)+\alpha cos(2\pi t) sin(2\pi \phi)= \beta_1  sin(2\pi t)+\beta_2  cos(2\pi t) $$</p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[19]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)),</span>
                 <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">))])</span><span class="o">.</span><span class="n">T</span>
 <span class="n">res</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">d</span><span class="o">-</span><span class="n">y</span><span class="p">)</span>
@@ -3996,15 +4097,16 @@ In&nbsp;[19]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_wrapper">
+<div class="output">
 
 
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAagAAAEYCAYAAAAJeGK1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsvWmUXOV57/ureR56nid1t1oDEhJggcSRQJON4xDAideJ
 c2TOchJinxPfrBXfmJiQdRyuyYEbVrKygpN7Fa/c6wluBi8Gw3FMkCVA2LKEhGTQrJZ6quq5q6tr
@@ -4630,24 +4732,32 @@ nDrcXTbsiif+r4BhSZiMIJvi/MMwyDmnsiy1bVvy/L7v5b1X13W67/vnO6zrqizLnm/uOA7N86y6
 rtW27fOjf1kWVVWlpml0XZckad93Oefkvdd5nsnzp2lSURTK81zjOCbPD+nx2/zQHsec/+tfh2Py
 Qzoc+4yQHlvHRV0AgElc1AUAmMRAAQBMYqAAACYxUAAAkxgoAIBJDBQAwCQGCgBg0gfEt+58uWuw
 vwAAAABJRU5ErkJggg==
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The results look already good. We zoom in at the residuals, to see how it can be further improved.</p>
+<p>The results look already good. We zoom in at the residuals, to see how it can be further improved. </p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[20]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="n">ynew</span><span class="o">=</span><span class="n">y</span><span class="o">+</span><span class="n">x</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
@@ -4662,13 +4772,14 @@ In&nbsp;[20]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
+<div class="output_wrapper">
+<div class="output">
 
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stdout">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
 <pre>
 423.407498015
 
@@ -4676,10 +4787,10 @@ In&nbsp;[20]:
 </div>
 </div>
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_area"><div class="prompt"></div>
 
 
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAagAAAEYCAYAAAAJeGK1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3XtclHWiP/DPDAOiMAygCHKRi9xEATHBhssIJKQm6lq2
 5a1ttV/X4+qefu5p2c75tauvU6et7eTZWtPd2nXN2tpKzTIVUVARRRQEFVTuYAjCMIBcBnh+f3ic
@@ -4912,15 +5023,16 @@ P/4DtbW1+M1vfoNt27aN/GSJRhkLimgIZDIZnJ2dER8fj5UrV0Iul+P+++9HVFQU3nzzTXR1dSE6
 OrrX9zz33HN49tln4ePjA3d3dwC3Suyll15CUFAQXFxcAABJSUl49tlnMXXqVKhUql5jfPTRRzh4
 8CBu3ryJp556anQmSzTKeDZzIiIyStyLj4iIjBILioiIjBILioiIjBILioiIjBILioiIjBILioiI
 jBILioiIjNL/B3St1eNVky1wAAAAAElFTkSuQmCC
-">
+"
+>
+</div>
 
 </div>
-</div>
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_area"><div class="prompt"></div>
 
 
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAagAAAEYCAYAAAAJeGK1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3XlA1HX+x/HnHMAIyKWCgop4AOKVroCUkBqaeWyeeYSW
 7dqqq5u51db+uqxt+5XV1s/Wa7sNW8w8MNNS88DNQDxD5IhEBBUPGC6BYWa+vz+M70qomMIMx/vx
@@ -5250,25 +5362,33 @@ JQUFBWi1WoqKijCbzZSUlLhkTiGUIGdQQsygkJAQ9u/fz969e7Hb7URERHDlyhXsdju7du1yns1o
 tVoCAwMxmUw/XRKc7EcxxcbGcujQIfLy8n4rq9TUVM6ePYvJZALAZDLx4cMH6urq+PLlC/v27XPh
 tEK4luxmLoSLfPr0CbPZzLVr1wgODlY7jhCzjhSUEEIItyTvQQkhhHBLUlBCCCHckhSUEEIItyQF
 JYQQwi1JQQkhhHBLUlBCCCHc0r99oQdrGv4XzgAAAABJRU5ErkJggg==
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The residuals are well described by normal distribution with \(\sigma=233\). We can summarize our model as \(d=\beta_0+\beta_1 t + \beta_2sin 2\pi t + \beta_3sin 2\pi t + \epsilon\) with error \(\epsilon \sim \mathcal{N}(0,\sigma)\)</p>
+<p>The residuals are well described by normal distribution with $\sigma=233$. We can summarize our model as $d=\beta_0+\beta_1 t + \beta_2sin 2\pi t + \beta_3sin 2\pi t + \epsilon$ with error $\epsilon \sim \mathcal{N}(0,\sigma)$</p>
 <p>The plots below suggest some additional improvements.</p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[21]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">d</span><span class="o">-</span><span class="n">ynew</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;residuals&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;year&#39;</span><span class="p">)</span>
@@ -5287,15 +5407,16 @@ In&nbsp;[21]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_wrapper">
+<div class="output">
 
 
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAagAAAEYCAYAAAAJeGK1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXmYXFWZ/7+1L91V1VvSSzrpdNKkIYEghsUQOhqJiqOM
 iKLCJCCO4LiBomSc55mfsoijAqJER6LDqIRlEIZBBAc0kISAITEwECBJd5bupNNrVXVV177f3x/9
@@ -5819,15 +5940,16 @@ Usjtt9+Ol19+Gffddx86OjqwZs2agPn4/X488cQT2LlzJ2bNmoVVq1YF/k6rpeQHkfmQQRFEClmz
 Zg2amprw6quvYuHChXj++efhcrmg1Wrx0ksvoaGhAY899hgqKipgNptTPVyCSCrUzZwgUsgnn3yC
 lpYWPPfcc6keCkGoDsoTEESKOHnyJLZv347m5uZUD4UgVAlFUARBEIQqoQiKIAiCUCVkUARBEIQq
 IYMiCIIgVAkZFEEQBKFKyKAIgiAIVfJ/keDUrrRIufIAAAAASUVORK5CYII=
-">
+"
+>
+</div>
 
 </div>
-</div>
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_area"><div class="prompt"></div>
 
 
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAagAAAEYCAYAAAAJeGK1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3X1wVOXdxvFr40KgGhZsDSiIgEiAVmiYNCFBwltARsXS
 oamAAsUXsBpiogKPwBDyAFPQjmDoU0REVErp6DA6vlShBGpQYdMQJ4CWqBWqREqgdZMQhRCyzx9M
@@ -5982,15 +6104,16 @@ kkpLS7mCQsgjoIA2aBgClwZCWlqaPv/8c91zzz36/PPPPb+ae+kyAwYMUHFxsR599NFm19fQqFGj
 tHz5cmVlZaljx46y2WxKT0/Xtm3bdP/990uS7HbeYkZo49vMgTBRvyvbbDbNnTtXy5cvV2xsbJCr
 AlqPUywgTFRXV2vOnDmqra1VSkoK4YSQxxUUAMBIvAcFADASAQUAMBIBBQAwEgEFADASAQUAMNL/
 A9lJQrD4O+p2AAAAAElFTkSuQmCC
-">
+"
+>
+</div>
 
 </div>
-</div>
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_area"><div class="prompt"></div>
 
 
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAagAAAEYCAYAAAAJeGK1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3X9cVHW+P/DXGQYhKGagTbyuBSiC2eq9tgihDYoP7OeS
 PtgIVNC0vDeLuuoVb91H7Wbs7s3FfaxFW7Lddh+tWbL9WMXdbl0xS2oJYqlMEwH5pbaLP2BAIZgZ
@@ -6272,30 +6395,48 @@ rNFocP/992PNmjXgOA6pqan4yU9+goKCAhQXF2P+/PkON3GO4/Cv//qv+M///E+8+OKLuPnmm7Fp
 6KOP4qGHHgJjDHq9Hs8//7zLf7do0SI88sgjKCwsRE1NDUZHR8FxHJ577jmfy54Qf9Fu5iQsNDU1
 4a9//Ss2btwodyhBs3LlSrz++utyh0GIaGiaOQkbrsZX1CzU3g8hzqgFRQghRJGoBUUIIUSRKEER
 QghRJEpQhBBCFIkSFCGEEEWiBEUIIUSR/h/lC+KxycxnMQAAAABJRU5ErkJggg==
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The first two plots suggests a 9-year cycle. The third plot suggests that variance is increasing with time. Both suggestions are however difficult to evaluate because we don't have enough data.</p>
-<p>Once we are satisfied with the obtained model we can look at the estimated parameter values if they conform to our predictions. The model can be also used to predict future shipments. For our purpose it was important to see the model building iteration and especially the model checking part. In this case model checking was done by inspecting the residuals. The presented case was rather straight-forward. If we tried to extend the model with a 9 year cycle or evolving variance this would require more thought and more detective work, which is the usual case with psychological data.</p>
+<p>The first two plots suggests a 9-year cycle. The third plot suggests that variance is increasing with time. Both suggestions are however difficult to evaluate because we don&#39;t have enough data. </p>
+<p>Once we are satisfied with the obtained model we can look at the estimated parameter values if they conform to our predictions. The model can be also used to predict future shipments. For our purpose it was important to see the model building iteration and especially the model checking part. In this case model checking was done by inspecting the residuals. The presented case was rather straight-forward. If we tried to extend the model with a 9 year cycle or evolving variance this would require more thought and more detective work, which is the usual case with psychological data. </p>
 </div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Better-Results-but-More-Work">Better Results but More Work<a class="anchor-link" href="#Better-Results-but-More-Work">&#182;</a></h2>
 </div>
-
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's now evaluate detective approach by reviewing the problems caused by toolbox.</p>
-<p>First, it seems difficult to make turn detective approach into ritual. Almost by definition it excludes this possibility. (Although I don't want to underestimate psychologist's ability to abuse any statistical method.)</p>
-<p>Second, the approach is iterative. We are not required to stick to a model that we had in mind at the outset of our analysis.</p>
-<p>Third, modeling is open-ended. The only limit is the computational tractability of the models, we would like to fit and the information afforded by the evidence.</p>
-<p>Second and third point mean that detective approach is much more flexible and this flexibility can be abused. As stated above model building is an integral part of the reported results and all decisions should be made transparent, replicable accountable.</p>
-<p>Finally detective approach requires more work. In particular, it requires the kind of work that researchers don't have time for - thinking. With toolbox you can get your students compute the p values. But he probably won't be able to accomplish the model building. This extra work is only a corollary of a general maxim that better results require more work. In future posts I will provide further illustrations that the better results afforded by detective approach are sorely needed.</p>
 </div>
-</body>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let&#39;s now evaluate detective approach by reviewing the problems caused by toolbox.</p>
+<p>First, it seems difficult to make turn detective approach into ritual. Almost by definition it excludes this possibility. (Although I don&#39;t want to underestimate psychologist&#39;s ability to abuse any statistical method.)</p>
+<p>Second, the approach is iterative. We are not required to stick to a model that we had in mind at the outset of our analysis. </p>
+<p>Third, modeling is open-ended. The only limit is the computational tractability of the models, we would like to fit and the information afforded by the evidence.</p>
+<p>Second and third point mean that detective approach is much more flexible and this flexibility can be abused. As stated above model building is an integral part of the reported results and all decisions should be made transparent, replicable accountable. </p>
+<p>Finally detective approach requires more work. In particular, it requires the kind of work that researchers don&#39;t have time for - thinking. With toolbox you can get your students compute the p values. But he probably won&#39;t be able to accomplish the model building. This extra work is only a corollary of a general maxim that better results require more work. In future posts I will provide further illustrations that the better results afforded by detective approach are sorely needed.</p>
+</div>
+</div>
+</div>
 </html>

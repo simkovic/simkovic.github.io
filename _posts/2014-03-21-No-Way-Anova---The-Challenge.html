@@ -2,6 +2,7 @@
 layout: post
 title:  No Way Anova - The Challenge
 ---
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -1674,7 +1675,7 @@ pre {
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-<script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
 <script type="text/javascript">
 init_mathjax = function() {
     if (window.MathJax) {
@@ -1695,13 +1696,17 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 </head>
-<body>
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>There has been lot of discussion lately about the problems hampering statistical analysis (significance, \(p\)-values, replicability, \(p\)-hacking) and scientific communication (publication system, disfunctional incentives) and their potential solutions (open science, preregistration, new statistics, bayesian statistics). These are all important topics and the proposed solutions deserve serious consideration. Indeed I will consider some in later posts. However, before I do so I want to highlight what I consider the single most serious problem hampering data analysis and scientific communication in psychological research. The problem is Anova. When doing analysis Anova should be avoided. There is always a better way to analyse the data, notably the regressional approach where we look at the magnitude of the regression coeficients instead at the variance.</p>
-<p>To be clear, I don't mind Anova per se. It can be useful as a supplemental analysis or in specialized exploratory settings. Because that's what Anova is: a specialized tool applicable in specific context. In psychology it is instead used as a default option whenever the data can't be analyzed with \(t\)-test or with correlation test. Just like \(p\) values from \(t\)-test and correlation test don't give researcher the information he is interested so does not the \(p\) value, \(F\) value and in fact any variance derived statistic provide the information that the researcher is most interested in. As a consequence, the journals are full of results that are difficult to interpret. We can't compare results across similar studies, across replications and not even across experiments from a single study with identical design. And if we try we inevitably commit fallacies such as claiming that the difference between significant and non-significant results is significant (Gelmen &amp; Stern, 2006).</p>
-<p>Speaking more generally, the main problem of Anova is that it is a tool for model comparison. As highlighted by the New Statistics movement (Kline, 2004; Cumming, 2012) we should do parameter estimation - estimation of effect sizes instead. New Statistics advocates unfortunately fail to realize what the relevant effect size is when working with Anova designs. (Geoff Cumming actually discourages the use of variance-derived effect sizes but he doesn't provide any alternative. More on this later.) On the other hand, some authors (for instance Kruschke, 2010) use the term Anova even if they do not look at variance or any variance-derived quantity. Anova is then a regression where all predictors are categorical variables and the usual regresional approach is applied. Obviously I have no issues with this kind of Anova (except that we should avoid the label Anova).</p>
+<p>There has been lot of discussion lately about the problems hampering statistical analysis (significance, $p$-values, replicability, $p$-hacking) and scientific communication (publication system, disfunctional incentives) and their potential solutions (open science, preregistration, new statistics, bayesian statistics). These are all important topics and the proposed solutions deserve serious consideration. Indeed I will consider some in later posts. However, before I do so I want to highlight what I consider the single most serious problem hampering data analysis and scientific communication in psychological research. The problem is Anova. When doing analysis Anova should be avoided. There is always a better way to analyse the data, notably the regressional approach where we look at the magnitude of the regression coeficients instead at the variance.</p>
+<p> To be clear, I don&#39;t mind Anova per se. It can be useful as a supplemental analysis or in specialized exploratory settings. Because that&#39;s what Anova is: a specialized tool applicable in specific context. In psychology it is instead used as a default option whenever the data can&#39;t be analyzed with $t$-test or with correlation test. Just like $p$ values from $t$-test and correlation test don&#39;t give researcher the information he is interested so does not the $p$ value, $F$ value and in fact any variance derived statistic provide the information that the researcher is most interested in. As a consequence, the journals are full of results that are difficult to interpret. We can&#39;t compare results across similar studies, across replications and not even across experiments from a single study with identical design. And if we try we inevitably commit fallacies such as claiming that the difference between significant and non-significant results is significant (Gelmen &amp; Stern, 2006).</p>
+<p> Speaking more generally, the main problem of Anova is that it is a tool for model comparison. As highlighted by the New Statistics movement (Kline, 2004; Cumming, 2012) we should do parameter estimation - estimation of effect sizes instead. New Statistics advocates unfortunately fail to realize what the relevant effect size is when working with Anova designs. (Geoff Cumming actually discourages the use of variance-derived effect sizes but he doesn&#39;t provide any alternative. More on this later.) On the other hand, some authors (for instance Kruschke, 2010) use the term Anova even if they do not look at variance or any variance-derived quantity. Anova is then a regression where all predictors are categorical variables and the usual regresional approach is applied. Obviously I have no issues with this kind of Anova (except that we should avoid the label Anova).   </p>
 <p>So what is the challenge? The challenge is to find a case in psychological research where Anova is applicable and it provides more information than a regression analysis. I will blog about some cases typical of the psychological literature. In all of these cases regression turns out to be superior. You can suggest other cases below.</p>
 </div>
-</body>
+</div>
+</div>
 </html>

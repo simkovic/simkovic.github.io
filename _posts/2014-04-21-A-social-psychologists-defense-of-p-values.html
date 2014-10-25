@@ -1,7 +1,8 @@
 ---
 layout: post
-title:  A social psychologist's defense of p values
+title:  A social psychologists defense of p values
 ---
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -1674,7 +1675,7 @@ pre {
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-<script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
 <script type="text/javascript">
 init_mathjax = function() {
     if (window.MathJax) {
@@ -1695,24 +1696,31 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 </head>
-<body>
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Only recently I discovered a blog by David Funder, which has several interesting posts. One <a href="http://funderstorms.wordpress.com/2013/02/01/does-effect-size-matter/">blog post</a> from a year ago is Funder's polemics with a social psychologist who presents the following apology for the controversial use of \(p\) values. Now, a defense of \(p\) values is something really rare, at least in public. So let's hear it:</p>
+<p>Only recently I discovered a blog by David Funder, which has several interesting posts. One <a href="http://funderstorms.wordpress.com/2013/02/01/does-effect-size-matter/">blog post</a> from a year ago is Funder&#39;s polemics with a social psychologist who presents the following apology for the controversial use of $p$ values. Now, a defense of $p$ values is something really rare, at least in public. So let&#39;s hear it:</p>
 <blockquote>
 <p>…the key to our research… [is not] to accurately estimate effect size. If I were testing an advertisement for a marketing research firm and wanted to be sure that the cost of the ad would produce enough sales to make it worthwhile, effect size would be crucial. But when I am testing a theory about whether, say, positive mood reduces information processing in comparison with negative mood, I am worried about the direction of the effect, not the size (indeed, I could likely change the size by using a different manipulation of mood, a different set of informational stimuli, a different contextual setting for the research — such as field versus lab). But if the results of such studies consistently produce a direction of effect where positive mood reduces processing in comparison with negative mood, I would not at all worry about whether the effect sizes are the same across studies or not, and I would not worry about the sheer size of the effects across studies. This is true in virtually all research settings in which I am engaged.</p>
 </blockquote>
-<p>This argument is wrong in multiple ways. Funder's polemics revolves about the superiority of effect sizes. I think that that issue is only tangential. To magnify the mistakes, it present the above argument as a criticism of a field where a focus on effect size worked. Here is an alternative take on classical mechanics (portions that I changed are highlighted in bold):</p>
+<p>This argument is wrong in multiple ways. Funder&#39;s polemics revolves about the superiority of effect sizes. I think that that issue is only tangential. To magnify the mistakes, it present the above argument as a criticism of a field where a focus on effect size worked. Here is an alternative take on classical mechanics (portions that I changed are highlighted in bold):</p>
 <blockquote>
-<p>…the key to our research… [is not] to accurately estimate effect size. If I were testing an advertisement for a marketing research firm and wanted to be sure that the cost of the ad would produce enough sales to make it worthwhile, effect size would be crucial. But when I am testing a theory about whether, say, <strong>heavy objects falls with a higher velocity than a light object</strong>, I am worried about the direction of the effect, not the size (indeed, I could likely change the size by using a different <strong>initial speed</strong> a different set of <strong>objects</strong>, a different contextual setting for the research — such as <strong>liquid vs air</strong> ). But if the results of such studies consistently produce a direction of effect where **heavy object falls faster than light object **, I would not at all worry about whether the effect sizes are the same across studies or not, and I would not worry about the sheer size of the effects across studies. This is true in virtually all research settings in which I am engaged.</p>
+<p>…the key to our research… [is not] to accurately estimate effect size. If I were testing an advertisement for a marketing research firm and wanted to be sure that the cost of the ad would produce enough sales to make it worthwhile, effect size would be crucial. But when I am testing a theory about whether, say, <strong>heavy objects falls with a higher velocity than a light object</strong>, I am worried about the direction of the effect, not the size (indeed, I could likely change the size by using a different <strong>initial speed</strong> a different set of <strong>objects</strong>, a different contextual setting for the research — such as <strong>liquid vs air</strong> ). But if the results of such studies consistently produce a direction of effect where <strong>heavy object falls faster than light object </strong>, I would not at all worry about whether the effect sizes are the same across studies or not, and I would not worry about the sheer size of the effects across studies. This is true in virtually all research settings in which I am engaged.</p>
 </blockquote>
-<p>Fortunately, physicists did care about the effect size which allowed them to discover gravitation and the equation which describes velocity of free fall (recall \(v(t)= - g \cdot t^2 + v_0\)).</p>
+<p>Fortunately, physicists did care about the effect size which allowed them to discover gravitation and the equation which describes velocity of free fall (recall $v(t)= - g \cdot t^2 + v_0$). </p>
 <p>The argument is build from the following sub-claims which I consider problematic.</p>
-<ol style="list-style-type: decimal">
-<li><p>&quot;We can't interpret effect size because there are variables that moderate the effect size&quot;. The usual way to solve this is to measure the moderators and then to express the effect size conditional on the moderating variables. The simplest way to do so is linear regression.</p></li>
-<li><p>&quot;Moderators influence the magnitude but not the direction of the effect&quot;. As a consequence we would expect that change in &quot;manipulation, stimuli, contextual setting&quot; might alter the effect size say from \(0.8\) to \(0.2\) but we would not expect a change from \(0.1\) to \(-0.1\). I don't consider this plausible. This goes against all that statistics tells us about sampling theory. More importantly it is also empirically implausible. Much of the current fuss about the replicability of social priming research is because the mean estimate of effect size jumps from negative to positive value and back across different replication attempts.</p></li>
-<li><p>The possibility that an effect size is zero seems to be implicitly out of question in the above argument. In fact, heavy object does not fall faster than light objects nor does the light object fall faster than heavy object. Object's free fall velocity is independent of it's mass.</p></li>
+<ol>
+<li><p>&quot;We can&#39;t interpret effect size because there are variables that moderate the effect size&quot;. The usual way to solve this is to measure the moderators and then to express the effect size conditional on the moderating variables. The simplest way to do so is linear regression. </p>
+</li>
+<li><p>&quot;Moderators influence the magnitude but not the direction of the effect&quot;. As a consequence we would expect that change in &quot;manipulation, stimuli, contextual setting&quot; might alter the effect size say from $0.8$ to $0.2$ but we would not expect a change from $0.1$ to $-0.1$. I don&#39;t consider this plausible. This goes against all that statistics tells us about sampling theory. More importantly it is also empirically implausible. Much of the current fuss about the replicability of social priming research is because the mean estimate of effect size jumps from negative to positive value and back across different replication attempts.</p>
+</li>
+<li><p>The possibility that an effect size is zero seems to be implicitly out of question in the above argument. In fact, heavy object does not fall faster than light objects nor does the light object fall faster than heavy object. Object&#39;s free fall velocity is independent of it&#39;s mass.  </p>
+</li>
 </ol>
 </div>
-</body>
+</div>
+</div>
 </html>
