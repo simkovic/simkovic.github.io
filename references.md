@@ -50,6 +50,8 @@ Pratt, J. W. (1962). On the foundations of statistical inference: Discussion. Jo
 
 Skinner, B.F. (1959) A case history in scientific method. The American Psychologist. 221-233.
 
+Stone, M. (1976). Strong inconsistency from uniform priors. Journal of the American Statistical Association, 71(353), 114-116.
+
 Trueblood, J. S., Brown, S. D., & Heathcote, A. (2014). The multiattribute linear ballistic accumulator model of context effects in multialternative choice. Psychological review, 121(2), 179.
 
 Tukey, J. W. (1969). Analyzing data: Sanctification or detective work?. American Psychologist, 24(2), 83.

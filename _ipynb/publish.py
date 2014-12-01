@@ -11,7 +11,7 @@ except:
     print "usage: python publish.py   /path/to/notebook_file.ipynb"
     sys.exit(-1)
 outfn=stripRight(notebook,'.ipynb').replace(' ','-')
-remchar=['?','!']
+remchar=['?','!','\'']
 for ch in remchar: outfn=outfn.replace(ch,'')
 
 outpath=stripRight(os.getcwd(),'ipynb')+'posts'+os.path.sep
