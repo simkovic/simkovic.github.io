@@ -45,8 +45,9 @@ Morey, R. D., Rouder, J. N., Verhagen, J., Wagenmakers, E. J., & Morey, R. D. Wh
 
 Oaksford, M., & Chater, N. (1998). Rationality in an uncertain world: Essays on the cognitive science of human reasoning. Psychology Press/Erlbaum (UK) Taylor & Francis.
 
-Pratt, J. W. (1962). On the foundations of statistical inference: Discussion. Journal of the American Statistical Association, 57, 314-315.
+Pearl, J. (2000). Causality: models, reasoning and inference. Cambridge: MIT press.
 
+Pratt, J. W. (1962). On the foundations of statistical inference: Discussion. Journal of the American Statistical Association, 57, 314-315.
 
 Skinner, B.F. (1959) A case history in scientific method. The American Psychologist. 221-233.
 
