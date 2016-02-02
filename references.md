@@ -7,6 +7,12 @@ Bishof, N. (2008). Psychologie – Ein Grundkurs für Anspruchsvolle. Kohlhammer
 
 Cumming, G. (2013). Understanding the new statistics: Effect sizes, confidence intervals, and meta-analysis. Routledge.
 
+Cumming, G. (2014). The new statistics why and how. Psychological science
+
+Fidler, F., & Cumming, G. (2014). Yes, but Don’t Underestimate Estimation Reply to Morey, Rouder, Verhagen, and Wagenmakers (2014). Psychological science, 25(6), 1291-1292.
+
+Dambacher, M., Rolfs, M., and Cavanagh, P. (2011). Visual adaptation of causality. Journal of Vision, 11, article 1061.
+
 Dennett, D.(1998). Brainchildren. MIT Press. Cambridge, MA.
 
 Gelman, A., Carlin, J. B., Stern, H. S., Dunson, D. B., Vehtari, A., & Rubin, D. B. (2013). Bayesian data analysis. CRC press.
@@ -35,9 +41,17 @@ Miller, J. (2009). What is the probability of replicating a statistically signif
 
 Montgomery, D. C., Jennings, C. L., & Kulahci, M. (2011). Introduction to time series analysis and forecasting (Vol. 526). John Wiley & Sons.
 
+Morey, R. D., Rouder, J. N., Verhagen, J., Wagenmakers, E. J., & Morey, R. D. Why hypothesis tests are essential for psychological science: A comment on Cumming. Psychological Science.
+
 Oaksford, M., & Chater, N. (1998). Rationality in an uncertain world: Essays on the cognitive science of human reasoning. Psychology Press/Erlbaum (UK) Taylor & Francis.
 
+Pearl, J. (2000). Causality: models, reasoning and inference. Cambridge: MIT press.
+
+Pratt, J. W. (1962). On the foundations of statistical inference: Discussion. Journal of the American Statistical Association, 57, 314-315.
+
 Skinner, B.F. (1959) A case history in scientific method. The American Psychologist. 221-233.
+
+Stone, M. (1976). Strong inconsistency from uniform priors. Journal of the American Statistical Association, 71(353), 114-116.
 
 Trueblood, J. S., Brown, S. D., & Heathcote, A. (2014). The multiattribute linear ballistic accumulator model of context effects in multialternative choice. Psychological review, 121(2), 179.
 

@@ -2,6 +2,7 @@
 layout: post
 title:  No Way Anova - A theoretical paper reports completely redundant Anova
 ---
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -1674,7 +1675,7 @@ pre {
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-<script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
 <script type="text/javascript">
 init_mathjax = function() {
     if (window.MathJax) {
@@ -1695,18 +1696,24 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 </head>
-<body>
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>I just read a theoretical paper where authors report an Anova. This case nicely illustrates the general redundancy of Anova so I wanted to share it. Trueblood, Brown and Heathcote (2014) report a computational model that predicts similarity effect. Similarity effect is a label for the following judgment pattern: Subjects are given two options X and Y. X and Y are equally attractive and are chosen by subjects equally often. Then a third option Z is added. Z is similar to X but not so attractive. With addition of Z X is chosen more often than Y. This is the similarity effect. The authors refer to X as the focal option, while Y is nonfocal and they call Z decoy.</p>
 <p>Their model (MLBA) predicts that similarity effect decreases with time pressure. An earlier model (MDFT) makes the same prediction with some parameters but it can also predict a decrease in similarity effect for different parameter set. They wanted to compare the predictions of the two models to the human data. They conducted the following experiment. The subject was asked to choose from one of three options (focal, non-focal and decoy). The time pressure for the choice was varied - there were three conditions with time pressure 1, 2 and 5 seconds. Below I roughly replot the results (their figure 5). Errorbars show the 95% CI.</p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[5]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="o">%</span><span class="k">pylab</span> <span class="n">inline</span>
 <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
 <span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.41</span><span class="p">,</span><span class="mf">0.44</span><span class="p">,</span><span class="mf">0.47</span><span class="p">],[</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.22</span><span class="p">,</span><span class="mf">0.21</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span>
@@ -1721,13 +1728,14 @@ In&nbsp;[5]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
+<div class="output_wrapper">
+<div class="output">
 
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stdout">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
 <pre>
 Populating the interactive namespace from numpy and matplotlib
 
@@ -1735,10 +1743,10 @@ Populating the interactive namespace from numpy and matplotlib
 </div>
 </div>
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_area"><div class="prompt"></div>
 
 
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAagAAAEYCAYAAAAJeGK1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3XtYFNfdB/DvLMtNlKuCogIqCipeUFARQVHUavIaXyvW
 mGoerYlXUGqMl5BgUqsY02LCKxHzmLaSS5u0aU0T70gUlKwiXtFYjVGCWlABhRVB2Hn/2LBCYFlQ
@@ -1931,36 +1939,46 @@ fZ3rPZ07d8batWtx/fp1rFu3rt57xMbGYu3ataisrIRarUZSUhKio6Px8OFDCIKALVu2ID4+Hvn5
 +Xj06BE2bNiAdu3aYcmSJUhLS4OTk1O92v39/dGxY0fMnj0bgiDg2WefxYwZM578l0JkBhzFR2Rm
 5hwVSNSacZAEkZlxuDdR07AFRUREisQWFBERKRIDioiIFIkBRUREisSAIiIiRWJAERGRIv0/8o5L
 Hq+dmYUAAAAASUVORK5CYII=
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The figure shows the choice probabilities for two of the options - focal and nonfocal. (Since the choice probabilities sum to one, the probability of the third option is determined by the other two.) Then comes the Anova:</p>
 <blockquote>
-<p>To analyze the data, we conducted a 2 (context) \(\times\) 3(deliberation time) repeated-measures analysis of variance. The dependent variable was the percentage of times that a subject chose an option (focal or nonfocal). A main effect of context, \(F(1, 45) = 95.76, p \lt .001\), indicated that participants preferred the focal option to the nonfocal option, demonstrating a strong similarity effect.</p>
+<p>To analyze the data, we conducted a 2 (context) $\times$ 3(deliberation time) repeated-measures analysis of variance. The
+dependent variable was the percentage of times that a subject chose an option (focal or nonfocal). A main effect of context, $F(1,
+45) = 95.76, p \lt .001$, indicated that participants preferred the focal option to the nonfocal option, demonstrating a strong similarity effect. </p>
 </blockquote>
-<p>Let's hold on there. Main effect only tells us that the groups are different, it does not tell us how they differ. That's why Anova is usually followed by pair-wise post-hoc tests. Ok, in this case, it is kind of obvious. We only have two groups and from figure 1 we see that focal option shows higher choice probability across all time pressure levels.</p>
+<p>Let&#39;s hold on there. Main effect only tells us that the groups are different, it does not tell us how they differ. That&#39;s why Anova is usually followed by pair-wise post-hoc tests. Ok, in this case, it is kind of obvious. We only have two groups and from figure 1 we see that focal option shows higher choice probability across all time pressure levels.</p>
 <blockquote>
-<p>There was no significant main effect of deliberation time, \(F(2, 90) = 1.25, p = .29\).</p>
+<p>There was no significant main effect of deliberation time, $F(2, 90) = 1.25, p = .29$.</p>
 </blockquote>
-<p>This doesn't tell us anything, since we can't know whether the effect does not exist or our sample size was too small to detect a significant effect.</p>
+<p>This doesn&#39;t tell us anything, since we can&#39;t know whether the effect does not exist or our sample size was too small to detect a significant effect. </p>
 <blockquote>
-<p>However, the interaction of context by deliberation was significant, \(F(2, 90) = 7.51, p \lt .001\), indicating that the similarity effect increases with longer deliberation times as predicted by the MLBA model.</p>
+<p>However, the interaction of context by deliberation was significant, $F(2, 90) = 7.51, p \lt .001$, indicating that the similarity effect increases with longer deliberation times as predicted by the MLBA model.</p>
 </blockquote>
 <p>Again all that the significant interaction indicates is that the averages of the six groups are different from what a linear null model with main effect (ME) of context and time pressure ME would predict. If you are not sure what the predictions of this null model look like here is a plot:</p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[2]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="n">py</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
 <span class="n">py</span><span class="o">/=</span><span class="mf">2.</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">py</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="s">&#39;d-b&#39;</span><span class="p">)</span>
@@ -1972,15 +1990,16 @@ In&nbsp;[2]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_wrapper">
+<div class="output">
 
 
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAagAAAEYCAYAAAAJeGK1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3X9UVOedx/H3wERQA4NGMeo2irUOOY0lpAiiZhQXSLvV
 xP4gx5Kix+g2iRIKjWaxx2pouwkm2SOFxGjVJI217jlptjW20ZgAljShQwgajamJZjGtbKISGUAk
@@ -2150,25 +2169,33 @@ X3zxRSorK3n44YdJSkrir3/9q9El9bvdu3cza9YsZs6cyfHjx/nmN79pdEn9Kj8/n927d7Nr1y5u
 ueUWli1bZnRJ/e6NN94gLi6O6dOn80//9E9MmTLF6JL6XUxMDIMHDyYpKYl33nmH733ve13O0426
 IiJiSrpRV0RETEkBJSIipqSAEhERU1JAiYiIKSmgRETElBRQIiJiSgooERExpf8FNVGwLPLnHCwA
 AAAASUVORK5CYII=
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The context ME dominates the predictions of this model but the time pressure ME also makes contribution.</p>
-<p>Anyway, the significant interaction certainly does NOT indicate that the similarity effect increases with deliberation time. For instance the following interactions are also significant (+ their context ME is significant while the time-pressure ME is not). Yet they clearly do not indicate a similarity effect increase.</p>
+<p>Anyway, the significant interaction certainly does NOT indicate that the similarity effect increases with deliberation time. For instance the following interactions are also significant (+ their context ME is significant while the time-pressure ME is not). Yet they clearly do not indicate a similarity effect increase.  </p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[3]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.4</span><span class="p">],</span><span class="s">&#39;d-b&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.2</span><span class="p">],</span><span class="s">&#39;o-g&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">&#39;focal&#39;</span><span class="p">,</span><span class="s">&#39;non-focal&#39;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
@@ -2184,15 +2211,16 @@ In&nbsp;[3]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_wrapper">
+<div class="output">
 
 
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAagAAAEYCAYAAAAJeGK1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3XlcFPX/wPHXAgoeCN5X5ZEpnoiCBOoqCpilaZnllzy+
 pnmHUl6oqXhiahomamqZR5ZmVmqegJIXQnhiXkWaljeH4sGx8/tjvu1PUle5dhb2/Xw8fOTOfHbm
@@ -2494,15 +2522,16 @@ xr+XKVMm22trcObMGRYtWkTHjh1JSEhg4cKFWodkdrdv3zb+fd++fdSpU0fDaLTh7e3NsWPHADh8
 jbZt29KmTRsuXrxIx44dtQ7JrEJDQ9m2bRtbt26lUaNGDB06VOuQzO7nn3/G3d2dli1b8swzz+Dh
 4aF1SGbn6upKiRIl8PHx4ZdffuGNN954ZDsp1BVCCGGRpFBXCCGERZIEJYQQwiJJghJCCGGRJEEJ
 IYSwSJKghBBCWCRJUEIIISySJCghhBAW6f8AbLy1Hy9cYswAAAAASUVORK5CYII=
-">
+"
+>
+</div>
 
 </div>
-</div>
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_area"><div class="prompt"></div>
 
 
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAagAAAEYCAYAAAAJeGK1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3XlcFfX+x/HXQRJcwT21DBCFuqmhLOJyFEPa1DTFTFNz
 qVwRUkzv9Vq0IloiJOZPLdeszNKsVAxQTPEoobmFK25kmsoBxAXxzO+PuZ4rVz2mIjNwPs/Hg0ee
@@ -2771,27 +2800,35 @@ dbObfu1NUVERwcHB/Pbbbzz11FN2N5vxsmXLSE9PZ/z48QQFBbFlyxatSyp1a9asoWPHjnTo0IET
 J07wzDPPaF1SqYqOjmbNmjWsXr2axx9/nJEjR2pdUqnbuHEjvr6+tG3bloceegg/Pz+tSyp1LVq0
 oFKlSgQFBfHrr7/Sq1evm46TG3WFEELoktyoK4QQQpckoIQQQuiSBJQQQghdkoASQgihSxJQQggh
 dEkCSgghhC5JQAkhhNCl/wdD3elrzldvSgAAAABJRU5ErkJggg==
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Usually this situation is handled by post-hoc tests. As the errorbars in the figure indicate, the differences between the time pressure conditions within each group are not significant, so (unless we repeat the experiment with bigger sample size) we can't reliably tell where the interaction comes from.</p>
-<p>Putting the problems of small sample size aside, Anova suffers from a principal problem that it doesn't test the question that the authors are interested in. The authors are interested whether the data conform to the predictions of the MLBA model. The model shows a random choice when the time pressure is high and exponential convergence to the similarity effect with decreasing time pressure. The MDFT model predicts decreasing similarity effect with decreasing time pressure. We wish to test whether the choice probabilities are monotonically decreasing/increasing in the nonfocal/focal condition and vice versa. Instead we test whether the group means are different from the linear additive model in figure 3.</p>
-<p>One might argue that model in figure 3 lies between the two hypotheses - the similarity effect in figure 3 is neither increasing or decreasing, it is constant. So, the argument goes, once we obtained the significant interaction we can look at figure 1 to see whether the rejected hypothesis lies north or south of the null model. This argument still leaves out the fact that the alternative hypothesis (&quot;something reliably different from null&quot;, see figure 3 and 4) is not what we are looking for. Let me illustrate why this is a problem.</p>
-<p>Consider the following result pattern.</p>
+<p>Usually this situation is handled by post-hoc tests. As the errorbars in the figure indicate, the differences between the time pressure conditions within each group are not significant, so (unless we repeat the experiment with bigger sample size) we can&#39;t reliably tell where the interaction comes from. </p>
+<p>Putting the problems of small sample size aside, Anova suffers from a principal problem that it doesn&#39;t test the question that the authors are interested in. The authors are interested whether the data conform to the predictions of the MLBA model. The model shows a random choice when the time pressure is high and exponential convergence to the similarity effect with decreasing time pressure. The MDFT model predicts decreasing similarity effect with decreasing time pressure. We wish to test whether the choice probabilities are monotonically decreasing/increasing in the nonfocal/focal condition and vice versa. Instead we test whether the group means are different from the  linear additive model in figure 3. </p>
+<p>One might argue that model in figure 3 lies between the two hypotheses - the similarity effect in figure 3 is neither increasing or decreasing, it is constant. So, the argument goes, once we obtained the significant interaction we can look at figure 1 to see whether the rejected hypothesis lies north or south of the null model. This argument still leaves out the fact that the alternative hypothesis (&quot;something reliably different from null&quot;, see figure 3 and 4) is not what we are looking for. Let me illustrate why this is a problem. </p>
+<p>Consider the following result pattern. </p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[4]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.43</span><span class="p">,</span><span class="mf">0.46</span><span class="p">,</span><span class="mf">0.49</span><span class="p">],</span><span class="s">&#39;d-b&#39;</span><span class="p">)</span>
@@ -2803,15 +2840,16 @@ In&nbsp;[4]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_wrapper">
+<div class="output">
 
 
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAagAAAEYCAYAAAAJeGK1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3XtcVXW+//HXBuQiclO8N4pKyhz1GAUqiug2wMo0HzU0
 ZqaZnSlv/OQUpefhpJVTeuqcfMjk6JhTpo2daZpGmyYlkaTM2UqmIpOTmJaSl4qbbvECe//+2LkR
@@ -3016,19 +3054,25 @@ OXr0KHfeeafRJdVp0aJFbNy4kQ8//JB+/foxY8YMo0uq0yeffEJMTAxDhw7lpptuIjY21uiS6jRg
 wAACAgKwWq18/vnn/OIXvzC6pHpt2LDBvRiBmU2cOJG3334bq9XKunXrePDBB40uqU7fffcdVquV
 22+/naFDh9K5c+da22miroiImJIm6oqIiCkpoERExJQUUCIiYkoKKBERMSUFlIiImJICSkRETEkB
 JSIipvT/AXu/ZDB5Ro8OAAAAAElFTkSuQmCC
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Here we observe two kinds of interaction. First, the increasing similarity effect in which we are interested. Second, the faster convergence in the nonfocal condition. Presumably we are not interested in this one, at least not in the current analysis. Unfortunately, Anova can't distinguish the two kinds of interactions and we don't know which interaction is driving the significant result. In particular we don't know if the interaction due to similarity effect would reach significance if the interaction due to faster convergence were absent.</p>
+<p>Here we observe two kinds of interaction. First, the increasing similarity effect in which we are interested. Second, the faster convergence in the nonfocal condition. Presumably we are not interested in this one, at least not in the current analysis. Unfortunately, Anova can&#39;t distinguish the two kinds of interactions and we don&#39;t know which interaction is driving the significant result. In particular we don&#39;t know if the interaction due to similarity effect would reach significance if the interaction due to faster convergence were absent. </p>
 <p>There are several simple alternatives to Anova. How about this one: We fit a separate quadratic model to the data in each context condition. We report the slope magnitude along with its CI. If the slope is reliably (zero outside the CI) positive in the focal condition and reliably negative in the nonfocal condition, then we are done.</p>
-<p>Another option would be to refer the reader directly to figure 1. We made heavy use of this figure in the proces of decyphering the results of Anova. Why then, not simply drop Anova and use the figure instead. Nothing would be lost with this omission.</p>
+<p>Another option would be to refer the reader directly to figure 1. We made heavy use of this figure in the proces of decyphering the results of Anova. Why then, not simply drop Anova and use the figure instead. Nothing would be lost with this omission. </p>
 </div>
-</body>
+</div>
+</div>
 </html>

@@ -2,6 +2,7 @@
 layout: post
 title:  No Way Anova - Interactions need more power
 ---
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -1674,7 +1675,7 @@ pre {
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-<script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
 <script type="text/javascript">
 init_mathjax = function() {
     if (window.MathJax) {
@@ -1695,26 +1696,37 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 </head>
-<body>
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>I quote myself from the last post:</p>
 <blockquote>
 <p>The number of tests and the probability to obtain at least one significant result increases with the number of variables (plus interactions) included in the Anova. According to Maxwell (2004) this may be a reason for prevalence of underpowered Anova studies. Researchers target some significant result by default, instead of planning sample size that would provide enough power so that all effects can be reliably discovered.</p>
 </blockquote>
-<p>Maxwell (2004, p. 149) writes:</p>
+<p>Maxwell (2004, p. 149) writes: </p>
 <blockquote>
-<p>a researcher who designs a 2 \(\times\) 2 study with 10 participants per cell has a 71% chance of obtaining at least one statistically significant result if the three effects he or she tests all reflect medium effect sizes. Of course, in reality, some effects will often be smaller and others will be larger, but the general point here is that the probability of being able to find something statistically significant and thus potentially publishable may be adequate while at the same time the probability associated with any specific test may be much lower. Thus, from the perspective of a researcher who aspires to obtain at least one statistically significant result, 10 participants per cell may be sufficient, despite the fact that a methodological evaluation would declare the study to be underpowered because the power for any single hypothesis is only .35.</p>
+<p>a researcher who designs a 2 $\times$ 2 study with 10 participants per cell has a 71% chance of obtaining at least
+one statistically significant result if the three effects he or she tests all reflect medium effect sizes. Of course, in
+reality, some effects will often be smaller and others will be larger, but the general point here is that the probability of
+being able to find something statistically significant and thus potentially publishable may be adequate while at the same
+time the probability associated with any specific test may be much lower. Thus, from the perspective of a researcher who
+aspires to obtain at least one statistically significant result, 10 participants per cell may be sufficient, despite the fact that a methodological evaluation would declare the study to be underpowered because the power for any single hypothesis is only .35. </p>
 </blockquote>
-<p>What motivates the researcher to keep the N small? Clearly, testing more subjects is costly. But I think that in Anova designs there is additional motivation to keep N small. If we use large N we obtain all main effects and all interactions significant. This is usually not desirable because some of the effects/interactions are not predicted by researcher's theory and non-significant main effect/interaction is taken as an evidence for a lack of this component. Then the researcher needs to find some N that balances between something significant and everything significant. In particular the prediction of significant main effects and non significant interaction is attractive because it is much easier to achieve than other patterns.</p>
-<p>Let's look at the probability of obtaining significant main effects and interaction in Anova. I'm lazy so instead of deriving closed-form results I use simulation. Let's assume 2 \(\times\) 2 Anova design where the continuous outcome is given by \(y= x_1 + x_2 + x_1 x_2 +\epsilon\) with \(\epsilon \sim \mathcal{N}(0,2)\) and \(x_1 \in \{0,1\}\) and \(x_2 \in \{0,1\}\). We give equal weight to all three terms to give them equal start. It is plausible to include all three terms, because with psychological variables everything is correlated (CRUD factor). Let's first show that the interaction requires larger sample size than the main effects.</p>
+<p>What motivates the researcher to keep the N small? Clearly, testing more subjects is costly. But I think that in Anova designs there is additional motivation to keep N small. If we use large N we obtain all main effects and all interactions significant. This is usually not desirable because some of the effects/interactions are not predicted by researcher&#39;s theory and non-significant main effect/interaction is taken as an evidence for a lack of this component. Then the researcher needs to find some N that balances between something significant and everything significant. In particular the prediction of significant main effects and non significant interaction is attractive because it is much easier to achieve than other patterns. </p>
+<p>Let&#39;s look at the probability of obtaining significant main effects and interaction in Anova. I&#39;m lazy so instead of deriving closed-form results I use simulation. Let&#39;s assume 2 $\times$ 2 Anova design where the continuous outcome is given by $y= x_1 + x_2 + x_1 x_2 +\epsilon$ with $\epsilon \sim \mathcal{N}(0,2)$ and $x_1 \in \{0,1\}$ and $x_2 \in \{0,1\}$. We give equal weight to all three terms to give them equal start. It is plausible to include all three terms, because with psychological variables everything is correlated (CRUD factor). Let&#39;s first show that the interaction requires larger sample size than the main effects.</p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[1]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="o">%</span><span class="k">pylab</span> <span class="n">inline</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
 <span class="n">Ns</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span> 
@@ -1762,13 +1774,14 @@ In&nbsp;[1]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
+<div class="output_wrapper">
+<div class="output">
 
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stdout">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
 <pre>
 Populating the interactive namespace from numpy and matplotlib
 
@@ -1776,10 +1789,10 @@ Populating the interactive namespace from numpy and matplotlib
 </div>
 </div>
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_area"><div class="prompt"></div>
 
 
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAagAAAEYCAYAAAAJeGK1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3Xl8FPXhxvHPbG5ybAIk4SbhitwGI6cEBEQEqlZFRRFE
 bD3K6YVWrWK1Vm0rBW0Fbf15oZVWq1brAVJQxGC45BDCkXAFcpA75N7v74+FSDhMgGx2N3ner1fM
@@ -2031,24 +2044,32 @@ ysvLq/egOnXqxODBgxk9ejTgnGndU675I+IKKiiRc3S8kCZNmsSSJUtOWR4REcHChQv54YcfmD59
 OgAzZszgzjvvxBhDeHg4CxYsOO1z22w27rjjDiZNmkRQUBAzZszghhtu4JFHHmHJkiUYY7j33ntr
 5BBpbDSbuYiL3HTTTactLhGpG43iE3ER7dmInB/tQYmIiEfSHpSIiHgkFZSIiHgkFZSIiHgkFZSI
 iHgkFZSIiHik/weSaecAgQg6BQAAAABJRU5ErkJggg==
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now we look at the probability that the various configurations of significant and non-significant results will be obtained.</p>
+<p>Now we look at the probability that the various configurations of significant and non-significant results will be obtained. </p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[2]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]:</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Ns</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="n">cs</span><span class="p">[:,</span><span class="n">k</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">&#39;nothing&#39;</span><span class="p">,</span><span class="s">&#39;X&#39;</span><span class="p">,</span><span class="s">&#39;B&#39;</span><span class="p">,</span><span class="s">&#39;BX&#39;</span><span class="p">,</span><span class="s">&#39;AB&#39;</span><span class="p">,</span><span class="s">&#39;ABX&#39;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -2058,15 +2079,16 @@ In&nbsp;[2]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_wrapper">
+<div class="output">
 
 
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfAAAAGoCAYAAAC5cbd8AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3Xl8VPW9//HX7DPJTCY7ISGBhCWigESRrYJsIqJFXLiC
 rSiCPxUFoWpr689768/a1rZaLmjV28XrikvdsO6NCygQyqqyL4GQAAnZZpLZl/P7I5ASCCSBTM7M
@@ -2622,20 +2644,26 @@ bUhKSgpdu3Zl1apVJ1yPrq6u5uDBg6SmpkafaNanTx8WLlyI3W4nGAxiGOGfBE1renUtIyOD/fv3
 22+/HYA77riDW265BSklaWlpLFy48KTr1jSNm2++menTp2O327njjju49tpr+dnPfsbzzz+PlJIf
 /OAHTeJQFKVlqaeRKcp54nvf+95JE7uiKIlJtUJXlPOEqhkrStuiauCKoiiKkoBUDVxRFEVREpBK
 4IqiKIqSgFQCVxRFUZQEpBK4oiiKoiQglcAVRVEUJQH9fzzuh2eLmlwEAAAAAElFTkSuQmCC
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To keep the figure from too much clutter I omitted A and AX which is due to symmetry identical to B and BX. By A I mean &quot;main effect A is significant and main effect B plus the interaction are not significant&quot;. X designates the presence of a significant interaction.</p>
+<p>To keep the figure from too much clutter I omitted A and AX which is due to symmetry identical to B and BX. By A I mean &quot;main effect A is significant and main effect B plus the interaction are not significant&quot;. X designates the presence of a significant interaction. </p>
 <p>To state the unsurprising results first, if we decrease the sample size we are more likely to obtain no significant result. If we increase the sample size we are more likely to obtain the true model ABX. Because interaction requires large sample size to reach significance for medium sample size AB is more likely than the true model ABX. Furthermore, funny things happen if we make main effects the exclusive focus of our hypothesis. In the cases A,B and AB we can find a small-to-medium sample size that is optimal if we want to get our hypothesis significant. All this can be (unconsciously) exploited by researchers to provide more power for their favored pattern.</p>
-<p>It is not difficult to see the applications. We could look up the frequency of various patterns in the psychological literature. This could be done in terms of the reported findings but also in terms of the reported hypotheses. We can also ask whether the reported sample size correlates with the optimal sample size.</p>
+<p>It is not difficult to see the applications. We could look up the frequency of various patterns in the psychological literature. This could be done in terms of the reported findings but also in terms of the reported hypotheses. We can also ask whether the reported sample size correlates with the optimal sample size. </p>
 <p>Note, that there is nothing wrong with Anova. The purpose of Anova is NOT to provide a test for composite hypotheses such as X, AB or ABX. Rather it helps us discover sources of variability that can then be subjected to a more focused analysis. Anova is an exploratory technique and should not be used for evaluating of hypotheses.</p>
 </div>
-</body>
+</div>
+</div>
 </html>

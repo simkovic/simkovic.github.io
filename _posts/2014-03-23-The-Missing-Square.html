@@ -2,6 +2,7 @@
 layout: post
 title:  The Missing Square
 ---
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -1674,7 +1675,7 @@ pre {
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-<script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
 <script type="text/javascript">
 init_mathjax = function() {
     if (window.MathJax) {
@@ -1695,21 +1696,25 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 </head>
-<body>
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>You should be familiar with the following puzzle.</p>
-<div class="figure">
-<img src="http://www.nobeliefs.com/puzzles/triangle-puzzle.gif" /><p class="caption"></p>
+<p><img src="http://www.nobeliefs.com/puzzles/triangle-puzzle.gif" alt=" "></p>
+<p>There is very similar puzzle that has some mathematical background in Fibonacci numbers. Recall Fibonacci numbers are given by $F_n = F_{n-1}+F_{n-2}, F_0 = 0, F_1=1$. A more pythonic way to write this is </p>
 </div>
-<p>There is very similar puzzle that has some mathematical background in Fibonacci numbers. Recall Fibonacci numbers are given by \(F_n = F_{n-1}+F_{n-2}, F_0 = 0, F_1=1\). A more pythonic way to write this is</p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[1]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="o">%</span><span class="k">pylab</span> <span class="n">inline</span>
 <span class="k">def</span> <span class="nf">fibo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">(((</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">5</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="n">n</span><span class="o">/</span><span class="mi">5</span><span class="o">**</span><span class="mf">0.5</span><span class="o">+</span><span class="mf">0.5</span><span class="p">)</span>
 
@@ -1719,13 +1724,14 @@ In&nbsp;[1]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
+<div class="output_wrapper">
+<div class="output">
 
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stdout">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
 <pre>
 Populating the interactive namespace from numpy and matplotlib
 [   0    1    1    2    3    5    8   13   21   34   55   89  144  233  377
@@ -1739,15 +1745,22 @@ Populating the interactive namespace from numpy and matplotlib
 </div>
 
 </div>
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now reading Concrete Mathematics (Graham et al., 1989) I discovered the following thing. Cassini's equality is given by \(F_{n+1} F_{n-1}= F_n^2 +(-1)^n\). This can be proven by induction. The equality has a following interpretation. For each square whose size is a Fibonacci number \(F_n\) there exists a rectangle with the same area give or take one square. The size of the rectanble is \(F_{n+1} \times F_{n-1}\). We can then divide the square and the rectanble in a particular manner to fool the unwary into thinking that the areas of the two objects should be equal.</p>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now reading Concrete Mathematics (Graham et al., 1989) I discovered the following thing. Cassini&#39;s equality is given by $F_{n+1} F_{n-1}= F_n^2 +(-1)^n$. This can be proven by induction. The equality has a following interpretation. For each square whose size is a Fibonacci number $F_n$ there exists a rectangle with the same area give or take one square. The size of the rectanble is $F_{n+1} \times F_{n-1}$. We can then divide the square and the rectanble in a particular manner to fool the unwary into thinking that the areas of the two objects should be equal. </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[5]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
 <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span><span class="n">e</span><span class="o">=</span><span class="mi">9</span>
 <span class="k">for</span> <span class="n">N</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">e</span><span class="p">):</span>
@@ -1790,15 +1803,16 @@ In&nbsp;[5]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_wrapper">
+<div class="output">
 
 
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgsAAANYCAYAAABKMq4jAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3XtcVPW6P/APThoWCmmoSCJaCYgXRMO2blFMQRQvMOQN
 Lwxq1sZr7tRfbjU9ZkneQKM82IBAG/aJi6IgqeFWEwPFOymWgqLA1vJ4aG+2pTi/PzozBwSGmWFm
@@ -2382,19 +2396,25 @@ BXSIFgQABBthAR2iBQEAwUZYQIdoQQBAsBEWYAktCAAILsICLKEFAQDBZSQs7Nq1y8RlHdXQ0GC6
 BMfQggCAYCMs2KSxsdF0CY6hBQEAwUYbAm2KRqPxr2lBAECwERbQpvfffz/+NS0IAAi2jGjr/wuZ
 JkVFRfr666/jr3NycpSTk5PuMmwViUQ8/x7a4of3FYlEFIlE4q/79++v8vJycwUBgMcYCQsAAMA7
 aEMAAICECAsAACAhwgIAAEiIsAAAABIiLAAAgIT+H9HmPPHkHcMcAAAAAElFTkSuQmCC
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's focus on the \(n=8\) row. The rectangle on right was created by reassembling the parts of the square on the left. But wait, the square on the left has area \(13 \times 13 = 169\) while the rectanlge on right has area \(8 \times 21 = 168\) where is the missing square?</p>
-<p>As the \(n\) decreases we start to see that the lines of the nominally identical parts do not touch in the rectangle on the right. The parts are not identical.</p>
-<p>Rectangle with missing square with which I started this post also has some Fibonacci numbers. Unfortunately, it can't be generalized to create larger or smaller problems.</p>
+<p>Let&#39;s focus on the $n=8$ row. The rectangle on right was created by reassembling the parts of the square on the left. But wait, the square on the left has area $13 \times 13 = 169$ while the rectanlge on right has area $8 \times 21 = 168$ where is the missing square?</p>
+<p>As the $n$ decreases we start to see that the lines of the nominally identical parts do not touch in the rectangle on the right. The parts are not identical. </p>
+<p>Rectangle with missing square with which I started this post also has some Fibonacci numbers. Unfortunately, it can&#39;t be generalized to create larger or smaller problems. </p>
 </div>
-</body>
+</div>
+</div>
 </html>

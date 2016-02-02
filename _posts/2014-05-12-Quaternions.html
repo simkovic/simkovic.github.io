@@ -2,6 +2,7 @@
 layout: post
 title:  Quaternions
 ---
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -1674,7 +1675,7 @@ pre {
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-<script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
 <script type="text/javascript">
 init_mathjax = function() {
     if (window.MathJax) {
@@ -1695,19 +1696,26 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 </head>
-<body>
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Consider a set of coordinates that form an object - e.g. house.</p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[11]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="o">%</span><span class="k">pylab</span> <span class="n">inline</span>
-<span class="n">D</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">D</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
 <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">D</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">D</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
@@ -1718,13 +1726,14 @@ In&nbsp;[11]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
+<div class="output_wrapper">
+<div class="output">
 
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stdout">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
 <pre>
 Populating the interactive namespace from numpy and matplotlib
 
@@ -1732,10 +1741,10 @@ Populating the interactive namespace from numpy and matplotlib
 </div>
 </div>
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_area"><div class="prompt"></div>
 
 
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAW8AAAEYCAYAAACTG3dtAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAFnFJREFUeJzt3V1oVPn9x/GP2Wi0MU8LqwVLO7tYsNsmG0VkZyfJTmIm
 uJCG2qXQUKFEGoqUGVfBWJqLzMXaKigp5qKWPtgHai/Sm//SZZfVmCF90NhUjI1SWi8Guo1tDRpn
@@ -1839,25 +1848,33 @@ uXPnLK/Xa7W0tFj/+Mc/Mv32SxKLxaz29nbrtddes37+859blmWlzLh9+3arsbHRamtrsyYnJ3M+
 23wff/yxtXPnTqumpsZqbW21RkdHXbmXTnO6ZS/PnDljvfDCC5bf77f8fr914cIFV+6l05xu2cv/
 +7//s15//XWrqanJ+vrXv24lEoll7SUP6QCAgXhIBwAMRLwBwEDEGwAMRLwBwEDEGwAMRLwBwEDE
 GwAM9P9rxJKuNbacWgAAAABJRU5ErkJggg==
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now we wish to rotate the house by an angle \(\phi\). We can achieve this by multiplying the coordinates with a rotation matrix</p>
-<p>\[R=\begin{pmatrix} \cos \phi &amp; \sin \phi \\ -\sin \phi &amp; \cos \phi \end{pmatrix}\]</p>
+<p>Now we wish to rotate the house by an angle $\phi$. We can achieve this by multiplying the coordinates with a rotation matrix</p>
+<p>$$R=\begin{pmatrix} \cos \phi &amp; \sin \phi \\ -\sin \phi &amp; \cos \phi \end{pmatrix}$$</p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[2]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">phi2R</span><span class="p">(</span><span class="n">phi</span><span class="p">):</span>
     <span class="n">c</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">);</span><span class="n">s</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="n">c</span><span class="p">,</span><span class="n">s</span><span class="p">],[</span><span class="o">-</span><span class="n">s</span><span class="p">,</span><span class="n">c</span><span class="p">]])</span>
@@ -1872,15 +1889,16 @@ In&nbsp;[2]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_wrapper">
+<div class="output">
 
 
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAagAAAEYCAYAAAAJeGK1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3X1UVHXiBvAHRJBFBCyVspLSk5ZpauYRERwQrPaYW8dk
 QBCVFNScCUHAwoR+vpsINqLiioIgOFieNntxVYK0UkzdVNwyzcb3TEUETBkH7u+PXWfDl4GRge+d
@@ -2054,24 +2072,32 @@ Z8+elQICAiRvb29px44dIiM26H77EB0dLfn4+Eje3t7Srl27REY06datW9Lw4cMlDw8PKTAwUCot
 LbWqeTCV31rmID8/X+rUqZOkUCgkhUIh7dmzx6rmQJJM74M1zMM//vEPadiwYZKfn580fvx4yWAw
 PNAc8EZdIiKSJd6oS0REssSCIiIiWWJBERGRLLGgiIhIllhQREQkSywoIiKSJRYUERHJ0v8DcQIr
 m3lma2QAAAAASUVORK5CYII=
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Here we rotate around the origin at (0,0). We can easily rotate around any other point by first translating to the origin, rotating and then translating back. Here we rotate around (1.5,1.5) which is the middle of the house.</p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[3]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">],</span><span class="n">ndmin</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">Dnew2</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">D</span><span class="o">-</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">R</span><span class="p">)</span><span class="o">+</span><span class="n">t</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">D</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">D</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
@@ -2084,15 +2110,16 @@ In&nbsp;[3]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_wrapper">
+<div class="output">
 
 
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAagAAAEYCAYAAAAJeGK1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3Xl0FGW+P/53J+lOQpbOHhKydLeIeL0sOn4xO51AAmNC
 FMGRAFcR9CrXmwgO4IIKHpFBL1wQZFzQYQREZHFBHVAIiWFJx0EQBIcr0Es6kA2yr51O6vfH/NJD
@@ -2331,24 +2358,32 @@ HwuCIHTZh3vvvVdITEwU0tLShIsXLzqy1C6effZZITExUcjJyREE4Z83IwVBEEpKSoSUlBQhNjZW
 bN26VQgODhbUarWgVquFwsJCpzoGgtD9PjjDcfjqq6+EsWPHCklJScJjjz0mmM3mXh0DPqhLRESi
 xAd1iYhIlBhQREQkSgwoIiISJQYUERGJEgOKiIhEiQFFRESixIAiIiJR+v8ACH1HhHVDoQ0AAAAA
 SUVORK5CYII=
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Finally, given two rotations \(R_0=R(\theta_0)\) and \(R_T=R(\theta_T)\) we can interpolate the intermediate steps \(t=1,\dots,T-1\) between these two rotations with \(R_t=R(\alpha (\theta_T-\theta_0))\) where \(\alpha \in [0,1]\) is the mixing coefficient.</p>
+<p>Finally, given two rotations $R_0=R(\theta_0)$ and $R_T=R(\theta_T)$ we can interpolate the intermediate steps  $t=1,\dots,T-1$ between these two rotations with $R_t=R(\alpha (\theta_T-\theta_0))$ where $\alpha \in [0,1]$ is the mixing coefficient.</p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[4]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="n">R2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">th</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
@@ -2364,15 +2399,16 @@ In&nbsp;[4]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_wrapper">
+<div class="output">
 
 
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA1gAAACVCAYAAABFAVtfAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3XlYjen/B/B3GMsQ2smuUllLEspSNJaMLYZCZJmxpRhr
 SIsljDVmhrFHhcpalkLWEW0YKkINIluotJ/P74/5nb6iUp1nOdX9uq65Zuqc574/nDn1vM+9KRAR
@@ -2811,29 +2847,39 @@ znQYqPLycgwdOhSnT59Gnz59sGTJEqSmpuLf//43/vCHP+DHH3/ke9bAvDqm8+fPx/Dhw9GnTx8A
 wLRp0xAQECBzlFRTL46rs7Mzli1bBldXVwBvvmfiOlhEREREREQSYVEoERERERGRRJhgERERERER
 SYQJFhERERERkUSYYBEREREREUmECRYREREREZFEmGARERERERFJhAkWERERERGRRJhgERERERER
 SeT/AOJc7w2qhkpsAAAAAElFTkSuQmCC
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now we look at rotations in 3D. Again, consider a collection of points.</p>
+<p>Now we look at rotations in 3D. Again, consider a collection of points. </p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[5]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
 <span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s">&#39;3d&#39;</span><span class="p">)</span>
-<span class="n">D</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
-            <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">D</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">D</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">D</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">D</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;y&#39;</span><span class="p">);</span>
@@ -2841,15 +2887,16 @@ In&nbsp;[5]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_wrapper">
+<div class="output">
 
 
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAagAAAEYCAYAAAAJeGK1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsfXl4FGX29elOL+l0FvY1EMhGEgj7IKhsA4MLi0AwuDDj
 Mrih4vjNjOiMjjqjPuNIAINgICKKKAIJaxBlAGVRRBEJiAmQjWEzrEk6vaa76/sjv7esrlR1V1VX
@@ -3552,25 +3599,33 @@ tTYe1gVPUDx41FJokroTmDrCoiYPvUWLFqF///5YtGiR0e/BgwfvJMGDRy3Es2fPMGLECKSkpFRT
 Ex4+fBgnTpzA9u3brbQ6Hjz0Ay+S4MGjlkGX1J2MsDh+/LiVVseDh/7gIygePGoZkpOTMX36dAQE
 BABQl7oPGjQIhYWF8PDwgLu7O44cOWLl1fLgoR08QfHgwYMHD5sEL5LgwYMHDx42CZ6gePDgwYOH
 TYInKB48ePDgYZPgCYoHDx48eNgk/h+J8F4XIJ5EsgAAAABJRU5ErkJggg==
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Rotation is not so straight-forward because there are three axes. We can rotate around the z axis by multiplying the coordinates with</p>
-<p>\[R_z=\begin{pmatrix}  \cos \phi &amp; \sin \phi &amp; 0 \\ -\sin \phi &amp; \cos \phi &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix} \]</p>
+<p>$$R_z=\begin{pmatrix}  \cos \phi &amp; \sin \phi &amp; 0 \\ -\sin \phi &amp; \cos \phi &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix} $$ </p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[6]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="n">phi</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">4.</span>
 <span class="n">c</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">);</span><span class="n">s</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
 <span class="n">R</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="n">c</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="n">s</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
@@ -3582,15 +3637,16 @@ In&nbsp;[6]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_wrapper">
+<div class="output">
 
 
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAagAAAEYCAYAAAAJeGK1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsvXmcFNXVPv703tPTs8IMIgZcQBGRRRZhWNxiMFHUmDdC
 UCNBAoggbiyyyioqIIIaohJFMWje+GqiiZhIomwjigqR5OuaYBQUHGa6Z6b3pX5/zO8Ut2uqqmvt
@@ -4296,48 +4352,66 @@ nGjwGJoKbq9cuYJjx45h7ty5mDNnDm+ceBgM3oPiweMZgyYixvz585GSkgI3NzcMHToUkZGRsLa2
 1nsMS0tLnD59WuG1vn37Kvz/5MmTDZg9Dx7/gPegePB4xqCJiFFdXQ17e3tYWVnBwsICDQ0NTTVN
 Hjy0gjdQPHg8Y9BGxHj55ZcxcOBAvPTSSzQUyINHcwQvdcSDBw8ePJoleA+KBw8ePHg0S/AGigcP
 Hjx4NEvwBooHDx48eDRL8AaKBw8ePHg0S/wfNeROGxclr/oAAAAASUVORK5CYII=
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can similarly rotate around y and x axis with</p>
-<p>\[R_y=\begin{pmatrix}  \cos \phi &amp; 0 &amp; \sin \phi \\ 0 &amp; 1 &amp; 0 \\ -\sin \phi &amp; 0 &amp;\cos \phi  \end{pmatrix} \]</p>
-<p>\[R_x=\begin{pmatrix}  1 &amp; 0 &amp; 0 \\ 0 &amp; \cos \phi &amp; \sin \phi \\ 0 &amp; -\sin \phi &amp; \cos \phi \end{pmatrix} \]</p>
-<p>We can then perform any desired rotation by rotating \(\phi_x, \phi_y,\phi_z\) consecutively along the \(x,y,z\) axis. In this case (which depends on the order of the axes, i.e. formula for \(z,y,x\) has different form) the resulting formula is given by \(R_x \cdot R_y \cdot R_z\) which is</p>
+<p>We can similarly rotate around y and x axis with </p>
+<p>$$R_y=\begin{pmatrix}  \cos \phi &amp; 0 &amp; \sin \phi \\ 0 &amp; 1 &amp; 0 \\ -\sin \phi &amp; 0 &amp;\cos \phi  \end{pmatrix} $$ </p>
+<p>$$R_x=\begin{pmatrix}  1 &amp; 0 &amp; 0 \\ 0 &amp; \cos \phi &amp; \sin \phi \\ 0 &amp; -\sin \phi &amp; \cos \phi \end{pmatrix} $$ </p>
+<p>We can then perform any desired rotation by rotating $\phi_x, \phi_y,\phi_z$ consecutively along the $x,y,z$ axis. In this case (which depends on the order of the axes, i.e. formula for $z,y,x$ has different form) the resulting formula is given by $R_x \cdot R_y \cdot R_z$ which is</p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[7]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">phi2R</span><span class="p">(</span><span class="n">phi</span><span class="p">):</span>
     <span class="n">c</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">);</span><span class="n">s</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
     <span class="n">out</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="o">-</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span>
-             <span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="o">-</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
-             <span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]]])</span>
+             <span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+              <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="o">-</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
+             <span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+              <span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]]])</span>
     <span class="k">return</span> <span class="n">out</span>
 </pre></div>
 
 </div>
 </div>
+</div>
 
 </div>
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>How should we interpolate intermediate rotation steps? One possible approach that won't work is to interpolate the rotation matrices \(R_t= \alpha R_0 + (1-\alpha) R_T\).</p>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>How should we interpolate intermediate rotation steps? One possible approach that won&#39;t work is to interpolate the rotation matrices $R_t= \alpha R_0 + (1-\alpha) R_T$.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[8]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">phi</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">4.</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">2.</span><span class="p">])</span>
 <span class="n">R1</span><span class="o">=</span><span class="n">phi2R</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
@@ -4362,15 +4436,16 @@ In&nbsp;[8]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_wrapper">
+<div class="output">
 
 
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfAAAAK8CAYAAAAQ3u1sAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsXXd4FOX2frdkN5tC6CWCIIRQAoQoBEILXXqTJkV+1FCk
 iIIgUrwCQkAE5IIgiEi9gkhJAJHeWy4QaUJAREGlhZTdZPvvD+75+HYyszsbdhOi+z6Pj5qd2f1m
@@ -7848,15 +7923,16 @@ OgYOHAgLCwvMmjULOjo6sLGx6TI5hIOjp3B65FA3OE0qwZu0geuvtLS00Lx58+Q8pRmKi4vJ1dWV
 mpqa3sDIOPojnB451A1Ok8qhRdSmeI/jlZOUlIS1a9fC3NwcALBr1y6cOnUK8fHxcHd3R1VVFYyM
 jMDn85GRkfGGR8vR1+H0yKFucJpUDm4B5+Dg4ODg0EC4M3AODg4ODg4NhFvAOTg4ODg4NJD/AeTj
 5Yq4tbxcAAAAAElFTkSuQmCC
-">
+"
+>
+</div>
 
 </div>
-</div>
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_area"><div class="prompt"></div>
 
 
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAagAAAEYCAYAAAAJeGK1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3XlYE1fbBvA7EEBERFCiImpdENRWigUpiFgpuG8VkU1E
 wKpA2MStyiKbWrGCyCaKCygg4GutWotKW5dXhLqgBSu1bnWriLKJRQTy/eFLvlKFBCSZJDy/6/Jq
@@ -8146,25 +8222,33 @@ hQsXwtnZmX+kFxgY2Gp2FouFJUuWYP78+VBWVgaXy+Vv09PTQ69eveDk5AQWi4Xp06dj7Nix/Daa
 /qmpqYmKigr4+PggNDQUampqbexRQjoOjeIjRAQaGhogLy+P77//Hg8ePMDixYuZjkSI1KEjKEJE
 ICoqCoWFhZCXl0d0dDTTcQiRSnQERQghRCLRMHNCCCESiQoUIYQQiUQFihBCiESiAkUIIUQiUYEi
 hBAikf4P0k+/1EHZEqoAAAAASUVORK5CYII=
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We see that the intermediate steps do not describe the shortest path between the initial and final rotations. In particular compare step 5 to step 1 and step 12. More seriously, the intermediate matrices are not proper rotation matrices - they do not preserve the length of the lines. This can be seen in the bottom graph.</p>
+<p>We see that the intermediate steps do not describe the shortest path between the initial and final rotations. In particular compare step 5 to step 1 and step 12. More seriously, the intermediate matrices are not proper rotation matrices - they do not preserve the length of the lines. This can be seen in the bottom graph.  </p>
 <p>As in 2D we can interpolate by scaling the rotation angles and then multiply with a rotation matrix corresponding to the scaled angles.</p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[9]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">d</span><span class="o">=</span><span class="p">[]</span>
 <span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="o">-</span><span class="mf">0.5</span><span class="p">],</span><span class="n">ndmin</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span><span class="n">k</span><span class="o">=</span><span class="mi">1</span>
@@ -8186,15 +8270,16 @@ In&nbsp;[9]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_wrapper">
+<div class="output">
 
 
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfAAAAK8CAYAAAAQ3u1sAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsXXV4k+fXvpNUU0OGFoYMl0IZo5QalBb3DRmwMdxtw2HY
 sCFDh8s2YMiAoT+0FIoPKDJgOBQGA0aRSpJGvz/6nYcnb98oSUtZ7uvadY0mr+TNydH7nCMxGAwG
@@ -11883,15 +11968,16 @@ cHFxwZtvvglTU1N07NhRJznECCMqCqM8GlHVYJRJPfAsx8C9rCguLhb69++vMVOaEBsbK7i7uwuF
 hYXP4MqMeBlhlEcjqhqMMqkfFIIgat4z4qlj27ZtmDp1Klq1agUA+Oabb/Dbb78hODgYnp6euH//
 PmrWrAl7e3uEh4c/46s14kWHUR6NqGowyqR+MBpwI4wwwggjjHgOYayBG2GEEUYYYcRzCKMBN8II
 I4wwwojnEP8HjYyU4b2R+t4AAAAASUVORK5CYII=
-">
+"
+>
+</div>
 
 </div>
-</div>
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_area"><div class="prompt"></div>
 
 
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAagAAAEYCAYAAAAJeGK1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3XtUVOXCBvBnYGREnAZQxkQqzVTMxOQgOICYiMppWZkc
 jxcS1FHrGKKm4lkfXkJFyUsS3sAk84YelGNHM6/Y8rK45QUMTTQvlUIiyTCIojHM94fLKdJhD9bM
@@ -12061,39 +12147,47 @@ N55//nnEx8cjPDwc4eHhhu+gJBIJxowZg8jISMOe3pw5c+rNLpFI8O677+Kdd96Bo6MjoqKiDOs8
 PT3RunVrjB49GhKJBIMHD0ZAQIBhG4/+dHNzg0ajwZQpUzB//nwoFIoGjijRX4dn8RGZgU6ng729
 Pb766itcv34dEydOtHYkokaHe1BEZrBixQrk5+fD3t4eiYmJ1o5D1ChxD4qIiESJp5kTEZEosaCI
 iEiUWFBERCRKLCgiIhIlFhQREYnS/wNEM788tQjEhQAAAABJRU5ErkJggg==
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This method works well. The bottom graph shows that the line length is preserved</p>
 <p>Another alternative is to use quaternions to rotate. Quaternion is a four element vector given by</p>
-<p>\[ \begin{pmatrix} \mathbf{n}\cdot sin \frac{\theta}{2} \\ \cos \frac{\theta}{2} \end{pmatrix}\]</p>
-<p>and describes the rotation by \(\theta\) radians around the axis \(\mathbf{n}\) which is given as a unit-norm vector.</p>
-<p>The quaternion representation is minimal and hence more elegant than rotation along three angles. The later requires three angles and the choice of the three axes - 6 parameters in total. The quaternion representations requires only four parameters. Often it is also easier to use. Let's look at quaternions in more detail.</p>
+<p>$$ \begin{pmatrix} \mathbf{n}\cdot sin \frac{\theta}{2} \\ \cos \frac{\theta}{2} \end{pmatrix}$$ </p>
+<p>and describes the rotation by $\theta$ radians around the axis $\mathbf{n}$ which is given as a unit-norm vector.</p>
+<p>The quaternion representation is minimal and hence more elegant than rotation along three angles. The later requires three angles and the choice of the three axes - 6 parameters in total. The quaternion representations requires only four parameters. Often it is also easier to use. Let&#39;s look at quaternions in more detail.</p>
 <p>Quaternion multiplication is defined by</p>
-<p>\[ \begin{pmatrix} \mathbf{n_1} \\ w_1 \end{pmatrix} \begin{pmatrix} \mathbf{n_2} \\ w_2 \end{pmatrix}= \begin{pmatrix} w_1\mathbf{n_2}+w_2\mathbf{n_1}+ \mathbf{n_1}\times \mathbf{n_2}\\ w_1 w_2-\mathbf{n_1}\mathbf{n_2} \end{pmatrix} \]</p>
-<p>where \(\times\) is the vector cross-product.</p>
-<p>We use this multiplication to rotate a point. First we turn the 3-coordinate vector \(\mathbf{c}\) into quaternion and then we use quaternion multiplication twice to obtain the rotated vector \(\mathbf{c}&#39;\)</p>
-<p>\[ \begin{pmatrix} \mathbf{c}&#39; \\ 0 \end{pmatrix} = \begin{pmatrix} \mathbf{n}\cdot \sin (\theta /2) \\ \cos (\theta / 2) \end{pmatrix}   \begin{pmatrix} \mathbf{c} \\ 0 \end{pmatrix} \begin{pmatrix} -\mathbf{n}\cdot \sin (\theta /2) \\ \cos (\theta /2) \end{pmatrix}\]</p>
-<p>By aplying this formula twice we see that consecutive rotation by quaternions \(q_1\) and \(q_2\) is equal to a rotation by a quaternion \(q_3=q_1 q_2\).</p>
-<p>As a consequence rotating twice by \(q\) is equal to quaternion multiplication by</p>
-<p>\[q^2 = \begin{pmatrix} \mathbf{n}\cdot \sin (2 \theta /2) \\ \cos (2 \theta /2) \end{pmatrix}\]</p>
-<p>and it can be shown that in general</p>
-<p>\[q^\alpha = \begin{pmatrix} \mathbf{n}\cdot \sin (\alpha \theta /2) \\ \cos (\alpha \theta /2) \end{pmatrix}\]</p>
-<p>With this formula we can create quaternions with \(\alpha \in [0,1]\) that describe the intermediate rotation steps.</p>
+<p>$$ \begin{pmatrix} \mathbf{n_1} \\ w_1 \end{pmatrix} \begin{pmatrix} \mathbf{n_2} \\ w_2 \end{pmatrix}= \begin{pmatrix} w_1\mathbf{n_2}+w_2\mathbf{n_1}+ \mathbf{n_1}\times \mathbf{n_2}\\ w_1 w_2-\mathbf{n_1}\mathbf{n_2} \end{pmatrix} $$</p>
+<p>where $\times$ is the vector cross-product.</p>
+<p>We use this multiplication to rotate a point. First we turn the 3-coordinate vector $\mathbf{c}$ into quaternion and then we use quaternion multiplication twice to obtain the rotated vector $\mathbf{c}'$ </p>
+<p>$$ \begin{pmatrix} \mathbf{c}' \\ 0 \end{pmatrix} = \begin{pmatrix} \mathbf{n}\cdot \sin (\theta /2) \\ \cos (\theta / 2) \end{pmatrix}   \begin{pmatrix} \mathbf{c} \\ 0 \end{pmatrix} \begin{pmatrix} -\mathbf{n}\cdot \sin (\theta /2) \\ \cos (\theta /2) \end{pmatrix}$$</p>
+<p>By aplying this formula twice we see that consecutive rotation by quaternions $q_1$ and $q_2$ is equal to a rotation by a quaternion $q_3=q_1 q_2$.</p>
+<p>As a consequence rotating twice by $q$ is equal to quaternion multiplication by </p>
+<p>$$q^2 = \begin{pmatrix} \mathbf{n}\cdot \sin (2 \theta /2) \\ \cos (2 \theta /2) \end{pmatrix}$$ </p>
+<p>and it can be shown that in general </p>
+<p>$$q^\alpha = \begin{pmatrix} \mathbf{n}\cdot \sin (\alpha \theta /2) \\ \cos (\alpha \theta /2) \end{pmatrix}$$ </p>
+<p>With this formula we can create quaternions with $\alpha \in [0,1]$ that describe the intermediate rotation steps. </p>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
 In&nbsp;[10]:
 </div>
-<div class="input_area box-flex1">
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">quaternion</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">phi</span><span class="p">):</span>
     <span class="n">q</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
     <span class="n">q</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span><span class="o">=</span><span class="n">n</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span>
@@ -12142,15 +12236,16 @@ In&nbsp;[10]:
 
 </div>
 </div>
+</div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_wrapper">
+<div class="output">
 
 
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfAAAAK8CAYAAAAQ3u1sAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsfXd4VOX29ZqeHkJIgNBbQkBAivADApiEKiBNSugdUaQo
 RToi4AUEFC7SREVCMZQPCUWRUCKICkgRpbcgoYaQMpPp8/2Ru1/OnJypmUkyOOt5eICZ02efd7e1
@@ -15429,15 +15524,16 @@ y4chA39DoF7QL7/8UurfQkJCYGJigiZNmqBr164wMjJCmzZtdJJDDDDgeWGwRwPKGww2qQfepAzc
 u4rCwkKhd+/eaprShLi4OMHR0VFQKBRv4MoMeBdhsEcDyhsMNqkfZIIgGt4z4JVj165dmDJlCho3
 bgwA+OGHH7Bz506sWbMGLi4uSEpKQrVq1WBjY4PQ0NA3fLUGvO0w2KMB5Q0Gm9QPhgBugAEGGGCA
 ARUQhh64AQYYYIABBlRAGAK4AQYYYIABBlRA/B+AaUaKeTrUFgAAAABJRU5ErkJggg==
-">
+"
+>
+</div>
 
 </div>
-</div>
 
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
+<div class="output_area"><div class="prompt"></div>
 
 
+<div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAagAAAEYCAYAAAAJeGK1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3XtUVOXCBvBnYGREnAZQxkQqzVTMxOQgOICYiMppWZkc
 jxcS1FHrGKKm4lkfXkJFyUsS3sAk84YelGNHM6/Y8rK45QUMTTQvlUIiyTCIojHM94fLKdJhD9bM
@@ -15607,17 +15703,23 @@ N55//nnEx8cjPDwc4eHhhu+gJBIJxowZg8jISMOe3pw5c+rNLpFI8O677+Kdd96Bo6MjoqKiDOs8
 PT3RunVrjB49GhKJBIMHD0ZAQIBhG4/+dHNzg0ajwZQpUzB//nwoFIoGjijRX4dn8RGZgU6ng729
 Pb766itcv34dEydOtHYkokaHe1BEZrBixQrk5+fD3t4eiYmJ1o5D1ChxD4qIiESJp5kTEZEosaCI
 iEiUWFBERCRKLCgiIhIlFhQREYnS/wNEM788tQjEhQAAAABJRU5ErkJggg==
-">
+"
+>
+</div>
+
+</div>
 
 </div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The quaternion rotation provides the correct solution. The bottom graph shows that the line length is preserved.</p>
 </div>
-</body>
+</div>
+</div>
 </html>
