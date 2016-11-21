@@ -5,6 +5,8 @@ title:  Reference
 
 Bishof, N. (2008). Psychologie – Ein Grundkurs für Anspruchsvolle. Kohlhammer, Stuttgart.
 
+Bishop, C. (2006). Pattern Recognition and Machine Learning. Springer.
+
 Cumming, G. (2013). Understanding the new statistics: Effect sizes, confidence intervals, and meta-analysis. Routledge.
 
 Cumming, G. (2014). The new statistics why and how. Psychological science
@@ -20,6 +22,8 @@ Gelman, A., Carlin, J. B., Stern, H. S., Dunson, D. B., Vehtari, A., & Rubin, D.
 Gelman, A., & Stern, H. (2006). The difference between “significant” and “not significant” is not itself statistically significant. The American Statistician, 60(4), 328-331.
 
 Gelman, A., & Hill, J. (2007). Data analysis using regression and multilevel/hierarchical models. Cambridge University Press.
+
+Gelman, A., Hill, J., & Yajima, M. (2012). Why we (usually) don't have to worry about multiple comparisons. Journal of Research on Educational Effectiveness, 5(2), 189-211.
 
 Gelman, A., & Shalizi, C. R. (2013). Philosophy and the practice of Bayesian statistics. British Journal of Mathematical and Statistical Psychology, 66(1), 8-38.
 
@@ -48,6 +52,8 @@ Oaksford, M., & Chater, N. (1998). Rationality in an uncertain world: Essays on 
 Pearl, J. (2000). Causality: models, reasoning and inference. Cambridge: MIT press.
 
 Pratt, J. W. (1962). On the foundations of statistical inference: Discussion. Journal of the American Statistical Association, 57, 314-315.
+
+Rotello, C. M., Heit, E., & Dube, C. (2015). When more data steer us wrong: replications with the wrong dependent measure perpetuate erroneous conclusions. Psychonomic bulletin & review, 22(4), 944-954.
 
 Skinner, B.F. (1959) A case history in scientific method. The American Psychologist. 221-233.
 
