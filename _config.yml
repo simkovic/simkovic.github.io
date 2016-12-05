@@ -1,5 +1,5 @@
 name: Mozgostroje
 description: Research blog
 url: http://simkovic.github.io
-markdown: redcarpet
+markdown: kramdown
 pygments: true
