@@ -1697,23 +1697,20 @@ init_mathjax();
 </script>
 </head>
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Consider a set of coordinates that form an object - e.g. house.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[11]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="o">%</span><span class="k">pylab</span> <span class="n">inline</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pylab</span> inline
 <span class="n">D</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">],</span>
             <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
 <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
@@ -1724,7 +1721,7 @@ In&nbsp;[11]:
 <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -1732,16 +1729,22 @@ In&nbsp;[11]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Populating the interactive namespace from numpy and matplotlib
+<div class="output_area">
 
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Populating the interactive namespace from numpy and matplotlib
 </pre>
 </div>
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -1858,24 +1861,20 @@ GwAM9P9rxJKuNbacWgAAAABJRU5ErkJggg==
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Now we wish to rotate the house by an angle $\phi$. We can achieve this by multiplying the coordinates with a rotation matrix</p>
-<p>$$R=\begin{pmatrix} \cos \phi &amp; \sin \phi \\ -\sin \phi &amp; \cos \phi \end{pmatrix}$$</p>
+$$R=\begin{pmatrix} \cos \phi &amp; \sin \phi \\ -\sin \phi &amp; \cos \phi \end{pmatrix}$$
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[2]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">phi2R</span><span class="p">(</span><span class="n">phi</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">phi2R</span><span class="p">(</span><span class="n">phi</span><span class="p">):</span>
     <span class="n">c</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">);</span><span class="n">s</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="n">c</span><span class="p">,</span><span class="n">s</span><span class="p">],[</span><span class="o">-</span><span class="n">s</span><span class="p">,</span><span class="n">c</span><span class="p">]])</span>
 <span class="n">R</span><span class="o">=</span><span class="n">phi2R</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">4.</span><span class="p">)</span>
@@ -1887,7 +1886,7 @@ In&nbsp;[2]:
 <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -1895,7 +1894,11 @@ In&nbsp;[2]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -2082,33 +2085,30 @@ m3lma2QAAAAASUVORK5CYII=
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Here we rotate around the origin at (0,0). We can easily rotate around any other point by first translating to the origin, rotating and then translating back. Here we rotate around (1.5,1.5) which is the middle of the house.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[3]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">],</span><span class="n">ndmin</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">],</span><span class="n">ndmin</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">Dnew2</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">D</span><span class="o">-</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">R</span><span class="p">)</span><span class="o">+</span><span class="n">t</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">D</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">D</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Dnew2</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">Dnew2</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Dnew2</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">Dnew2</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -2116,7 +2116,11 @@ In&nbsp;[3]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -2368,36 +2372,33 @@ SUVORK5CYII=
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Finally, given two rotations $R_0=R(\theta_0)$ and $R_T=R(\theta_T)$ we can interpolate the intermediate steps  $t=1,\dots,T-1$ between these two rotations with $R_t=R(\alpha (\theta_T-\theta_0))$ where $\alpha \in [0,1]$ is the mixing coefficient.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[4]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="n">R2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">th</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">th2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">R2</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
 <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span>
     <span class="n">Rnew</span><span class="o">=</span><span class="n">phi2R</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="n">th</span><span class="o">-</span><span class="n">th2</span><span class="p">)</span><span class="o">+</span><span class="n">th2</span><span class="p">)</span>
     <span class="n">Dnew</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">D</span><span class="o">-</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">Rnew</span><span class="p">)</span><span class="o">+</span><span class="n">t</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">a</span><span class="o">*</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">ndmin</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Dnew</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">Dnew</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s">&#39;k&#39;</span><span class="p">)</span>
-    <span class="c">#print np.linalg.norm(Dnew[0,:]-Dnew[1,:])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Dnew</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">Dnew</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="c1">#print np.linalg.norm(Dnew[0,:]-Dnew[1,:])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -2405,7 +2406,11 @@ In&nbsp;[4]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -2857,35 +2862,32 @@ SeT/AOJc7w2qhkpsAAAAAElFTkSuQmCC
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now we look at rotations in 3D. Again, consider a collection of points. </p>
+<p>Now we look at rotations in 3D. Again, consider a collection of points.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[5]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="k">import</span> <span class="n">Axes3D</span>
 <span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
 <span class="n">D</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
     <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
     <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
     <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">D</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">D</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">D</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;y&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">);</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -2893,7 +2895,11 @@ In&nbsp;[5]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -3609,33 +3615,30 @@ TYInKB48ePDgYZPgCYoHDx48eNgk/h+J8F4XIJ5EsgAAAABJRU5ErkJggg==
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Rotation is not so straight-forward because there are three axes. We can rotate around the z axis by multiplying the coordinates with</p>
-<p>$$R_z=\begin{pmatrix}  \cos \phi &amp; \sin \phi &amp; 0 \\ -\sin \phi &amp; \cos \phi &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix} $$ </p>
+$$R_z=\begin{pmatrix}  \cos \phi &amp; \sin \phi &amp; 0 \\ -\sin \phi &amp; \cos \phi &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix} $$<p></p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[6]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">phi</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">4.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">phi</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">4.</span>
 <span class="n">c</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">);</span><span class="n">s</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
 <span class="n">R</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="n">c</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="n">s</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
 <span class="n">Dnew</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">D</span><span class="o">*</span><span class="n">R</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Dnew</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">Dnew</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">Dnew</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]);</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -3643,7 +3646,11 @@ In&nbsp;[6]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -4362,26 +4369,23 @@ Hjx4NEvwBooHDx48eDRL8AaKBw8ePHg0S/wfNeROGxclr/oAAAAASUVORK5CYII=
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can similarly rotate around y and x axis with </p>
-<p>$$R_y=\begin{pmatrix}  \cos \phi &amp; 0 &amp; \sin \phi \\ 0 &amp; 1 &amp; 0 \\ -\sin \phi &amp; 0 &amp;\cos \phi  \end{pmatrix} $$ </p>
-<p>$$R_x=\begin{pmatrix}  1 &amp; 0 &amp; 0 \\ 0 &amp; \cos \phi &amp; \sin \phi \\ 0 &amp; -\sin \phi &amp; \cos \phi \end{pmatrix} $$ </p>
+<p>We can similarly rotate around y and x axis with</p>
+$$R_y=\begin{pmatrix}  \cos \phi &amp; 0 &amp; \sin \phi \\ 0 &amp; 1 &amp; 0 \\ -\sin \phi &amp; 0 &amp;\cos \phi  \end{pmatrix} $$<p></p>
+$$R_x=\begin{pmatrix}  1 &amp; 0 &amp; 0 \\ 0 &amp; \cos \phi &amp; \sin \phi \\ 0 &amp; -\sin \phi &amp; \cos \phi \end{pmatrix} $$<p></p>
 <p>We can then perform any desired rotation by rotating $\phi_x, \phi_y,\phi_z$ consecutively along the $x,y,z$ axis. In this case (which depends on the order of the axes, i.e. formula for $z,y,x$ has different form) the resulting formula is given by $R_x \cdot R_y \cdot R_z$ which is</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[7]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">phi2R</span><span class="p">(</span><span class="n">phi</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">phi2R</span><span class="p">(</span><span class="n">phi</span><span class="p">):</span>
     <span class="n">c</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">);</span><span class="n">s</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
     <span class="n">out</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="o">-</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span>
              <span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
@@ -4391,28 +4395,25 @@ In&nbsp;[7]:
     <span class="k">return</span> <span class="n">out</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>How should we interpolate intermediate rotation steps? One possible approach that won&#39;t work is to interpolate the rotation matrices $R_t= \alpha R_0 + (1-\alpha) R_T$.</p>
+<p>How should we interpolate intermediate rotation steps? One possible approach that won't work is to interpolate the rotation matrices $R_t= \alpha R_0 + (1-\alpha) R_T$.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[8]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">phi</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">4.</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">2.</span><span class="p">])</span>
 <span class="n">R1</span><span class="o">=</span><span class="n">phi2R</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
 <span class="n">R2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -4421,20 +4422,20 @@ In&nbsp;[8]:
 <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">):</span>
     <span class="n">temp</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">D</span><span class="o">-</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">R1</span><span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">R2</span><span class="p">))</span>
     <span class="n">Dnew</span><span class="o">=</span><span class="n">temp</span><span class="o">+</span><span class="n">t</span>
-    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s">&#39;3d&#39;</span><span class="p">);</span><span class="n">k</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">);</span><span class="n">k</span><span class="o">+=</span><span class="mi">1</span>
     <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">Dnew</span><span class="p">[</span><span class="mi">4</span><span class="p">,:]</span><span class="o">-</span><span class="n">Dnew</span><span class="p">[</span><span class="mi">3</span><span class="p">,:]))</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Dnew</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">Dnew</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">Dnew</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s">&#39;k&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Dnew</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">Dnew</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">Dnew</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">2.2</span><span class="p">])</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">2.2</span><span class="p">])</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;step </span><span class="si">%d</span><span class="s">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;step </span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span><span class="n">d</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;mixing coefficient&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;length of the line between 2nd and 3rd vertex&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;mixing coefficient&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;length of the line between 2nd and 3rd vertex&#39;</span><span class="p">);</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -4442,7 +4443,11 @@ In&nbsp;[8]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -7929,7 +7934,11 @@ jMDn85GRkfGGR8vR1+H0yKFucJpUDm4B5+Dg4ODg0EC4M3AODg4ODg4NhFvAOTg4ODg4NJD/AeTj
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -8232,43 +8241,40 @@ hBAikf4P0k+/1EHZEqoAAAAASUVORK5CYII=
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We see that the intermediate steps do not describe the shortest path between the initial and final rotations. In particular compare step 5 to step 1 and step 12. More seriously, the intermediate matrices are not proper rotation matrices - they do not preserve the length of the lines. This can be seen in the bottom graph.  </p>
+<p>We see that the intermediate steps do not describe the shortest path between the initial and final rotations. In particular compare step 5 to step 1 and step 12. More seriously, the intermediate matrices are not proper rotation matrices - they do not preserve the length of the lines. This can be seen in the bottom graph.</p>
 <p>As in 2D we can interpolate by scaling the rotation angles and then multiply with a rotation matrix corresponding to the scaled angles.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[9]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">d</span><span class="o">=</span><span class="p">[]</span>
 <span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="o">-</span><span class="mf">0.5</span><span class="p">],</span><span class="n">ndmin</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span><span class="n">k</span><span class="o">=</span><span class="mi">1</span>
 <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">):</span>
     <span class="n">temp</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">D</span><span class="o">-</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">phi2R</span><span class="p">(</span><span class="n">phi</span><span class="o">*</span><span class="n">a</span><span class="p">))</span>
     <span class="n">Dnew</span><span class="o">=</span><span class="n">temp</span><span class="o">+</span><span class="n">t</span>
-    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s">&#39;3d&#39;</span><span class="p">);</span><span class="n">k</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">);</span><span class="n">k</span><span class="o">+=</span><span class="mi">1</span>
     <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">Dnew</span><span class="p">[</span><span class="mi">4</span><span class="p">,:]</span><span class="o">-</span><span class="n">Dnew</span><span class="p">[</span><span class="mi">3</span><span class="p">,:]))</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Dnew</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">Dnew</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">Dnew</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s">&#39;k&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Dnew</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">Dnew</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">Dnew</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">2.2</span><span class="p">])</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">2.2</span><span class="p">])</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;step </span><span class="si">%d</span><span class="s">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;step </span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span><span class="n">d</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;mixing coefficient&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;length of the line between 2nd and 3rd vertex&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;mixing coefficient&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;length of the line between 2nd and 3rd vertex&#39;</span><span class="p">);</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -8276,7 +8282,11 @@ In&nbsp;[9]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -11974,7 +11984,11 @@ I4wwwojnEP8HjYyU4b2R+t4AAAAASUVORK5CYII=
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -12157,38 +12171,33 @@ iEiUWFBERCRKLCgiIhIlFhQREYnS/wNEM788tQjEhQAAAABJRU5ErkJggg==
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This method works well. The bottom graph shows that the line length is preserved</p>
 <p>Another alternative is to use quaternions to rotate. Quaternion is a four element vector given by</p>
-<p>$$ \begin{pmatrix} \mathbf{n}\cdot sin \frac{\theta}{2} \\ \cos \frac{\theta}{2} \end{pmatrix}$$ </p>
+$$ \begin{pmatrix} \mathbf{n}\cdot sin \frac{\theta}{2} \\ \cos \frac{\theta}{2} \end{pmatrix}$$<p></p>
 <p>and describes the rotation by $\theta$ radians around the axis $\mathbf{n}$ which is given as a unit-norm vector.</p>
-<p>The quaternion representation is minimal and hence more elegant than rotation along three angles. The later requires three angles and the choice of the three axes - 6 parameters in total. The quaternion representations requires only four parameters. Often it is also easier to use. Let&#39;s look at quaternions in more detail.</p>
+<p>The quaternion representation is minimal and hence more elegant than rotation along three angles. The later requires three angles and the choice of the three axes - 6 parameters in total. The quaternion representations requires only four parameters. Often it is also easier to use. Let's look at quaternions in more detail.</p>
 <p>Quaternion multiplication is defined by</p>
-<p>$$ \begin{pmatrix} \mathbf{n_1} \\ w_1 \end{pmatrix} \begin{pmatrix} \mathbf{n_2} \\ w_2 \end{pmatrix}= \begin{pmatrix} w_1\mathbf{n_2}+w_2\mathbf{n_1}+ \mathbf{n_1}\times \mathbf{n_2}\\ w_1 w_2-\mathbf{n_1}\mathbf{n_2} \end{pmatrix} $$</p>
-<p>where $\times$ is the vector cross-product.</p>
-<p>We use this multiplication to rotate a point. First we turn the 3-coordinate vector $\mathbf{c}$ into quaternion and then we use quaternion multiplication twice to obtain the rotated vector $\mathbf{c}'$ </p>
-<p>$$ \begin{pmatrix} \mathbf{c}' \\ 0 \end{pmatrix} = \begin{pmatrix} \mathbf{n}\cdot \sin (\theta /2) \\ \cos (\theta / 2) \end{pmatrix}   \begin{pmatrix} \mathbf{c} \\ 0 \end{pmatrix} \begin{pmatrix} -\mathbf{n}\cdot \sin (\theta /2) \\ \cos (\theta /2) \end{pmatrix}$$</p>
-<p>By aplying this formula twice we see that consecutive rotation by quaternions $q_1$ and $q_2$ is equal to a rotation by a quaternion $q_3=q_1 q_2$.</p>
-<p>As a consequence rotating twice by $q$ is equal to quaternion multiplication by </p>
-<p>$$q^2 = \begin{pmatrix} \mathbf{n}\cdot \sin (2 \theta /2) \\ \cos (2 \theta /2) \end{pmatrix}$$ </p>
-<p>and it can be shown that in general </p>
-<p>$$q^\alpha = \begin{pmatrix} \mathbf{n}\cdot \sin (\alpha \theta /2) \\ \cos (\alpha \theta /2) \end{pmatrix}$$ </p>
-<p>With this formula we can create quaternions with $\alpha \in [0,1]$ that describe the intermediate rotation steps. </p>
+$$ \begin{pmatrix} \mathbf{n_1} \\ w_1 \end{pmatrix} \begin{pmatrix} \mathbf{n_2} \\ w_2 \end{pmatrix}= \begin{pmatrix} w_1\mathbf{n_2}+w_2\mathbf{n_1}+ \mathbf{n_1}\times \mathbf{n_2}\\ w_1 w_2-\mathbf{n_1}\mathbf{n_2} \end{pmatrix} $$<p>where $\times$ is the vector cross-product.</p>
+<p>We use this multiplication to rotate a point. First we turn the 3-coordinate vector $\mathbf{c}$ into quaternion and then we use quaternion multiplication twice to obtain the rotated vector $\mathbf{c}'$</p>
+$$ \begin{pmatrix} \mathbf{c}' \\ 0 \end{pmatrix} = \begin{pmatrix} \mathbf{n}\cdot \sin (\theta /2) \\ \cos (\theta / 2) \end{pmatrix}   \begin{pmatrix} \mathbf{c} \\ 0 \end{pmatrix} \begin{pmatrix} -\mathbf{n}\cdot \sin (\theta /2) \\ \cos (\theta /2) \end{pmatrix}$$<p>By aplying this formula twice we see that consecutive rotation by quaternions $q_1$ and $q_2$ is equal to a rotation by a quaternion $q_3=q_1 q_2$.</p>
+<p>As a consequence rotating twice by $q$ is equal to quaternion multiplication by</p>
+$$q^2 = \begin{pmatrix} \mathbf{n}\cdot \sin (2 \theta /2) \\ \cos (2 \theta /2) \end{pmatrix}$$<p></p>
+<p>and it can be shown that in general</p>
+$$q^\alpha = \begin{pmatrix} \mathbf{n}\cdot \sin (\alpha \theta /2) \\ \cos (\alpha \theta /2) \end{pmatrix}$$<p></p>
+<p>With this formula we can create quaternions with $\alpha \in [0,1]$ that describe the intermediate rotation steps.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[10]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">quaternion</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">phi</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">quaternion</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">phi</span><span class="p">):</span>
     <span class="n">q</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
     <span class="n">q</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span><span class="o">=</span><span class="n">n</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span>
     <span class="n">q</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span>
@@ -12220,21 +12229,21 @@ In&nbsp;[10]:
     <span class="n">q</span><span class="o">=</span><span class="n">quaternion</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">a</span><span class="o">*</span><span class="n">phi</span><span class="p">)</span>
     <span class="n">temp</span><span class="o">=</span> <span class="n">quatRotate</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">D</span><span class="o">-</span><span class="n">t</span><span class="p">)</span>
     <span class="n">Dnew</span><span class="o">=</span><span class="n">temp</span><span class="o">+</span><span class="n">t</span>
-    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s">&#39;3d&#39;</span><span class="p">);</span><span class="n">k</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">);</span><span class="n">k</span><span class="o">+=</span><span class="mi">1</span>
     <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">Dnew</span><span class="p">[</span><span class="mi">4</span><span class="p">,:]</span><span class="o">-</span><span class="n">Dnew</span><span class="p">[</span><span class="mi">3</span><span class="p">,:]))</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Dnew</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">Dnew</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">Dnew</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s">&#39;k&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Dnew</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">Dnew</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">Dnew</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">2.2</span><span class="p">])</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">2.2</span><span class="p">])</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_zlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span><span class="mf">0.6</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;step </span><span class="si">%d</span><span class="s">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;step </span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span><span class="n">d</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;mixing coefficient&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;length of the line between 2nd and 3rd vertex&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;mixing coefficient&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;length of the line between 2nd and 3rd vertex&#39;</span><span class="p">);</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -12242,7 +12251,11 @@ In&nbsp;[10]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -15530,7 +15543,11 @@ ARUQhh64AQYYYIABBlRAGAK4AQYYYIABBlRA/B+AaUaKeTrUFgAAAABJRU5ErkJggg==
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -15713,13 +15730,15 @@ iEiUWFBERCRKLCgiIhIlFhQREYnS/wNEM788tQjEhQAAAABJRU5ErkJggg==
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The quaternion rotation provides the correct solution. The bottom graph shows that the line length is preserved.</p>
+
 </div>
 </div>
 </div>
+ 
+
+
 </html>

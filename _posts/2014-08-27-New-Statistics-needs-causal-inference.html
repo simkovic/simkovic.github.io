@@ -1697,47 +1697,43 @@ init_mathjax();
 </script>
 </head>
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In psychology, when it comes to methodology and data analysis, you can&#39;t miss a vocal movement that advocates adoption effect sizes as an replacement for p-values. This movement has been labeled new statistics by Geoff Cumming (2013). Cumming acknowledges, that their ideas are not new.  There is nothing new about the concepts such as effect size, power or meta-analysis. Jacob Cohen, one of the most emblematic proponents of new statistics has been preaching power calculation already in the sixties. Rather, what would be revolutionary, is the adoption of these practices by researchers.</p>
-<p>I have been doing my best to like these guys - after-all they are in favor of parameter estimation. I love parameter estimation. But I have been constantly annoyed by their resistance to shackle off hypothesis testing in favor of causal analysis. As a consequence new statistics emerges more and more as an desperate attempt to hide the real problem with psychology research which is, of course, its love affair with HT. The spectacular aspect of this episode, is that parameter estimation is by definition the counter part of hypothesis testing. It takes serious contortionist effort to downplay and hide this conflict. I very much liked how recently Morey et al. (2014) pointed out to Cumming his implicit conflict with HT. Fidler &amp; Cumming (2014) were of course quick to deny that he has misspoken against the goddess. And so, to Matus&#39; complete annoyance the state of unity with HT was restored. </p>
-<p>The basic idea of NS - focus on effect size estimation, is sound. NS fails to draw the proper consequences. First, it fails to acknowledge the conflict with HT. Second, it fails to acknowledge the importance of causal inference. The latter is also a remarkable feat, since the cause is in the name &quot;effect size&quot; itself. If we try to apply NS seriously causal inference pops up at every corner. Let me give you few examples of this.</p>
+<p>In psychology, when it comes to methodology and data analysis, you can't miss a vocal movement that advocates adoption effect sizes as an replacement for p-values. This movement has been labeled new statistics by Geoff Cumming (2013). Cumming acknowledges, that their ideas are not new.  There is nothing new about the concepts such as effect size, power or meta-analysis. Jacob Cohen, one of the most emblematic proponents of new statistics has been preaching power calculation already in the sixties. Rather, what would be revolutionary, is the adoption of these practices by researchers.</p>
+<p>I have been doing my best to like these guys - after-all they are in favor of parameter estimation. I love parameter estimation. But I have been constantly annoyed by their resistance to shackle off hypothesis testing in favor of causal analysis. As a consequence new statistics emerges more and more as an desperate attempt to hide the real problem with psychology research which is, of course, its love affair with HT. The spectacular aspect of this episode, is that parameter estimation is by definition the counter part of hypothesis testing. It takes serious contortionist effort to downplay and hide this conflict. I very much liked how recently Morey et al. (2014) pointed out to Cumming his implicit conflict with HT. Fidler &amp; Cumming (2014) were of course quick to deny that he has misspoken against the goddess. And so, to Matus' complete annoyance the state of unity with HT was restored.</p>
+<p>The basic idea of NS - focus on effect size estimation, is sound. NS fails to draw the proper consequences. First, it fails to acknowledge the conflict with HT. Second, it fails to acknowledge the importance of causal inference. The latter is also a remarkable feat, since the cause is in the name "effect size" itself. If we try to apply NS seriously causal inference pops up at every corner. Let me give you few examples of this.</p>
 <p>First, here is the definition by Cumming (2014) of what effect size is:</p>
-<blockquote>
-<p>An ES is simply an amount of anything of interest (Cumming &amp; Fidler, 2009). Means, differences between means, frequencies, correlations, and many other familiar quantities are ESs. A p value, however, is not an ES.</p>
+<blockquote><p>An ES is simply an amount of anything of interest (Cumming &amp; Fidler, 2009). Means, differences between means, frequencies, correlations, and many other familiar quantities are ESs. A p value, however, is not an ES.</p>
 </blockquote>
-<p>The definition begs the question - can we somehow rank the various quantities with respect to the &quot;amount of interest&quot;. Are there some quantities that are of more interest than others? This question is important, because it would provide researchers with rules how to determine the quantity that is most informative with respect to their research question. If this question remains unresolved there is a danger that researchers choose quantities that are irrelevant to the question at hand and that lead to false conclusions. Furthermore, the choice of the effect size provides additional degrees of freedom and as we learned from Simmons et al. (2011) degrees of freedom are bad.  </p>
-<p>To find the rules for ranking ESs let&#39;s consider some positive examples of ES approved by NS people. Maybe, by looking at the context in which these informative ES occur, we will find some regularities. Then maybe we can determine a rule that will allow us to go the other way round - to infer the proper ES given the research context.</p>
+<p>The definition begs the question - can we somehow rank the various quantities with respect to the "amount of interest". Are there some quantities that are of more interest than others? This question is important, because it would provide researchers with rules how to determine the quantity that is most informative with respect to their research question. If this question remains unresolved there is a danger that researchers choose quantities that are irrelevant to the question at hand and that lead to false conclusions. Furthermore, the choice of the effect size provides additional degrees of freedom and as we learned from Simmons et al. (2011) degrees of freedom are bad.</p>
+<p>To find the rules for ranking ESs let's consider some positive examples of ES approved by NS people. Maybe, by looking at the context in which these informative ES occur, we will find some regularities. Then maybe we can determine a rule that will allow us to go the other way round - to infer the proper ES given the research context.</p>
 <p>As a first examples consider this one provided by Cumming in Chapter 12 of his book. Cumming describes invented data from a clinical study that compared Treatment and Control group at pretest, post-test and two follow up time points. I re-plot the data here.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[2]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="o">%</span><span class="k">pylab</span> <span class="n">inline</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pylab</span> inline
 <span class="n">y</span><span class="o">=</span><span class="p">[[</span><span class="mi">88</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">72</span><span class="p">,</span><span class="mi">85</span><span class="p">],[</span><span class="mi">76</span><span class="p">,</span><span class="mi">44</span><span class="p">,</span><span class="mi">46</span><span class="p">,</span><span class="mi">38</span><span class="p">]]</span>
 <span class="n">yci</span><span class="o">=</span><span class="p">[[</span><span class="mi">16</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">17</span><span class="p">],[</span><span class="mi">12</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">22</span><span class="p">]]</span>
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span> <span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="mf">0.1</span><span class="p">,</span>
-                            <span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">],</span><span class="n">yerr</span><span class="o">=</span><span class="n">yci</span><span class="p">[</span><span class="n">k</span><span class="p">],</span><span class="n">fmt</span><span class="o">=</span><span class="s">&#39;-o&#39;</span><span class="p">)</span>
+                            <span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">],</span><span class="n">yerr</span><span class="o">=</span><span class="n">yci</span><span class="p">[</span><span class="n">k</span><span class="p">],</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;-o&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">3.5</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s">&#39;pretest&#39;</span><span class="p">,</span><span class="s">&#39;posttest&#39;</span><span class="p">,</span><span class="s">&#39;follow up 1&#39;</span><span class="p">,</span>
-                    <span class="s">&#39;follow up 2&#39;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">&#39;treatment&#39;</span><span class="p">,</span><span class="s">&#39;control&#39;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;anxiety score&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s1">&#39;pretest&#39;</span><span class="p">,</span><span class="s1">&#39;posttest&#39;</span><span class="p">,</span><span class="s1">&#39;follow up 1&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;follow up 2&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span><span class="s1">&#39;control&#39;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;anxiety score&#39;</span><span class="p">);</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -1745,16 +1741,22 @@ In&nbsp;[2]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Populating the interactive namespace from numpy and matplotlib
+<div class="output_area">
 
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Populating the interactive namespace from numpy and matplotlib
 </pre>
 </div>
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -1984,26 +1986,26 @@ gg==
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Cumming doesn&#39;t like omnibus Anova (4x2 with time-point as repeated-measures factor). He also feels uncomfortable with the variance-derived effect sizes such as $\omega^2$. Good, we don&#39;t like these ES either. Instead Cumming recommends to compare the pretest-posttest differences and to report CIs. Why are these differences so appealing? The differences allow us to infer the direct causal effect of the treatment. This is given by $E=s_{t,post}-s_{t,pre}-(s_{c,post}-s_{c,pre})$. It gives the decrease in anxiety score due to treatment while holding all other factors constant. This assumes that the effect of treatment is additive. (In fact, the multiplicative model is much more plausible and we should look at quotients instead of differences. However, to recover the full functional shape we would require many more measurement time points.) This also assumes that the control and treatment are representative samples. </p>
-<p>Conclusion from the first example? Cumming likes the ES that has causal interpretation. He doesn&#39;t like ESs that do not have causal interpretation such as the variance-derived ES in the Anova.</p>
+<p>Cumming doesn't like omnibus Anova (4x2 with time-point as repeated-measures factor). He also feels uncomfortable with the variance-derived effect sizes such as $\omega^2$. Good, we don't like these ES either. Instead Cumming recommends to compare the pretest-posttest differences and to report CIs. Why are these differences so appealing? The differences allow us to infer the direct causal effect of the treatment. This is given by $E=s_{t,post}-s_{t,pre}-(s_{c,post}-s_{c,pre})$. It gives the decrease in anxiety score due to treatment while holding all other factors constant. This assumes that the effect of treatment is additive. (In fact, the multiplicative model is much more plausible and we should look at quotients instead of differences. However, to recover the full functional shape we would require many more measurement time points.) This also assumes that the control and treatment are representative samples.</p>
+<p>Conclusion from the first example? Cumming likes the ES that has causal interpretation. He doesn't like ESs that do not have causal interpretation such as the variance-derived ES in the Anova.</p>
 <p>Second example, p. 81:</p>
-<blockquote>
-<p>Sfikas, Greenhalgh, and Lewis (2007) reported a study of vaccination policies that could eliminate rubella from England and Wales. An important parameter is R0, which is the average number of further infections produced by a single case of the disease. Sfikas et al. applied a somewhat complicated epidemiological model to a large database of blood samples to estimate R0 = 3.66, [3.21, 4.36]. For any given value of R0 they could apply their model and calculate the minimum proportion of children that must be vaccinated for the disease to be eliminated. The higher the value of R0, the more infectious the disease, and so the nearer the vaccination rate must be to 100%. Assuming a single vaccination at birth, they calculated that the proportion of babies who must be vaccinated is .74, [.67, .76].</p>
+<blockquote><p>Sfikas, Greenhalgh, and Lewis (2007) reported a study of vaccination policies that could eliminate rubella from England and Wales. An important parameter is R0, which is the average number of further infections produced by a single case of the disease. Sfikas et al. applied a somewhat complicated epidemiological model to a large database of blood samples to estimate R0 = 3.66, [3.21, 4.36]. For any given value of R0 they could apply their model and calculate the minimum proportion of children that must be vaccinated for the disease to be eliminated. The higher the value of R0, the more infectious the disease, and so the nearer the vaccination rate must be to 100%. Assuming a single vaccination at birth, they calculated that the proportion of babies who must be vaccinated is .74, [.67, .76].</p>
 </blockquote>
-<p>Again, we have clear causal structure that motivates the inference. Whether the disease is eliminated depends on two variables R0 and the proportion of vaccinated babies. We then recover from knowledge of R0 the proportion of vaccinated babies needed to eliminate the disease. </p>
-<p>I could provide an epic list of examples, but I think you can just read the examples in chapter 3 of Cumming&#39;s bible and figure out the causal structure that underlies each of them on your own. But we are not finished yet. The problem is that Cumming himself explicitly avoids the causal interpretation. </p>
-<blockquote>
-<p>If you measure the attitudes of a group of people before and after you present them with an advertising message, it’s natural to think of the change in attitude as an effect and the amount of change as the size of that effect. However, the term “effect size” is used much more broadly. It can refer to an amount, rather than a change, and there need not be any easily identifiable “cause” for the “effect.” The mean systolic blood pressure of a group of children, the number of companies that failed to submit tax returns by the due date, and the ratio of good to bad cholesterol in a diet are all perfectly good ESs. </p>
+<p>Again, we have clear causal structure that motivates the inference. Whether the disease is eliminated depends on two variables R0 and the proportion of vaccinated babies. We then recover from knowledge of R0 the proportion of vaccinated babies needed to eliminate the disease.</p>
+<p>I could provide an epic list of examples, but I think you can just read the examples in chapter 3 of Cumming's bible and figure out the causal structure that underlies each of them on your own. But we are not finished yet. The problem is that Cumming himself explicitly avoids the causal interpretation.</p>
+<blockquote><p>If you measure the attitudes of a group of people before and after you present them with an advertising message, it’s natural to think of the change in attitude as an effect and the amount of change as the size of that effect. However, the term “effect size” is used much more broadly. It can refer to an amount, rather than a change, and there need not be any easily identifiable “cause” for the “effect.” The mean systolic blood pressure of a group of children, the number of companies that failed to submit tax returns by the due date, and the ratio of good to bad cholesterol in a diet are all perfectly good ESs.</p>
 </blockquote>
-<p>Now if some event of interest does not have easily identifiable cause this only tells us that we need to look harder. In the above cases it is difficult to determine the cause because we lack the details of the study. Still, presumably no study would just report a mean systolic blood pressure of a group of children. Even if it would, it would do so with a potential diagnostic or intervention context in mind - such as to predict the prevalence of coronary diseases among children. </p>
-<p>Now, it looks like my claim is tautological, because I can always provide a post-hoc causal mechanism. Actually, we can imagine ES that do only poorly support causal interpretation. How about this effect size - estimate of the average number of cells in the body of a 11 years old human. According to Cumming&#39;s all-embracing definition this is a &quot;perfectly good ES&quot;. Why don&#39;t we see it reported anywhere? Because, number of cells does not feature anywhere in the (causal) theories of anatomy, medicine, human behavior etc. Number of cells is partly irrelevant because we have better proxies such as body height and weight. But these are more easily measurable than the average number of cells. Ok, let&#39;s take a different example. How about the relative alignment between Mars and Venus at the birth of a person. Some of the best minds of Renaissance worked with this ES. This ES is not in such a great favor today - even though it can be readily computed from the date and time of birth. What happened, such that this ES fell into disfavor? Well, research found that the character of a person are independent of the relative alignment of Venus and Mars - there is no causal relation. </p>
+<p>Now if some event of interest does not have easily identifiable cause this only tells us that we need to look harder. In the above cases it is difficult to determine the cause because we lack the details of the study. Still, presumably no study would just report a mean systolic blood pressure of a group of children. Even if it would, it would do so with a potential diagnostic or intervention context in mind - such as to predict the prevalence of coronary diseases among children.</p>
+<p>Now, it looks like my claim is tautological, because I can always provide a post-hoc causal mechanism. Actually, we can imagine ES that do only poorly support causal interpretation. How about this effect size - estimate of the average number of cells in the body of a 11 years old human. According to Cumming's all-embracing definition this is a "perfectly good ES". Why don't we see it reported anywhere? Because, number of cells does not feature anywhere in the (causal) theories of anatomy, medicine, human behavior etc. Number of cells is partly irrelevant because we have better proxies such as body height and weight. But these are more easily measurable than the average number of cells. Ok, let's take a different example. How about the relative alignment between Mars and Venus at the birth of a person. Some of the best minds of Renaissance worked with this ES. This ES is not in such a great favor today - even though it can be readily computed from the date and time of birth. What happened, such that this ES fell into disfavor? Well, research found that the character of a person are independent of the relative alignment of Venus and Mars - there is no causal relation.</p>
 <p>We could continue our list of frivolous and redundant effect sizes, but I think this suffices to demonstrate my point. NS needs causal inference.</p>
+
 </div>
 </div>
 </div>
+ 
+
+
 </html>

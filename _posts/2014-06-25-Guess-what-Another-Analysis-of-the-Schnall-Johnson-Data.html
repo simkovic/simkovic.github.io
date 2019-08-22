@@ -1696,34 +1696,30 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 </head>
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>By now basically everyone (<a href="http://datacolada.org/2014/06/04/23-ceiling-effects-and-replications/?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+DataColada+%28Data+Colada+Feed%29">here</a>, <a href="http://yorl.tumblr.com/post/87428392426/ceiling-effects">here</a>, <a href="http://www.talyarkoni.org/blog/2014/06/01/there-is-no-ceiling-effect-in-johnson-cheung-donnellan-2014/">here</a>, <a href="http://pigee.wordpress.com/2014/05/24/additional-reflections-on-ceiling-effects-in-recent-replication-research/">here</a> and <a href="http://www.nicebread.de/reanalyzing-the-schnalljohnson-cleanliness-data-sets-new-insights-from-bayesian-and-robust-approaches/">here</a>, and there is likely even more out there) who writes a blog and knows how to do a statistical analysis has analysed data from a recent replication study and from the original study (data repository is <a href="https://osf.io/4j8db/files/">here</a>). </p>
-<p>The study consists of two experiments. Let&#39;s focus on Experiment 1 here. The experiment tests a treatment and a control group. The performance is measured by six likert-scale items. The scale of each item has 9 levels. All responses are averaged together and we obtain a single composite score for each group. We are interested whether the treatment works, which would show up as a positive difference between the composite score of the treatment and the control group. Replication study did the same with more subjects.</p>
-<p>Let&#39;s perform the original analysis to see why this dataset is so &quot;popular&quot;.</p>
+<p>By now basically everyone (<a href="http://datacolada.org/2014/06/04/23-ceiling-effects-and-replications/?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+DataColada+%28Data+Colada+Feed%29">here</a>, <a href="http://yorl.tumblr.com/post/87428392426/ceiling-effects">here</a>, <a href="http://www.talyarkoni.org/blog/2014/06/01/there-is-no-ceiling-effect-in-johnson-cheung-donnellan-2014/">here</a>, <a href="http://pigee.wordpress.com/2014/05/24/additional-reflections-on-ceiling-effects-in-recent-replication-research/">here</a> and <a href="http://www.nicebread.de/reanalyzing-the-schnalljohnson-cleanliness-data-sets-new-insights-from-bayesian-and-robust-approaches/">here</a>, and there is likely even more out there) who writes a blog and knows how to do a statistical analysis has analysed data from a recent replication study and from the original study (data repository is <a href="https://osf.io/4j8db/files/">here</a>).</p>
+<p>The study consists of two experiments. Let's focus on Experiment 1 here. The experiment tests a treatment and a control group. The performance is measured by six likert-scale items. The scale of each item has 9 levels. All responses are averaged together and we obtain a single composite score for each group. We are interested whether the treatment works, which would show up as a positive difference between the composite score of the treatment and the control group. Replication study did the same with more subjects.</p>
+<p>Let's perform the original analysis to see why this dataset is so "popular".</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[1]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="o">%</span><span class="k">pylab</span> <span class="n">inline</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pylab</span> inline
 <span class="kn">import</span> <span class="nn">pystan</span>
-<span class="kn">from</span> <span class="nn">matustools.matusplotlib</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">matustools.matusplotlib</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s">&quot;ignore&quot;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -1731,11 +1727,13 @@ In&nbsp;[1]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Populating the interactive namespace from numpy and matplotlib
+<div class="output_area">
 
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Populating the interactive namespace from numpy and matplotlib
 </pre>
 </div>
 </div>
@@ -1746,14 +1744,12 @@ Populating the interactive namespace from numpy and matplotlib
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[2]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">il</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;dog&#39;</span><span class="p">,</span><span class="s">&#39;trolley&#39;</span><span class="p">,</span><span class="s">&#39;wallet&#39;</span><span class="p">,</span><span class="s">&#39;plane&#39;</span><span class="p">,</span><span class="s">&#39;resume&#39;</span><span class="p">,</span>
-    <span class="s">&#39;kitten&#39;</span><span class="p">,</span><span class="s">&#39;mean score&#39;</span><span class="p">,</span><span class="s">&#39;median score&#39;</span><span class="p">]</span>
-<span class="n">D</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s">&#39;schnallstudy1.csv&#39;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s">&#39;,&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">il</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;dog&#39;</span><span class="p">,</span><span class="s1">&#39;trolley&#39;</span><span class="p">,</span><span class="s1">&#39;wallet&#39;</span><span class="p">,</span><span class="s1">&#39;plane&#39;</span><span class="p">,</span><span class="s1">&#39;resume&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;kitten&#39;</span><span class="p">,</span><span class="s1">&#39;mean score&#39;</span><span class="p">,</span><span class="s1">&#39;median score&#39;</span><span class="p">]</span>
+<span class="n">D</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;schnallstudy1.csv&#39;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
 <span class="n">D</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">D</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">Dtemp</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">Dtemp</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">D</span>
@@ -1764,7 +1760,7 @@ In&nbsp;[2]:
 <span class="n">DS</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -1772,14 +1768,15 @@ In&nbsp;[2]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">
-    Out[2]:</div>
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[2]:</div>
 
 
-<div class="output_text output_subarea output_pyout">
-<pre>
-(40, 9)
-</pre>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(40, 9)</pre>
 </div>
 
 </div>
@@ -1790,32 +1787,30 @@ In&nbsp;[2]:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[3]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">dts</span><span class="o">=</span><span class="p">[</span><span class="n">DS</span><span class="p">[</span><span class="n">DS</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span><span class="n">DS</span><span class="p">[</span><span class="n">DS</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span>
      <span class="n">DR</span><span class="p">[</span><span class="n">DR</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span><span class="n">DR</span><span class="p">[</span><span class="n">DR</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">]]</span>
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dts</span><span class="p">)):</span>
     <span class="n">plotCIttest1</span><span class="p">(</span><span class="n">dts</span><span class="p">[</span><span class="n">k</span><span class="p">],</span><span class="n">x</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;mean score&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;mean score&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dts</span><span class="p">)))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s">&#39;OC&#39;</span><span class="p">,</span><span class="s">&#39;OT&#39;</span><span class="p">,</span><span class="s">&#39;RC&#39;</span><span class="p">,</span><span class="s">&#39;RT&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s1">&#39;OC&#39;</span><span class="p">,</span><span class="s1">&#39;OT&#39;</span><span class="p">,</span><span class="s1">&#39;RC&#39;</span><span class="p">,</span><span class="s1">&#39;RT&#39;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">dts</span><span class="p">)</span><span class="o">-</span><span class="mf">0.5</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">plotCIttest2</span><span class="p">(</span><span class="n">dts</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">dts</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span><span class="mi">3</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">plotCIttest2</span><span class="p">(</span><span class="n">dts</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">dts</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]);</span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;score difference&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s">&#39;OT-OC&#39;</span><span class="p">,</span><span class="s">&#39;RT-RC&#39;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">plotCIttest2</span><span class="p">(</span><span class="n">dts</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">dts</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">plotCIttest2</span><span class="p">(</span><span class="n">dts</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">dts</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]);</span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;score difference&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s1">&#39;OT-OC&#39;</span><span class="p">,</span><span class="s1">&#39;RT-RC&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">]);</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -1823,17 +1818,23 @@ In&nbsp;[3]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-[ 0.825  1.537  0.113  1.113  0.537]
-[ 0.01   0.267 -0.247  0.115 -0.095]
+<div class="output_area">
 
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[ 0.825  1.537  0.113  1.113  0.537]
+[ 0.01   0.267 -0.247  0.115 -0.095]
 </pre>
 </div>
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -1975,39 +1976,36 @@ YDsEHAAAYDsEHAAAYDv/B42svyNAhqL6AAAAAElFTkSuQmCC
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Legend: O - original study, R - replication, C - control group, T - treatment group</p>
-<p>In the original study the difference between the treatment and control is significantly greater than zero. In the replication, it is not. However the ratings in the replication study are overall higher. The author of the original study therefore raised a concern that no difference was obtained in replication because of the presence of ceiling effects. </p>
-<p>How do we show that there are ceiling efects in the replication? The authors and bloggers presented various arguments that support some conclusion (mostly that there are no ceiling effects). Ultimately ceiling effects are a matter of degree and since no one knows how to quantify them the whole discussion of the validity of the conclusions from the replication study is heading into an inferential limbo. </p>
-<p>My point here is that if the analysis computed the proper effect size - the causal effect size, we would avoid these kinds of arguments and discussions. Actually, this is fairly easy to see. If we interpret T-C estimate causally then it says that by giving people the treatment we increase their score by 0.83 points on average. So when their base score is 9.5 points we predict that the treatment will increase it to 10.33. This however can&#39;t happen because the scale goes only from 1 to 10. A quick fix is to say that the resulting score will be a minimum of the raw score and the upper ceiling value 10. This implies that a group with a base score 9.1 will end up with a score 9.93 which is again implausible. We need some function that maps from $[-\infty,\infty]$ (logit scale) into $[1,10]$ in a continuous fashion. The <a href="https://en.wikipedia.org/wiki/Logistic_function">logistic</a> function is the usual choice. (Probit function is also popular.) This is what it looks like:</p>
+<p>In the original study the difference between the treatment and control is significantly greater than zero. In the replication, it is not. However the ratings in the replication study are overall higher. The author of the original study therefore raised a concern that no difference was obtained in replication because of the presence of ceiling effects.</p>
+<p>How do we show that there are ceiling efects in the replication? The authors and bloggers presented various arguments that support some conclusion (mostly that there are no ceiling effects). Ultimately ceiling effects are a matter of degree and since no one knows how to quantify them the whole discussion of the validity of the conclusions from the replication study is heading into an inferential limbo.</p>
+<p>My point here is that if the analysis computed the proper effect size - the causal effect size, we would avoid these kinds of arguments and discussions. Actually, this is fairly easy to see. If we interpret T-C estimate causally then it says that by giving people the treatment we increase their score by 0.83 points on average. So when their base score is 9.5 points we predict that the treatment will increase it to 10.33. This however can't happen because the scale goes only from 1 to 10. A quick fix is to say that the resulting score will be a minimum of the raw score and the upper ceiling value 10. This implies that a group with a base score 9.1 will end up with a score 9.93 which is again implausible. We need some function that maps from $[-\infty,\infty]$ (logit scale) into $[1,10]$ in a continuous fashion. The <a href="https://en.wikipedia.org/wiki/Logistic_function">logistic</a> function is the usual choice. (Probit function is also popular.) This is what it looks like:</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[4]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">101</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">101</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">mylgs</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="mi">9</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span>
 
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">]:</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="n">mylgs</span><span class="p">(</span><span class="n">k</span><span class="p">)],</span><span class="s">&#39;k--&#39;</span><span class="p">);</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">k</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">],[</span><span class="n">mylgs</span><span class="p">(</span><span class="n">k</span><span class="p">),</span><span class="n">mylgs</span><span class="p">(</span><span class="n">k</span><span class="p">)],</span><span class="s">&#39;k--&#39;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">mylgs</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="n">mylgs</span><span class="p">(</span><span class="n">k</span><span class="p">)],</span><span class="s1">&#39;k--&#39;</span><span class="p">);</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">k</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">],[</span><span class="n">mylgs</span><span class="p">(</span><span class="n">k</span><span class="p">),</span><span class="n">mylgs</span><span class="p">(</span><span class="n">k</span><span class="p">)],</span><span class="s1">&#39;k--&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">mylgs</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">));</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Raw score&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Logit score&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Raw score&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Logit score&#39;</span><span class="p">);</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -2015,7 +2013,11 @@ In&nbsp;[4]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -2229,51 +2231,48 @@ UhITFBERKYkJioiIlMQERURESvp/S1QxVAn+2YsAAAAASUVORK5CYII=
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We measure and report the effect size on the logit scale. To obtain precise prediction we can always transform into raw score. Then a claim that a treatment increases logit score, say, by 2 units does not produce any counter-intuitive results. This is illustrated above for two groups with base logit score of 1 and 7 respectively. The increase by 2 units on the logit scale leads to big jump in the raw score in the former case while in the latter case the raw score remains the same.  </p>
-<p>The author of the original study voiced concern that the ceiling effects may not be detectable in the composite score and we should focus on individual items. Let&#39;s look at the distribution of the scores of the individual items in the original study and in the replication.</p>
+<p>We measure and report the effect size on the logit scale. To obtain precise prediction we can always transform into raw score. Then a claim that a treatment increases logit score, say, by 2 units does not produce any counter-intuitive results. This is illustrated above for two groups with base logit score of 1 and 7 respectively. The increase by 2 units on the logit scale leads to big jump in the raw score in the former case while in the latter case the raw score remains the same.</p>
+<p>The author of the original study voiced concern that the ceiling effects may not be detectable in the composite score and we should focus on individual items. Let's look at the distribution of the scores of the individual items in the original study and in the replication.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[5]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">plotComparison</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">stan</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plotComparison</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">stan</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">16</span><span class="p">))</span>
-    <span class="n">cl</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;control&#39;</span><span class="p">,</span><span class="s">&#39;treatment&#39;</span><span class="p">]</span>
+    <span class="n">cl</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;control&#39;</span><span class="p">,</span><span class="s1">&#39;treatment&#39;</span><span class="p">]</span>
     <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="o">-</span><span class="mf">0.5</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">stan</span><span class="p">:</span><span class="k">assert</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">cond</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
             <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="n">cond</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
             <span class="n">a</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">A</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="n">cond</span><span class="p">,</span><span class="mi">1</span><span class="o">+</span><span class="n">i</span><span class="p">],</span>
-                    <span class="n">bins</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="o">-</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">ec</span><span class="o">=</span><span class="s">&#39;w&#39;</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+                    <span class="n">bins</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="o">-</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">stan</span><span class="p">:</span> <span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="n">B</span><span class="p">[:,</span><span class="n">i</span><span class="p">,</span><span class="n">cond</span><span class="p">]]</span>
             <span class="k">else</span><span class="p">:</span> 
                 <span class="n">a</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="n">B</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="n">cond</span><span class="p">,</span><span class="mi">1</span><span class="o">+</span><span class="n">i</span><span class="p">],</span>
-                        <span class="n">bins</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">ec</span><span class="o">=</span><span class="s">&#39;w&#39;</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s">&#39;g&#39;</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+                        <span class="n">bins</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
             <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.7</span><span class="p">]);</span>
             <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
             <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">]);</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">i</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">cl</span><span class="p">[</span><span class="n">cond</span><span class="p">])</span>
-            <span class="n">pref</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;&#39;</span><span class="p">,</span><span class="s">&#39;item: &#39;</span><span class="p">][</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">6</span><span class="p">)]</span>
+            <span class="n">pref</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;item: &#39;</span><span class="p">][</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">6</span><span class="p">)]</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">cond</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">pref</span><span class="o">+</span><span class="n">il</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">i</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">cond</span><span class="p">:</span> 
-                <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">&#39;original&#39;</span><span class="p">,</span><span class="s">&#39;replication&#39;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="mi">4</span><span class="p">);</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;original&#39;</span><span class="p">,</span><span class="s1">&#39;replication&#39;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="mi">4</span><span class="p">);</span>
 <span class="n">plotComparison</span><span class="p">(</span><span class="n">DS</span><span class="p">,</span><span class="n">DR</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -2281,7 +2280,11 @@ In&nbsp;[5]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -3183,84 +3186,79 @@ gg==
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We see that RC shows higher scores than OC on all items. We see also that the response distribution is multimodal (see the resume item). Furthermore the outcome variable is discrete. In contrast, the logistic distribution is unimodal and continuous.  </p>
-<p>As a consequence we need a better model. We will use ordered logit model which can be seen as an extension of the simple logit model. The probability of a response $k=1,\dots,K$ (in our case $K=10$) is $P(x=k) = \mathrm{logistic}(\beta-c_k)-\mathrm{logistic}(\beta-c_{k-1})$. $c_0=-\infty$ and $c_K=\infty$. The remaining coefficients $c_i$ are estimated from the data. $\beta$ is the item difficulty. $c_k$ can be interpreted as the response thresholds. For instance if $\beta$ equals $c_5$ then a response higher than 5 is given half of the times. The coefficients $\beta, c_i$ give only ordinal information and we may wish to fix one of them to a constant value (say $\beta=0$). If we have two groups we can fix the difficulty for the control group to zero and estimate the difficulty in the treatment group. This quantity then gives the causal effect size. </p>
-<p>As with the logistic model above, the ordered logit accounts for ceiling effects in accord with our intuition. We already saw one aspect of how this works - big differences in logit score get squashed into small differences in the raw score. How does this work in the other way? At first blush small differences in the raw score at the ceiling should be transformed into big differences in the logit score. However, while the raw score differences quickly get small at the ceiling the estimation error does not decrease so quickly. As a consequence we get a poor signal-to-noise ratio at the ceiling and what we obtain is an uncertain logit-score estimate. Intuitively, this is what we would expect from a ceiling effect - in its presence it is difficult to say whether a reliable difference between two scores exists and what its magnitude is. </p>
-<p>I hope you are appetized now, so let&#39;s see what the ordered logit model tells us. </p>
+<p>We see that RC shows higher scores than OC on all items. We see also that the response distribution is multimodal (see the resume item). Furthermore the outcome variable is discrete. In contrast, the logistic distribution is unimodal and continuous.</p>
+<p>As a consequence we need a better model. We will use ordered logit model which can be seen as an extension of the simple logit model. The probability of a response $k=1,\dots,K$ (in our case $K=10$) is $P(x=k) = \mathrm{logistic}(\beta-c_k)-\mathrm{logistic}(\beta-c_{k-1})$. $c_0=-\infty$ and $c_K=\infty$. The remaining coefficients $c_i$ are estimated from the data. $\beta$ is the item difficulty. $c_k$ can be interpreted as the response thresholds. For instance if $\beta$ equals $c_5$ then a response higher than 5 is given half of the times. The coefficients $\beta, c_i$ give only ordinal information and we may wish to fix one of them to a constant value (say $\beta=0$). If we have two groups we can fix the difficulty for the control group to zero and estimate the difficulty in the treatment group. This quantity then gives the causal effect size.</p>
+<p>As with the logistic model above, the ordered logit accounts for ceiling effects in accord with our intuition. We already saw one aspect of how this works - big differences in logit score get squashed into small differences in the raw score. How does this work in the other way? At first blush small differences in the raw score at the ceiling should be transformed into big differences in the logit score. However, while the raw score differences quickly get small at the ceiling the estimation error does not decrease so quickly. As a consequence we get a poor signal-to-noise ratio at the ceiling and what we obtain is an uncertain logit-score estimate. Intuitively, this is what we would expect from a ceiling effect - in its presence it is difficult to say whether a reliable difference between two scores exists and what its magnitude is.</p>
+<p>I hope you are appetized now, so let's see what the ordered logit model tells us.</p>
 <p>To make it precise we will use the following model.</p>
 <p>$y_{n,m}^g \sim \mathrm{orderedLogit}(\beta_m +\delta_g,c)$</p>
-<p>$y_{n,m}^g$ is the response of subject $n$ to item $m$, i.e. a value in $[1,10]$. $g$ indexes the four groups which are of main interest to us. These are OC,OT,RC and RT. $\beta_m$ gives the difficulty for each of the six items. $c$ is the threshold vector. $\delta_g$ gives the ability of each group. We fix $\delta_{\mathrm{oc}}$ to zero. </p>
+<p>$y_{n,m}^g$ is the response of subject $n$ to item $m$, i.e. a value in $[1,10]$. $g$ indexes the four groups which are of main interest to us. These are OC,OT,RC and RT. $\beta_m$ gives the difficulty for each of the six items. $c$ is the threshold vector. $\delta_g$ gives the ability of each group. We fix $\delta_{\mathrm{oc}}$ to zero.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[6]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">model</span><span class="o">=</span><span class="s">&#39;&#39;&#39;</span>
-<span class="s">data {</span>
-<span class="s">    int&lt;lower=2&gt; K;</span>
-<span class="s">    int&lt;lower=0&gt; N;</span>
-<span class="s">    int&lt;lower=1&gt; M;</span>
-<span class="s">    // y - response of subject n to item m</span>
-<span class="s">    int&lt;lower=1,upper=K&gt; y[N,M]; </span>
-<span class="s">    // x - first column 0=original,1=replication</span>
-<span class="s">    // second column 0=control,1=treatment</span>
-<span class="s">    int x[N,2];</span>
-<span class="s">}</span>
-<span class="s">parameters {</span>
-<span class="s">    vector[M-1] bbeta;</span>
-<span class="s">    real dd[3];</span>
-<span class="s">    ordered[K-1] c;</span>
-<span class="s">}</span>
-<span class="s">transformed parameters{</span>
-<span class="s">    vector[M] beta;</span>
-<span class="s">    for (m in 1:M){</span>
-<span class="s">        if (m==1) beta[m]&lt;-0.0; </span>
-<span class="s">        else beta[m]&lt;-bbeta[m-1];</span>
-<span class="s">}}</span>
-<span class="s">model {</span>
-<span class="s">for (k in 1:(K-1)) c[k]~ uniform(-100,100);</span>
-<span class="s">for (m in 1:M){</span>
-<span class="s">    for (n in 1:N) y[n,m] ~ ordered_logistic(-beta[m]</span>
-<span class="s">        +dd[2]*x[n,1]*(1-x[n,2]) // RC</span>
-<span class="s">        +dd[1]*x[n,2]*(1-x[n,1]) // OT</span>
-<span class="s">        +dd[3]*x[n,1]*x[n,2], c); // RT</span>
-<span class="s">}}</span>
-<span class="s">&#39;&#39;&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">data {</span>
+<span class="s1">    int&lt;lower=2&gt; K;</span>
+<span class="s1">    int&lt;lower=0&gt; N;</span>
+<span class="s1">    int&lt;lower=1&gt; M;</span>
+<span class="s1">    // y - response of subject n to item m</span>
+<span class="s1">    int&lt;lower=1,upper=K&gt; y[N,M]; </span>
+<span class="s1">    // x - first column 0=original,1=replication</span>
+<span class="s1">    // second column 0=control,1=treatment</span>
+<span class="s1">    int x[N,2];</span>
+<span class="s1">}</span>
+<span class="s1">parameters {</span>
+<span class="s1">    vector[M-1] bbeta;</span>
+<span class="s1">    real dd[3];</span>
+<span class="s1">    ordered[K-1] c;</span>
+<span class="s1">}</span>
+<span class="s1">transformed parameters{</span>
+<span class="s1">    vector[M] beta;</span>
+<span class="s1">    for (m in 1:M){</span>
+<span class="s1">        if (m==1) beta[m]&lt;-0.0; </span>
+<span class="s1">        else beta[m]&lt;-bbeta[m-1];</span>
+<span class="s1">}}</span>
+<span class="s1">model {</span>
+<span class="s1">for (k in 1:(K-1)) c[k]~ uniform(-100,100);</span>
+<span class="s1">for (m in 1:M){</span>
+<span class="s1">    for (n in 1:N) y[n,m] ~ ordered_logistic(-beta[m]</span>
+<span class="s1">        +dd[2]*x[n,1]*(1-x[n,2]) // RC</span>
+<span class="s1">        +dd[1]*x[n,2]*(1-x[n,1]) // OT</span>
+<span class="s1">        +dd[3]*x[n,1]*x[n,2], c); // RT</span>
+<span class="s1">}}</span>
+<span class="s1">&#39;&#39;&#39;</span>
 <span class="n">sm5</span><span class="o">=</span><span class="n">pystan</span><span class="o">.</span><span class="n">StanModel</span><span class="p">(</span><span class="n">model_code</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[7]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">dat</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;y&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">(</span><span class="n">D</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:</span><span class="mi">8</span><span class="p">])</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="s">&#39;K&#39;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="s">&#39;M&#39;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span>
-    <span class="s">&#39;x&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">(</span><span class="n">D</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]),</span><span class="s">&#39;N&#39;</span><span class="p">:</span><span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">}</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dat</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">(</span><span class="n">D</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:</span><span class="mi">8</span><span class="p">])</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;K&#39;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="s1">&#39;M&#39;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span>
+    <span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">(</span><span class="n">D</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]),</span><span class="s1">&#39;N&#39;</span><span class="p">:</span><span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">}</span>
 <span class="n">fit6</span> <span class="o">=</span> <span class="n">sm5</span><span class="o">.</span><span class="n">sampling</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dat</span><span class="p">,</span><span class="nb">iter</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">chains</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
     <span class="n">thin</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">warmup</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">njobs</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">seed</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">pystan</span><span class="o">.</span><span class="n">misc</span><span class="o">.</span><span class="n">_print_stanfit</span><span class="p">(</span><span class="n">fit6</span><span class="p">,</span>
-    <span class="n">pars</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;dd&#39;</span><span class="p">,</span><span class="s">&#39;bbeta&#39;</span><span class="p">,</span><span class="s">&#39;c&#39;</span><span class="p">],</span><span class="n">digits_summary</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">saveStanFit</span><span class="p">(</span><span class="n">fit6</span><span class="p">,</span><span class="s">&#39;fit6&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">pystan</span><span class="o">.</span><span class="n">misc</span><span class="o">.</span><span class="n">_print_stanfit</span><span class="p">(</span><span class="n">fit6</span><span class="p">,</span>
+    <span class="n">pars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;dd&#39;</span><span class="p">,</span><span class="s1">&#39;bbeta&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">],</span><span class="n">digits_summary</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">saveStanFit</span><span class="p">(</span><span class="n">fit6</span><span class="p">,</span><span class="s1">&#39;fit6&#39;</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -3268,10 +3266,13 @@ In&nbsp;[7]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Inference for Stan model: anon_model_49eb9ff852a47d3536e8cefa052d1f67.
+<pre>Inference for Stan model: anon_model_49eb9ff852a47d3536e8cefa052d1f67.
 4 chains, each with iter=5000; warmup=100; thin=2; 
 post-warmup draws per chain=2450, total post-warmup draws=9800.
 
@@ -3298,19 +3299,20 @@ Samples were drawn using NUTS(diag_e) at Tue Jun 24 15:41:36 2014.
 For each parameter, n_eff is a crude measure of effective sample size,
 and Rhat is the potential scale reduction factor on split chains (at 
 convergence, Rhat=1).
-
 </pre>
 </div>
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>
-INFO:pystan:NOW ON CHAIN 0
+<pre>INFO:pystan:NOW ON CHAIN 0
 INFO:pystan:NOW ON CHAIN 3
 INFO:pystan:NOW ON CHAIN 1
 INFO:pystan:NOW ON CHAIN 2
-
 </pre>
 </div>
 </div>
@@ -3319,44 +3321,41 @@ INFO:pystan:NOW ON CHAIN 2
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The estimated values are displayed below. Reacall that the zero on the vertical axis shows the difficulty of the dog item and the OC group. We see that the trolley item is most difficult while the kitten item is easiest. The estimates of group ability show identical pattern as the raw score estimates. In particular, there is a control-treatment difference of 0.67 [0.21,1.13] in the original study while the estimate from the replication study -0.02 [-0.22,0.19] excludes the possibility of such a big difference in ability.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[8]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">w</span><span class="o">=</span><span class="n">loadStanFit</span><span class="p">(</span><span class="s">&#39;fit6&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">w</span><span class="o">=</span><span class="n">loadStanFit</span><span class="p">(</span><span class="s1">&#39;fit6&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">c</span><span class="o">=</span><span class="n">w</span><span class="p">[</span><span class="s">&#39;c&#39;</span><span class="p">]</span>
-<span class="n">b</span><span class="o">=</span><span class="n">w</span><span class="p">[</span><span class="s">&#39;beta&#39;</span><span class="p">]</span>
-<span class="n">d</span><span class="o">=</span><span class="n">w</span><span class="p">[</span><span class="s">&#39;dd&#39;</span><span class="p">]</span>
-<span class="c">#errorbar(c,x=np.linspace(6.5,8,9))</span>
+<span class="n">c</span><span class="o">=</span><span class="n">w</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">b</span><span class="o">=</span><span class="n">w</span><span class="p">[</span><span class="s1">&#39;beta&#39;</span><span class="p">]</span>
+<span class="n">d</span><span class="o">=</span><span class="n">w</span><span class="p">[</span><span class="s1">&#39;dd&#39;</span><span class="p">]</span>
+<span class="c1">#errorbar(c,x=np.linspace(6.5,8,9))</span>
 <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="s">&#39;k&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="c">#ax.set_yticks(np.median(c,axis=0))</span>
-<span class="c">#ax.set_yticklabels(np.arange(1,10)+0.5)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">errorbar</span><span class="p">(</span><span class="n">b</span><span class="p">[:,::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">15</span><span class="p">),</span><span class="n">clr</span><span class="o">=</span><span class="s">&#39;g&#39;</span><span class="p">)</span>
-<span class="n">errorbar</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">18</span><span class="p">),</span><span class="n">clr</span><span class="o">=</span><span class="s">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1">#ax.set_yticks(np.median(c,axis=0))</span>
+<span class="c1">#ax.set_yticklabels(np.arange(1,10)+0.5)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">errorbar</span><span class="p">(</span><span class="n">b</span><span class="p">[:,::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">15</span><span class="p">),</span><span class="n">clr</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">errorbar</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">18</span><span class="p">),</span><span class="n">clr</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span><span class="mf">17.5</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">18</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">il</span><span class="p">[:</span><span class="mi">6</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s">&#39;OT&#39;</span><span class="p">,</span><span class="s">&#39;RC&#39;</span><span class="p">,</span><span class="s">&#39;RT&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">il</span><span class="p">[:</span><span class="mi">6</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;OT&#39;</span><span class="p">,</span><span class="s1">&#39;RC&#39;</span><span class="p">,</span><span class="s1">&#39;RT&#39;</span><span class="p">])</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span> <span class="n">printCI</span><span class="p">(</span><span class="n">d</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span>
 <span class="n">printCI</span><span class="p">(</span><span class="n">d</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">d</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;ability / neg-difficulty&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;ability / neg-difficulty&#39;</span><span class="p">);</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -3364,19 +3363,25 @@ In&nbsp;[8]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>
-var 0.669, CI 0.212, 1.131
+<pre>var 0.669, CI 0.212, 1.131
 var 1.227, CI 0.880, 1.578
 var 1.207, CI 0.850, 1.561
 var -0.019, CI -0.221, 0.186
-
 </pre>
 </div>
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -3507,34 +3512,31 @@ DgAAMA4FBwAAGIeCAwAAjEPBAQAAxvk/h3MID5rZv3wAAAAASUVORK5CYII=
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>These results confirm the original analysis. However, in this case, there can be no discussion of ceiling effects. Unlike with the raw score difference, the ceiling effect does not bias the the value towards zero but rather increase the uncertainty. We can demonstrate this by comparing the raw score difference with the logit score difference in a simulation. </p>
+<p>These results confirm the original analysis. However, in this case, there can be no discussion of ceiling effects. Unlike with the raw score difference, the ceiling effect does not bias the the value towards zero but rather increase the uncertainty. We can demonstrate this by comparing the raw score difference with the logit score difference in a simulation.</p>
 <p>Assume that the true values of $c$ are the ones we just estimated above. Assume that the true effect of the treatment is equal to the one measured in the original study $\delta_T-\delta_C = \delta_{OT}-\delta_{OC}=0.67$. We systematically vary the ability of the control group C. For each ability value, we simulate data from the model for single item and 200 subjects (100 in each group).  We then estimate the $\delta_T-\delta_C$. We can then ask how does the magnitude of the base ability ($\delta_C$) influence the ability of our method to detect the effect size. In particular we are interested in cases where $\delta_C$ is very high (or very low).</p>
 <p>First, generate data.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[9]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">ordinalLogitERvs</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">ordinalLogitERvs</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; generate data with expected response</span>
 <span class="sd">        frequency from n subjects</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="c"># c must be strictly increasing</span>
+    <span class="c1"># c must be strictly increasing</span>
     <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> 
     <span class="k">def</span> <span class="nf">invLogit</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
     <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="nb">list</span><span class="p">(</span><span class="n">invLogit</span><span class="p">(</span><span class="n">beta</span><span class="o">-</span><span class="n">c</span><span class="p">))</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">p</span><span class="o">=-</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-    <span class="c">#return np.random.multinomial(n,p,size)</span>
+    <span class="c1">#return np.random.multinomial(n,p,size)</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">p</span><span class="o">*</span><span class="n">n</span><span class="p">))</span>
 <span class="k">def</span> <span class="nf">reformatData</span><span class="p">(</span><span class="n">dat</span><span class="p">):</span>
     <span class="n">out</span><span class="o">=</span><span class="p">[]</span>
@@ -3542,8 +3544,8 @@ In&nbsp;[9]:
         <span class="n">out</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">dat</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
 <span class="n">b</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">51</span><span class="p">)</span>
-<span class="n">d</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="s">&#39;dd&#39;</span><span class="p">][:,</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">c</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="s">&#39;c&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">d</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="s1">&#39;dd&#39;</span><span class="p">][:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">c</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">S</span><span class="o">=</span><span class="p">[];</span><span class="n">P</span><span class="o">=</span><span class="p">[]</span>
 <span class="k">for</span> <span class="n">bb</span> <span class="ow">in</span> <span class="n">b</span><span class="p">:</span>
     <span class="n">S</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">ordinalLogitERvs</span><span class="p">(</span><span class="n">bb</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="mi">100</span><span class="p">)),</span>
@@ -3560,48 +3562,45 @@ In&nbsp;[9]:
         <span class="n">S</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">S</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="n">s</span><span class="p">:</span><span class="n">e</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Here we use a simplified model - one item, two groups.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[10]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">model</span><span class="o">=</span><span class="s">&#39;&#39;&#39;</span>
-<span class="s">data {</span>
-<span class="s">    int&lt;lower=2&gt; K;</span>
-<span class="s">    int&lt;lower=0&gt; y1[K];// response control</span>
-<span class="s">    int&lt;lower=0&gt; y2[K];// response treatment</span>
-<span class="s">}</span>
-<span class="s">parameters {</span>
-<span class="s">    real&lt;lower=-1000,upper=1000&gt; d;</span>
-<span class="s">    ordered[K-1] c;</span>
-<span class="s">}</span>
-<span class="s">model {</span>
-<span class="s">for (k in 1:(K-1)) c[k]~ uniform(-200,200);</span>
-<span class="s">for (k in 1:K){</span>
-<span class="s">    for (n in 1:y1[k]) k~ ordered_logistic(0.0,c);</span>
-<span class="s">    for (n in 1:y2[k]) k~ ordered_logistic(d  ,c);</span>
-<span class="s">}}</span>
-<span class="s">&#39;&#39;&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">data {</span>
+<span class="s1">    int&lt;lower=2&gt; K;</span>
+<span class="s1">    int&lt;lower=0&gt; y1[K];// response control</span>
+<span class="s1">    int&lt;lower=0&gt; y2[K];// response treatment</span>
+<span class="s1">}</span>
+<span class="s1">parameters {</span>
+<span class="s1">    real&lt;lower=-1000,upper=1000&gt; d;</span>
+<span class="s1">    ordered[K-1] c;</span>
+<span class="s1">}</span>
+<span class="s1">model {</span>
+<span class="s1">for (k in 1:(K-1)) c[k]~ uniform(-200,200);</span>
+<span class="s1">for (k in 1:K){</span>
+<span class="s1">    for (n in 1:y1[k]) k~ ordered_logistic(0.0,c);</span>
+<span class="s1">    for (n in 1:y2[k]) k~ ordered_logistic(d  ,c);</span>
+<span class="s1">}}</span>
+<span class="s1">&#39;&#39;&#39;</span>
 <span class="n">sm9</span><span class="o">=</span><span class="n">pystan</span><span class="o">.</span><span class="n">StanModel</span><span class="p">(</span><span class="n">model_code</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -3609,11 +3608,13 @@ In&nbsp;[10]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>
-INFO:pystan:COMPILING THE C++ CODE FOR MODEL anon_model_3863612723aa87f9526232c8bb8a40a0 NOW.
+<div class="output_area">
 
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>INFO:pystan:COMPILING THE C++ CODE FOR MODEL anon_model_3863612723aa87f9526232c8bb8a40a0 NOW.
 </pre>
 </div>
 </div>
@@ -3622,48 +3623,43 @@ INFO:pystan:COMPILING THE C++ CODE FOR MODEL anon_model_3863612723aa87f9526232c8
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Run estimation. I will spare you the output here.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">ds</span><span class="o">=</span><span class="p">[];</span><span class="n">cs</span><span class="o">=</span><span class="p">[]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ds</span><span class="o">=</span><span class="p">[];</span><span class="n">cs</span><span class="o">=</span><span class="p">[]</span>
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">)):</span>
     <span class="k">if</span> <span class="n">S</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span> <span class="k">continue</span>
-    <span class="n">dat</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;y1&#39;</span><span class="p">:</span><span class="n">S</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="s">&#39;y2&#39;</span><span class="p">:</span><span class="n">S</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="s">&#39;K&#39;</span><span class="p">:</span><span class="n">S</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">}</span>
+    <span class="n">dat</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;y1&#39;</span><span class="p">:</span><span class="n">S</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;y2&#39;</span><span class="p">:</span><span class="n">S</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;K&#39;</span><span class="p">:</span><span class="n">S</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">}</span>
     <span class="n">fit</span> <span class="o">=</span> <span class="n">sm9</span><span class="o">.</span><span class="n">sampling</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dat</span><span class="p">,</span><span class="nb">iter</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> 
         <span class="n">chains</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">thin</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">warmup</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span><span class="n">njobs</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">seed</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-    <span class="k">print</span> <span class="n">fit</span>
-    <span class="n">saveStanFit</span><span class="p">(</span><span class="n">fit</span><span class="p">,</span><span class="s">&#39;dd</span><span class="si">%d</span><span class="s">&#39;</span><span class="o">%</span><span class="k">k</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="n">fit</span>
+    <span class="n">saveStanFit</span><span class="p">(</span><span class="n">fit</span><span class="p">,</span><span class="s1">&#39;dd</span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="k">k</span>)
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[12]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">ds</span><span class="o">=</span><span class="p">[];</span><span class="n">xs</span><span class="o">=</span><span class="p">[]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ds</span><span class="o">=</span><span class="p">[];</span><span class="n">xs</span><span class="o">=</span><span class="p">[]</span>
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">f</span><span class="o">=</span><span class="n">loadStanFit</span><span class="p">(</span><span class="s">&#39;dd</span><span class="si">%d</span><span class="s">&#39;</span><span class="o">%</span><span class="k">k</span><span class="p">)[</span><span class="s">&#39;d&#39;</span><span class="p">]</span>
+        <span class="n">f</span><span class="o">=</span><span class="n">loadStanFit</span><span class="p">(</span><span class="s1">&#39;dd</span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="k">k</span>)[&#39;d&#39;]
         <span class="n">xs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
         <span class="n">ds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
     <span class="k">except</span><span class="p">:</span><span class="k">pass</span>
@@ -3673,10 +3669,10 @@ In&nbsp;[12]:
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
     <span class="n">res2</span><span class="p">[</span><span class="n">k</span><span class="p">,:]</span><span class="o">=</span><span class="n">plotCIttest2</span><span class="p">(</span><span class="n">y1</span><span class="o">=</span><span class="n">P</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
                 <span class="n">y2</span><span class="o">=</span><span class="n">P</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">x</span><span class="o">=</span><span class="n">b</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">+</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -3684,13 +3680,15 @@ In&nbsp;[12]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_text output_subarea ">
-<pre>
-&lt;matplotlib.figure.Figure at 0x7f2a7ed5a350&gt;
-</pre>
+<pre>&lt;matplotlib.figure.Figure at 0x7f2a7ed5a350&gt;</pre>
 </div>
 
 </div>
@@ -3701,28 +3699,26 @@ In&nbsp;[12]:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[13]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">d1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="s">&#39;dd&#39;</span><span class="p">][:,</span><span class="mi">0</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="s1">&#39;dd&#39;</span><span class="p">][:,</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">d2</span><span class="o">=</span><span class="n">DS</span><span class="p">[</span><span class="n">DS</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">-</span><span class="n">DS</span><span class="p">[</span><span class="n">DS</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">ax1</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="n">d1</span><span class="p">,</span><span class="n">d1</span><span class="p">],</span><span class="s">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="s">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="n">d1</span><span class="p">,</span><span class="n">d1</span><span class="p">],</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
 <span class="n">temp</span><span class="o">=</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span><span class="o">+</span><span class="nb">list</span><span class="p">(</span><span class="n">xs</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
     <span class="nb">list</span><span class="p">(</span><span class="n">res1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">+</span><span class="nb">list</span><span class="p">(</span><span class="n">res1</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
-    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s">&#39;k&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s">&#39;k&#39;</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span><span class="n">res1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="s">&#39;k&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span><span class="n">res1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">&#39;True ES&#39;</span><span class="p">,</span><span class="s">&#39;Estimate Ordinal Logit&#39;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;deltaT - deltaC&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;deltaC&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;True ES&#39;</span><span class="p">,</span><span class="s1">&#39;Estimate Ordinal Logit&#39;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;deltaT - deltaC&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;deltaC&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
 <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
 <span class="n">temp</span><span class="o">=</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">+</span><span class="nb">list</span><span class="p">(</span><span class="n">b</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
     <span class="nb">list</span><span class="p">(</span><span class="n">res2</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">+</span><span class="nb">list</span><span class="p">(</span><span class="n">res2</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
@@ -3730,22 +3726,22 @@ In&nbsp;[13]:
     <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">t</span><span class="p">]):</span>
         <span class="n">temp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">t</span><span class="p">);</span><span class="n">temp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span>
-    <span class="n">xy</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s">&#39;m&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s">&#39;m&#39;</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">res2</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="s">&#39;m&#39;</span><span class="p">)</span>
+    <span class="n">xy</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">res2</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;m&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">1.5</span><span class="o">/</span><span class="n">d1</span><span class="o">*</span><span class="n">d2</span><span class="p">,</span><span class="mi">2</span><span class="o">/</span><span class="n">d1</span><span class="o">*</span><span class="n">d2</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="mf">4.5</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="s">&#39;beta&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),[</span><span class="o">-</span><span class="mf">0.3</span><span class="p">]</span><span class="o">*</span><span class="mi">6</span><span class="p">,</span><span class="s">&#39;+b&#39;</span><span class="p">,</span><span class="n">mew</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="s">&#39;beta&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="s">&#39;dd&#39;</span><span class="p">][:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
-                    <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">]</span><span class="o">*</span><span class="mi">6</span><span class="p">,</span><span class="s">&#39;+g&#39;</span><span class="p">,</span><span class="n">mew</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">&#39;Estimate T - C&#39;</span><span class="p">,</span>
-    <span class="s">&#39;Item Neg-Difficulty Original Study&#39;</span><span class="p">,</span>
-    <span class="s">&#39;Item Neg-Difficulty Replication&#39;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;T - C&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s">&#39;m&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s">&#39;both&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">tl</span> <span class="ow">in</span> <span class="n">ax2</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">():</span><span class="n">tl</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s">&#39;m&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="s1">&#39;beta&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),[</span><span class="o">-</span><span class="mf">0.3</span><span class="p">]</span><span class="o">*</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;+b&#39;</span><span class="p">,</span><span class="n">mew</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="s1">&#39;beta&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="s1">&#39;dd&#39;</span><span class="p">][:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+                    <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">]</span><span class="o">*</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;+g&#39;</span><span class="p">,</span><span class="n">mew</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Estimate T - C&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Item Neg-Difficulty Original Study&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Item Neg-Difficulty Replication&#39;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;T - C&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">tl</span> <span class="ow">in</span> <span class="n">ax2</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">():</span><span class="n">tl</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;m&#39;</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -3753,7 +3749,11 @@ In&nbsp;[13]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -4393,15 +4393,17 @@ cX4AnqscSrClg6QAAAAASUVORK5CYII=
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The figure sums up this post. The estimates from the two methods (grey and magenta) share the y-axis, such that the vertical position of ground true treatment efect (red) and zero (black) is the same. The horizontal axis shows the ability of the control group ($\delta_C$). The ceiling effect is located on the right. Raw score difference (magenta) suffers from ceiling effect. To put the ceiling effects into context the blue and green circles show the neg-difficulty of each item in the original and replication study respectively. In this way we can say what kind of bias due to ceiling effect we would expect if we use items with the degree of difficulty observed in the original and replication study. The items in the original study (possibly with the exception of the kitten item) do not suffer from ceiling effects. However, several of the items in the replication study are located in the region with noticeable bias. At the same time it is clear that even if the replication study used the kitten item only, the ceiling effects would cut the effect size into half, but would not set it to zero. So ceiling effect yes, but not of a magnitude that could explain the zero raw score difference obtained in the replication.</p>
-<p>However, this is not my main message. The figure shows that we should avoid the raw score difference in the first place. The magnitude of $T-C$ is biased towards zero. Even worse $T-C$ falsely claims high precision in the boundary regions - in the regions where the estimate is biased. In comparison, magnitude of $\delta_T-\delta_C$ is not biased by boundary effect. (The jumping around at the ends of the black line is due to discretization error introduced in the data generation proces.) Rather the boundary effect translates into worse precision of the estimate. Note also that the 95% interval of $\delta_T-\delta_C$ always includes the true effect size while $T-C$ incorrectly excludes it in the boundary regions.  </p>
+<p>However, this is not my main message. The figure shows that we should avoid the raw score difference in the first place. The magnitude of $T-C$ is biased towards zero. Even worse $T-C$ falsely claims high precision in the boundary regions - in the regions where the estimate is biased. In comparison, magnitude of $\delta_T-\delta_C$ is not biased by boundary effect. (The jumping around at the ends of the black line is due to discretization error introduced in the data generation proces.) Rather the boundary effect translates into worse precision of the estimate. Note also that the 95% interval of $\delta_T-\delta_C$ always includes the true effect size while $T-C$ incorrectly excludes it in the boundary regions.</p>
 <p>What will you do next time when you analyse data where the values are constrained by boundaries? You can use some linear method such as the raw group difference or Anova and pray that your results are not be biased. This post showed you that you should fit a model from the logit family instead.</p>
+
 </div>
 </div>
 </div>
+ 
+
+
 </html>

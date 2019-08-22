@@ -1697,36 +1697,33 @@ init_mathjax();
 </script>
 </head>
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>I just read a theoretical paper where authors report an Anova. This case nicely illustrates the general redundancy of Anova so I wanted to share it. Trueblood, Brown and Heathcote (2014) report a computational model that predicts similarity effect. Similarity effect is a label for the following judgment pattern: Subjects are given two options X and Y. X and Y are equally attractive and are chosen by subjects equally often. Then a third option Z is added. Z is similar to X but not so attractive. With addition of Z X is chosen more often than Y. This is the similarity effect. The authors refer to X as the focal option, while Y is nonfocal and they call Z decoy.</p>
 <p>Their model (MLBA) predicts that similarity effect decreases with time pressure. An earlier model (MDFT) makes the same prediction with some parameters but it can also predict a decrease in similarity effect for different parameter set. They wanted to compare the predictions of the two models to the human data. They conducted the following experiment. The subject was asked to choose from one of three options (focal, non-focal and decoy). The time pressure for the choice was varied - there were three conditions with time pressure 1, 2 and 5 seconds. Below I roughly replot the results (their figure 5). Errorbars show the 95% CI.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[5]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="o">%</span><span class="k">pylab</span> <span class="n">inline</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pylab</span> inline
 <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
 <span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.41</span><span class="p">,</span><span class="mf">0.44</span><span class="p">,</span><span class="mf">0.47</span><span class="p">],[</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.22</span><span class="p">,</span><span class="mf">0.21</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">yerr</span><span class="o">=</span><span class="mf">0.7</span><span class="o">/</span><span class="mf">9.3</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s">&#39;d-b&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">yerr</span><span class="o">=</span><span class="mf">0.7</span><span class="o">/</span><span class="mf">9.3</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s">&#39;o-g&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">&#39;focal&#39;</span><span class="p">,</span><span class="s">&#39;non-focal&#39;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Time pressure&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;choice probability&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;Figure 1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">yerr</span><span class="o">=</span><span class="mf">0.7</span><span class="o">/</span><span class="mf">9.3</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;d-b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">yerr</span><span class="o">=</span><span class="mf">0.7</span><span class="o">/</span><span class="mf">9.3</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;o-g&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;focal&#39;</span><span class="p">,</span><span class="s1">&#39;non-focal&#39;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time pressure&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;choice probability&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Figure 1&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">]);</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -1734,16 +1731,22 @@ In&nbsp;[5]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Populating the interactive namespace from numpy and matplotlib
+<div class="output_area">
 
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Populating the interactive namespace from numpy and matplotlib
 </pre>
 </div>
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -1949,46 +1952,40 @@ Hq+dmYUAAAAASUVORK5CYII=
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The figure shows the choice probabilities for two of the options - focal and nonfocal. (Since the choice probabilities sum to one, the probability of the third option is determined by the other two.) Then comes the Anova:</p>
-<blockquote>
-<p>To analyze the data, we conducted a 2 (context) $\times$ 3(deliberation time) repeated-measures analysis of variance. The
+<blockquote><p>To analyze the data, we conducted a 2 (context) $\times$ 3(deliberation time) repeated-measures analysis of variance. The
 dependent variable was the percentage of times that a subject chose an option (focal or nonfocal). A main effect of context, $F(1,
-45) = 95.76, p \lt .001$, indicated that participants preferred the focal option to the nonfocal option, demonstrating a strong similarity effect. </p>
+45) = 95.76, p \lt .001$, indicated that participants preferred the focal option to the nonfocal option, demonstrating a strong similarity effect.</p>
 </blockquote>
-<p>Let&#39;s hold on there. Main effect only tells us that the groups are different, it does not tell us how they differ. That&#39;s why Anova is usually followed by pair-wise post-hoc tests. Ok, in this case, it is kind of obvious. We only have two groups and from figure 1 we see that focal option shows higher choice probability across all time pressure levels.</p>
-<blockquote>
-<p>There was no significant main effect of deliberation time, $F(2, 90) = 1.25, p = .29$.</p>
+<p>Let's hold on there. Main effect only tells us that the groups are different, it does not tell us how they differ. That's why Anova is usually followed by pair-wise post-hoc tests. Ok, in this case, it is kind of obvious. We only have two groups and from figure 1 we see that focal option shows higher choice probability across all time pressure levels.</p>
+<blockquote><p>There was no significant main effect of deliberation time, $F(2, 90) = 1.25, p = .29$.</p>
 </blockquote>
-<p>This doesn&#39;t tell us anything, since we can&#39;t know whether the effect does not exist or our sample size was too small to detect a significant effect. </p>
-<blockquote>
-<p>However, the interaction of context by deliberation was significant, $F(2, 90) = 7.51, p \lt .001$, indicating that the similarity effect increases with longer deliberation times as predicted by the MLBA model.</p>
+<p>This doesn't tell us anything, since we can't know whether the effect does not exist or our sample size was too small to detect a significant effect.</p>
+<blockquote><p>However, the interaction of context by deliberation was significant, $F(2, 90) = 7.51, p \lt .001$, indicating that the similarity effect increases with longer deliberation times as predicted by the MLBA model.</p>
 </blockquote>
 <p>Again all that the significant interaction indicates is that the averages of the six groups are different from what a linear null model with main effect (ME) of context and time pressure ME would predict. If you are not sure what the predictions of this null model look like here is a plot:</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[2]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">py</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">py</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
 <span class="n">py</span><span class="o">/=</span><span class="mf">2.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">py</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="s">&#39;d-b&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">py</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s">&#39;o-g&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">&#39;focal&#39;</span><span class="p">,</span><span class="s">&#39;non-focal&#39;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">py</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;d-b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">py</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;o-g&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;focal&#39;</span><span class="p">,</span><span class="s1">&#39;non-focal&#39;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">]);</span><span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;Figure 2&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Figure 2&#39;</span><span class="p">);</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -1996,7 +1993,11 @@ In&nbsp;[2]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -2179,37 +2180,34 @@ AAAASUVORK5CYII=
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The context ME dominates the predictions of this model but the time pressure ME also makes contribution.</p>
-<p>Anyway, the significant interaction certainly does NOT indicate that the similarity effect increases with deliberation time. For instance the following interactions are also significant (+ their context ME is significant while the time-pressure ME is not). Yet they clearly do not indicate a similarity effect increase.  </p>
+<p>Anyway, the significant interaction certainly does NOT indicate that the similarity effect increases with deliberation time. For instance the following interactions are also significant (+ their context ME is significant while the time-pressure ME is not). Yet they clearly do not indicate a similarity effect increase.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[3]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.4</span><span class="p">],</span><span class="s">&#39;d-b&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.2</span><span class="p">],</span><span class="s">&#39;o-g&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">&#39;focal&#39;</span><span class="p">,</span><span class="s">&#39;non-focal&#39;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.4</span><span class="p">],</span><span class="s1">&#39;d-b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.2</span><span class="p">],</span><span class="s1">&#39;o-g&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;focal&#39;</span><span class="p">,</span><span class="s1">&#39;non-focal&#39;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">]);</span><span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;Figure 3&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Figure 3&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.35</span><span class="p">,</span><span class="mf">0.2</span><span class="p">],</span><span class="s">&#39;d-b&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.4</span><span class="p">],</span><span class="s">&#39;o-g&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">&#39;focal&#39;</span><span class="p">,</span><span class="s">&#39;non-focal&#39;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.35</span><span class="p">,</span><span class="mf">0.2</span><span class="p">],</span><span class="s1">&#39;d-b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.4</span><span class="p">],</span><span class="s1">&#39;o-g&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;focal&#39;</span><span class="p">,</span><span class="s1">&#39;non-focal&#39;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">]);</span><span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;Figure 4&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Figure 4&#39;</span><span class="p">);</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -2217,7 +2215,11 @@ In&nbsp;[3]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -2528,7 +2530,11 @@ IYSwSJKghBBCWCRJUEIIISySJCghhBAW6f8AbLy1Hy9cYswAAAAASUVORK5CYII=
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -2810,35 +2816,32 @@ dEkCSgghhC5JQAkhhNCl/wdD3elrzldvSgAAAABJRU5ErkJggg==
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Usually this situation is handled by post-hoc tests. As the errorbars in the figure indicate, the differences between the time pressure conditions within each group are not significant, so (unless we repeat the experiment with bigger sample size) we can&#39;t reliably tell where the interaction comes from. </p>
-<p>Putting the problems of small sample size aside, Anova suffers from a principal problem that it doesn&#39;t test the question that the authors are interested in. The authors are interested whether the data conform to the predictions of the MLBA model. The model shows a random choice when the time pressure is high and exponential convergence to the similarity effect with decreasing time pressure. The MDFT model predicts decreasing similarity effect with decreasing time pressure. We wish to test whether the choice probabilities are monotonically decreasing/increasing in the nonfocal/focal condition and vice versa. Instead we test whether the group means are different from the  linear additive model in figure 3. </p>
-<p>One might argue that model in figure 3 lies between the two hypotheses - the similarity effect in figure 3 is neither increasing or decreasing, it is constant. So, the argument goes, once we obtained the significant interaction we can look at figure 1 to see whether the rejected hypothesis lies north or south of the null model. This argument still leaves out the fact that the alternative hypothesis (&quot;something reliably different from null&quot;, see figure 3 and 4) is not what we are looking for. Let me illustrate why this is a problem. </p>
-<p>Consider the following result pattern. </p>
+<p>Usually this situation is handled by post-hoc tests. As the errorbars in the figure indicate, the differences between the time pressure conditions within each group are not significant, so (unless we repeat the experiment with bigger sample size) we can't reliably tell where the interaction comes from.</p>
+<p>Putting the problems of small sample size aside, Anova suffers from a principal problem that it doesn't test the question that the authors are interested in. The authors are interested whether the data conform to the predictions of the MLBA model. The model shows a random choice when the time pressure is high and exponential convergence to the similarity effect with decreasing time pressure. The MDFT model predicts decreasing similarity effect with decreasing time pressure. We wish to test whether the choice probabilities are monotonically decreasing/increasing in the nonfocal/focal condition and vice versa. Instead we test whether the group means are different from the  linear additive model in figure 3.</p>
+<p>One might argue that model in figure 3 lies between the two hypotheses - the similarity effect in figure 3 is neither increasing or decreasing, it is constant. So, the argument goes, once we obtained the significant interaction we can look at figure 1 to see whether the rejected hypothesis lies north or south of the null model. This argument still leaves out the fact that the alternative hypothesis ("something reliably different from null", see figure 3 and 4) is not what we are looking for. Let me illustrate why this is a problem.</p>
+<p>Consider the following result pattern.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[4]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.43</span><span class="p">,</span><span class="mf">0.46</span><span class="p">,</span><span class="mf">0.49</span><span class="p">],</span><span class="s">&#39;d-b&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.24</span><span class="p">,</span><span class="mf">0.24</span><span class="p">],</span><span class="s">&#39;o-g&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">&#39;focal&#39;</span><span class="p">,</span><span class="s">&#39;nonfocal&#39;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="p">]);</span><span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;Figure 5&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.43</span><span class="p">,</span><span class="mf">0.46</span><span class="p">,</span><span class="mf">0.49</span><span class="p">],</span><span class="s1">&#39;d-b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.24</span><span class="p">,</span><span class="mf">0.24</span><span class="p">],</span><span class="s1">&#39;o-g&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;focal&#39;</span><span class="p">,</span><span class="s1">&#39;nonfocal&#39;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="p">]);</span><span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Figure 5&#39;</span><span class="p">);</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -2846,7 +2849,11 @@ In&nbsp;[4]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -3064,15 +3071,17 @@ JSIipvT/AXu/ZDB5Ro8OAAAAAElFTkSuQmCC
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Here we observe two kinds of interaction. First, the increasing similarity effect in which we are interested. Second, the faster convergence in the nonfocal condition. Presumably we are not interested in this one, at least not in the current analysis. Unfortunately, Anova can&#39;t distinguish the two kinds of interactions and we don&#39;t know which interaction is driving the significant result. In particular we don&#39;t know if the interaction due to similarity effect would reach significance if the interaction due to faster convergence were absent. </p>
+<p>Here we observe two kinds of interaction. First, the increasing similarity effect in which we are interested. Second, the faster convergence in the nonfocal condition. Presumably we are not interested in this one, at least not in the current analysis. Unfortunately, Anova can't distinguish the two kinds of interactions and we don't know which interaction is driving the significant result. In particular we don't know if the interaction due to similarity effect would reach significance if the interaction due to faster convergence were absent.</p>
 <p>There are several simple alternatives to Anova. How about this one: We fit a separate quadratic model to the data in each context condition. We report the slope magnitude along with its CI. If the slope is reliably (zero outside the CI) positive in the focal condition and reliably negative in the nonfocal condition, then we are done.</p>
-<p>Another option would be to refer the reader directly to figure 1. We made heavy use of this figure in the proces of decyphering the results of Anova. Why then, not simply drop Anova and use the figure instead. Nothing would be lost with this omission. </p>
+<p>Another option would be to refer the reader directly to figure 1. We made heavy use of this figure in the proces of decyphering the results of Anova. Why then, not simply drop Anova and use the figure instead. Nothing would be lost with this omission.</p>
+
 </div>
 </div>
 </div>
+ 
+
+
 </html>

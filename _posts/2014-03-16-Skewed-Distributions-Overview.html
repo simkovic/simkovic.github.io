@@ -1697,44 +1697,38 @@ init_mathjax();
 </script>
 </head>
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="The-Trouble-with-Response-Times">The Trouble with Response Times<a class="anchor-link" href="#The-Trouble-with-Response-Times">&#182;</a></h4>
 </div>
 </div>
 </div>
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Recently, I wanted to analyse response times from a visual search task. For me the standard approach of feeding measurements with highly skewed distributions and censored values into Anova is not acceptable. Unfortunately, I found little guidance on how to conduct a Gelman style analysis (Gelman &amp; Shalizie, 2013). There are no instances of say Gamma regression or Weibull regression in BDA or in Gelman &amp; Hill (2007). I took a look at the Bayesian Survival Analysis by Ibrahim, Chen &amp; Sinha (2005). This book treats the relevant models. It presents an overview of the literature, but gives little guidance on how to select an appropriate model. Besides Survival Times are not exactly response times and the lessons from survival analysis may not be applicable here. </p>
+<p>Recently, I wanted to analyse response times from a visual search task. For me the standard approach of feeding measurements with highly skewed distributions and censored values into Anova is not acceptable. Unfortunately, I found little guidance on how to conduct a Gelman style analysis (Gelman &amp; Shalizie, 2013). There are no instances of say Gamma regression or Weibull regression in BDA or in Gelman &amp; Hill (2007). I took a look at the Bayesian Survival Analysis by Ibrahim, Chen &amp; Sinha (2005). This book treats the relevant models. It presents an overview of the literature, but gives little guidance on how to select an appropriate model. Besides Survival Times are not exactly response times and the lessons from survival analysis may not be applicable here.</p>
 <p>I did a little research on the Internet and in the psychological literature. I thought it may be useful to share what I learned. This is the first post in series. It gives an overview of the most popular models and the theory and motivation behind them.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[1]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="o">%</span><span class="k">pylab</span> <span class="n">inline</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pylab</span> inline
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">Image</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s">&#39;ignore&#39;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">urlopen</span>
-<span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s">&#39;http://tiny.cc/tpiaox&#39;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">urllib</span> <span class="k">import</span> <span class="n">urlopen</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://tiny.cc/tpiaox&#39;</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -1742,19 +1736,24 @@ In&nbsp;[1]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Populating the interactive namespace from numpy and matplotlib
+<div class="output_area">
 
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Populating the interactive namespace from numpy and matplotlib
 </pre>
 </div>
 </div>
 
-<div class="output_area"><div class="prompt output_prompt">
-    Out[1]:</div>
+<div class="output_area">
 
-<div class="output_html rendered_html output_subarea output_pyout">
+    <div class="prompt output_prompt">Out[1]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <img src="http://tiny.cc/tpiaox"/>
 </div>
 
@@ -1764,40 +1763,37 @@ Populating the interactive namespace from numpy and matplotlib
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Two distributions with positive and negative skew are shown above. They occur frequently in psychological research. The prime example are response times or solution times with positive skew. These arise in experiments where subject hits a key and terminates the trial as soon as he makes a decision. As an example consider the distribution of reaction times from four subjects from one of my studies. The subject was asked to hit a key as soon as he detected a pair of chasing rings among twelve other randomly moving distractors. </p>
+<p>Two distributions with positive and negative skew are shown above. They occur frequently in psychological research. The prime example are response times or solution times with positive skew. These arise in experiments where subject hits a key and terminates the trial as soon as he makes a decision. As an example consider the distribution of reaction times from four subjects from one of my studies. The subject was asked to hit a key as soon as he detected a pair of chasing rings among twelve other randomly moving distractors.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[2]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-    <span class="n">f</span><span class="o">=</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&#39;http://tiny.cc/iriaox&#39;</span><span class="o">%</span><span class="k">d</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">=</span><span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;http://tiny.cc/iriaox&#39;</span><span class="o">%</span><span class="k">d</span>)
     <span class="n">D</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
     <span class="n">y</span><span class="o">=</span><span class="n">D</span><span class="p">[</span><span class="n">D</span><span class="p">[:,</span><span class="mi">3</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">35</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
     <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">[</span><span class="n">y</span><span class="o">&lt;</span><span class="mi">30</span><span class="p">]</span>
     <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">31</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">normed</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s">&#39;c&#39;</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s">&#39;w&#39;</span><span class="p">);</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">normed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">);</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
     <span class="n">mlest</span><span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">lognorm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
     <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">101</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">stats</span><span class="o">.</span><span class="n">lognorm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">mlest</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">mlest</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">mlest</span><span class="p">[</span><span class="mi">2</span><span class="p">]));</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Response Time (Seconds)&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;pdf&#39;</span><span class="p">);</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;subject </span><span class="si">%d</span><span class="s">&#39;</span><span class="o">%</span><span class="k">d</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Response Time (Seconds)&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;pdf&#39;</span><span class="p">);</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;subject </span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="k">d</span>)
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -1805,7 +1801,11 @@ In&nbsp;[2]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -2078,7 +2078,11 @@ LElBCSGEMEtSUEIIIcySFJQQQgizJAUlhBDCLP0fTErsNHtY45sAAAAASUVORK5CYII=
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -2356,7 +2360,11 @@ Qlil/wfvrVe+Zf8OuQAAAABJRU5ErkJggg==
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -2633,7 +2641,11 @@ CGGRpKCEEEJYJCkoIYQQFkkKSgghhEWSghJCCGGR/h+FdAhW7MQHdgAAAABJRU5ErkJggg==
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -2921,24 +2933,21 @@ FmYsGOB/aAsAAAAASUVORK5CYII=
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The distributions for fours subjects displayed above are similar in some aspects but vary in other aspects. We are looking for a simple model which would capture the diversity and complexity of the data. The black curve shows one such proposal.</p>
 <p>Notable feature of these distributions is that response times can only have positive values. This provides a constraint on the shape of the distribution. You can envision a normal distribution which is pushed against the vertical line at $x=0$. However as the probability mass hits the wall it pushed back and acumulates on the positive side. Or we can just cut away the negative values. The result looks like this?</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[3]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">ms</span><span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ms</span><span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">ms</span><span class="p">:</span>
     <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
     <span class="n">y</span><span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
@@ -2947,7 +2956,7 @@ In&nbsp;[3]:
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">ms</span><span class="p">);</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -2955,7 +2964,11 @@ In&nbsp;[3]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -3431,50 +3444,43 @@ QoEKCQkJCVmUhAIVEhISErIoCQUqJCQkJGRR8v8BlK3Kg29AKhcAAAAASUVORK5CYII=
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This is a naive approach. The truncated gaussian makes a sharp jump at $x=0$. In the distribution from our subjects we do not see such a jump. The solution times peak around 6-7 seconds and the distribtion goes towards $p(x=0)=0$ in continuous fashion. To obtain better candidates we now explore processes that give rise to skewed distributions in a systematic way.</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Geometric-distribution">Geometric distribution<a class="anchor-link" href="#Geometric-distribution">&#182;</a></h4>
 </div>
 </div>
 </div>
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We start really simple with a discrete distribution. Subject makes a decision at discrete time steps $t=1,2,3,\dots$. At each step the subject solves the task with probability $\beta$. What is the probability that he solves the task at step $\tau$? It is the product of the probabilities at each decision step. The subject has solved the task at step $t$ (with probability $\beta$) and failed to solve the task at all previous steps (with probability $1-\beta$ at each step). Hence $p(t=\tau)=\beta (1-\beta)^{\tau-1}$. This distribution is called geometric. It looks like this</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[4]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">ms</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ms</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">ms</span><span class="p">:</span>
     <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
     <span class="n">y</span><span class="o">=</span><span class="n">m</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">m</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;o-&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;o-&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">ms</span><span class="p">);</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -3482,7 +3488,11 @@ In&nbsp;[4]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -4173,38 +4183,31 @@ P0MTat0YCxMWAAAAAElFTkSuQmCC
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Exponential-distribution">Exponential distribution<a class="anchor-link" href="#Exponential-distribution">&#182;</a></h4>
 </div>
 </div>
 </div>
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>There are two features that we don&#39;t like about the geometric distribution. First the distribution always peeks at $x=0$. We would like to obtain distributions that have mode somewhere $x&gt;0$. Second, the measured reaction times are continuous. Let&#39;s get rid of the second problem,first. We derive the continuous analogue of geometric distribution. With no discrete steps we need to think about $\alpha$ as a rate. $\alpha$ then gives the number of decisions per a unit of time. If $\beta=0.8$ per second then $\beta=0.4$ per half of a second and $\beta=60\cdot 0.8 = 48$ per minute. </p>
-<p>Now consider a case of geometric distribution with $t=6$ and $\beta=0.2$. Then $p(t=6)=0.2 \cdot (0.8)^{5}= 0.655$. We have 5 time steps at which no decision was made. We split each of them into halves. We now have ten time steps where no decision was made. Each time step now has length 0.5 and probability of no decision at each of these steps is $0.8/2=0.4$. Such modification doesn&#39;t change $t=0.5\cdot 10 = 1 \cdot5$. However it alters $p(t=6)=0.2 \cdot (0.4)^{10}= 0.0001$. (Why do we choose $0.8/2=0.4$ instead of $\sqrt{0.8}=0.89$? This is because we want to hold the number of non-decision events constant at 5 irrespective of the number of bins. With $0.4$ we distribute 5 non-decisions across 10 bins. With $\sqrt{0.8}$ we would distribute 10 non-decisions across 10 bins.) We can generalize the process of division. The probability of no decision per reduced bin is $\frac{\tau (1-\beta)}{n}$, where $n$ is the number of bins. Then the probability of $\tau$ steps over the reduced bins  is</p>
+<p>There are two features that we don't like about the geometric distribution. First the distribution always peeks at $x=0$. We would like to obtain distributions that have mode somewhere $x&gt;0$. Second, the measured reaction times are continuous. Let's get rid of the second problem,first. We derive the continuous analogue of geometric distribution. With no discrete steps we need to think about $\alpha$ as a rate. $\alpha$ then gives the number of decisions per a unit of time. If $\beta=0.8$ per second then $\beta=0.4$ per half of a second and $\beta=60\cdot 0.8 = 48$ per minute.</p>
+<p>Now consider a case of geometric distribution with $t=6$ and $\beta=0.2$. Then $p(t=6)=0.2 \cdot (0.8)^{5}= 0.655$. We have 5 time steps at which no decision was made. We split each of them into halves. We now have ten time steps where no decision was made. Each time step now has length 0.5 and probability of no decision at each of these steps is $0.8/2=0.4$. Such modification doesn't change $t=0.5\cdot 10 = 1 \cdot5$. However it alters $p(t=6)=0.2 \cdot (0.4)^{10}= 0.0001$. (Why do we choose $0.8/2=0.4$ instead of $\sqrt{0.8}=0.89$? This is because we want to hold the number of non-decision events constant at 5 irrespective of the number of bins. With $0.4$ we distribute 5 non-decisions across 10 bins. With $\sqrt{0.8}$ we would distribute 10 non-decisions across 10 bins.) We can generalize the process of division. The probability of no decision per reduced bin is $\frac{\tau (1-\beta)}{n}$, where $n$ is the number of bins. Then the probability of $\tau$ steps over the reduced bins  is</p>
 <p>$\beta \left(\frac{\tau (1-\beta)}{n}\right)^{n}$</p>
-<p>We obtain the exponential distribution by making the bins infinitely small. </p>
-<p>$$\lim_{n \to \infty} \beta \left(\frac{\tau (1-\beta)}{n}\right)^{n} =\beta e^{-\beta\tau} $$</p>
-<p>Here is what the exponential pdf looks like for various parameter values.</p>
+<p>We obtain the exponential distribution by making the bins infinitely small.</p>
+$$\lim_{n \to \infty} \beta \left(\frac{\tau (1-\beta)}{n}\right)^{n} =\beta e^{-\beta\tau} $$<p>Here is what the exponential pdf looks like for various parameter values.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[5]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">ms</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ms</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">ms</span><span class="p">:</span>
     <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
     <span class="n">y</span><span class="o">=</span><span class="n">m</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">m</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
@@ -4212,7 +4215,7 @@ In&nbsp;[5]:
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">ms</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -4220,7 +4223,11 @@ In&nbsp;[5]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -4743,43 +4750,37 @@ JUJQAoFAINiUCEEJBAKBYFPy/wPPj3aaOjk7TwAAAABJRU5ErkJggg==
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Gamma-distribution">Gamma distribution<a class="anchor-link" href="#Gamma-distribution">&#182;</a></h4>
 </div>
 </div>
 </div>
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Next we would like to obtain distribution that is also capable of curves with mode away from $x=0$. The general strategy for obtaining more flexible distribution is to build a mixture of the simpler ones. In our case we conceive the following process. In order to reach a decision multiple serial stages of the same exponential process need to finish. We draw $\alpha$ samples from an exponential distribution with decision rate $\beta$ and sum them to obtain the total decision time.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[6]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">b</span><span class="o">=</span><span class="mf">1.6</span><span class="p">;</span><span class="n">a</span><span class="o">=</span><span class="mi">3</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">b</span><span class="o">=</span><span class="mf">1.6</span><span class="p">;</span><span class="n">a</span><span class="o">=</span><span class="mi">3</span>
 <span class="n">h</span><span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">expon</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">10000</span><span class="p">,</span><span class="n">a</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">a</span>
 <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="n">y</span><span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">erlang</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">normed</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s">&#39;c&#39;</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s">&#39;c&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">normed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -4787,7 +4788,11 @@ In&nbsp;[6]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -5010,46 +5015,41 @@ EYlI/z9eA9vFRJlpigAAAABJRU5ErkJggg==
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The resulting distribution is called Erlang distribution. An example of Erlang with $\beta=1.6$ and $\alpha=3$ is depicted above along with the results of a simulation of the underlying multistage proces. </p>
-<p>For our purposes however Gamma distribution will be more useful. Gamma is a cousin of Erlang. The only difference is that the number of bins $\alpha$ is continuous in Gamma while it is discrete in Erlang. </p>
+<p>The resulting distribution is called Erlang distribution. An example of Erlang with $\beta=1.6$ and $\alpha=3$ is depicted above along with the results of a simulation of the underlying multistage proces.</p>
+<p>For our purposes however Gamma distribution will be more useful. Gamma is a cousin of Erlang. The only difference is that the number of bins $\alpha$ is continuous in Gamma while it is discrete in Erlang.</p>
 <p>Erlang has the following PDF</p>
-<p>$$p(t;\beta,\alpha)=\frac{\beta^\alpha}{(\alpha-1)!} t^{\alpha-1} e^{-\beta t}$$</p>
-<p>Gamma distribution has PDF.</p>
-<p>$$p(t;\beta,\alpha)=\frac{ \beta^\alpha}{\Gamma(\alpha)} t^{\alpha-1} e^{-\beta t}$$</p>
-<p>The last term is the common heritage from their exponential ancestor. The middle term arises from the combinatorics of summing exponentially distributed variables and is the same for both distributions. The distributions differ only in terms of the normalizing constant.</p>
-<p>Let&#39;s see what Gamma can do. We look how the distribution changes for different parameter values.</p>
+$$p(t;\beta,\alpha)=\frac{\beta^\alpha}{(\alpha-1)!} t^{\alpha-1} e^{-\beta t}$$<p>Gamma distribution has PDF.</p>
+$$p(t;\beta,\alpha)=\frac{ \beta^\alpha}{\Gamma(\alpha)} t^{\alpha-1} e^{-\beta t}$$<p>The last term is the common heritage from their exponential ancestor. The middle term arises from the combinatorics of summing exponentially distributed variables and is the same for both distributions. The distributions differ only in terms of the normalizing constant.</p>
+<p>Let's see what Gamma can do. We look how the distribution changes for different parameter values.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[7]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">1.6</span><span class="p">]:</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
     <span class="n">mm</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">16</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mm</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">stats</span><span class="o">.</span><span class="n">gamma</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">h</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mm</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="s">&#39;float&#39;</span><span class="p">),</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;beta&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;alpha=</span><span class="si">%.1f</span><span class="s">&#39;</span><span class="o">%</span><span class="k">h</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mm</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float&#39;</span><span class="p">),</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;beta&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;alpha=</span><span class="si">%.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="k">h</span>)
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">mm</span><span class="o">=</span><span class="p">[</span><span class="mf">0.8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mm</span><span class="p">:</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">stats</span><span class="o">.</span><span class="n">gamma</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">m</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">mm</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;alpha&#39;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;beta=1/3&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">mm</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;alpha&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;beta=1/3&#39;</span><span class="p">);</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -5057,7 +5057,11 @@ In&nbsp;[7]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -5366,7 +5370,11 @@ SRJQQgghmiQJKCGEEE2SBJQQQogm6f8DKLrmMZ3nDSgAAAAASUVORK5CYII=
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -5740,7 +5748,11 @@ lEAgEAgKEiFQAoFAIChIhEAJBAKBoCD5f39RywjItXhJAAAAAElFTkSuQmCC
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -6125,57 +6137,49 @@ hISEhHVJIlAJCQkJCeuSRKASEhISEtYliUAlJCQkJKxL/g9DO5QOCp0ZBAAAAABJRU5ErkJggg==
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We see curves with mode at $x&gt;0$. These are similar to the reponse times from our human subjects. At the same time with Gamma we can create the exponential-like distributions with mode at $x=0$. Although not present in the data for our for subjects, these also do occur in psychological research, for instance in fast detection tasks.</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Weibull-Distribution">Weibull Distribution<a class="anchor-link" href="#Weibull-Distribution">&#182;</a></h4>
 </div>
 </div>
 </div>
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Gamma distribution is already fine for the purpose of our data set. However, there are further options which can make difference with other datasets.  Let&#39;s look at these.</p>
-<p>To do so let&#39;s go one step back to the exponential distribution and ask if there is another way to extend it. We chose rate $\beta$ that evolves exponentially the response time. The PDF of Weibull distribution is given by</p>
-<p>$$\alpha\beta\left(\beta t\right)^{\alpha-1}e^{-(\beta t)^{\alpha}}$$</p>
-<p>Parameter $\alpha$ is the new stuff. $\alpha$ is a positive real parameter. The  term $(\beta t)^{\alpha}$ is crucial here. If $\alpha&gt;1$ then this term explodes and Weibull loses its tail and the positive skew. On the other hand if $\alpha&lt;1$ then the term increases only slowly and Weibull has a fat tail. (If $\alpha=1$ we obtain exponential distribution.)</p>
+<p>Gamma distribution is already fine for the purpose of our data set. However, there are further options which can make difference with other datasets.  Let's look at these.</p>
+<p>To do so let's go one step back to the exponential distribution and ask if there is another way to extend it. We chose rate $\beta$ that evolves exponentially the response time. The PDF of Weibull distribution is given by</p>
+$$\alpha\beta\left(\beta t\right)^{\alpha-1}e^{-(\beta t)^{\alpha}}$$<p>Parameter $\alpha$ is the new stuff. $\alpha$ is a positive real parameter. The  term $(\beta t)^{\alpha}$ is crucial here. If $\alpha&gt;1$ then this term explodes and Weibull loses its tail and the positive skew. On the other hand if $\alpha&lt;1$ then the term increases only slowly and Weibull has a fat tail. (If $\alpha=1$ we obtain exponential distribution.)</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[8]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
     <span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mf">1.6</span><span class="p">,</span><span class="mf">0.4</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;(beta*t)^alpha&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;alpha&gt;1&#39;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;alpha&lt;1&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;(beta*t)^alpha&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;alpha&gt;1&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;alpha&lt;1&#39;</span><span class="p">)</span>
     <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="p">))</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;pdf&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;pdf&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="p">)))</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -6183,7 +6187,11 @@ In&nbsp;[8]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -6590,39 +6598,36 @@ S/6TwL4AAAAASUVORK5CYII=
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We now do gymnastics. The graphs show that by proper choice of $\alpha$ we can obtain a distribution that is almost symmetric. This is something that Gamma can&#39;t do. </p>
+<p>We now do gymnastics. The graphs show that by proper choice of $\alpha$ we can obtain a distribution that is almost symmetric. This is something that Gamma can't do.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[9]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">1.6</span><span class="p">]:</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
     <span class="n">mm</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">16</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mm</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">stats</span><span class="o">.</span><span class="n">weibull_min</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">h</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mm</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="s">&#39;float&#39;</span><span class="p">),</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;beta&#39;</span><span class="p">);</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;alpha=</span><span class="si">%.1f</span><span class="s">&#39;</span><span class="o">%</span><span class="k">h</span><span class="p">);</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mm</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float&#39;</span><span class="p">),</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;beta&#39;</span><span class="p">);</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;alpha=</span><span class="si">%.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="k">h</span>);
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">mm</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mm</span><span class="p">:</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">stats</span><span class="o">.</span><span class="n">weibull_min</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">mm</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;alpha&#39;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;beta=1/3&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">mm</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;alpha&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;beta=1/3&#39;</span><span class="p">);</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -6630,7 +6635,11 @@ In&nbsp;[9]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -6940,7 +6949,11 @@ RK5CYII=
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -7309,7 +7322,11 @@ SCSSvEQKlEQikUjyEilQEolEIslLpEBJJBKJJC/5P0zGD1PuZO2yAAAAAElFTkSuQmCC
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -7672,35 +7689,29 @@ KIFAIBA0JSJACQQCgaApEQFKIBAIBE3J/wDtkSyyJAvcIgAAAABJRU5ErkJggg==
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="ExGaussian-Distribution">ExGaussian Distribution<a class="anchor-link" href="#ExGaussian-Distribution">&#182;</a></h4>
 </div>
 </div>
 </div>
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We now go back to the exponential distribution and explicitly start with the goal of obtaining a distribution that covers the skew range between the exponential distribution and the normal distribution. The most straightforward way to do this is to build a mixture of two variables $Z=X+Y$ where $X \sim \mathcal{N}(\mu,\sigma)$ and $Y \sim \mathrm{Expon}(\beta)$. Then $Z \sim \mathrm{ExGauss}(\mu,\sigma,\beta)$. It&#39;s PDF is given by
+<p>We now go back to the exponential distribution and explicitly start with the goal of obtaining a distribution that covers the skew range between the exponential distribution and the normal distribution. The most straightforward way to do this is to build a mixture of two variables $Z=X+Y$ where $X \sim \mathcal{N}(\mu,\sigma)$ and $Y \sim \mathrm{Expon}(\beta)$. Then $Z \sim \mathrm{ExGauss}(\mu,\sigma,\beta)$. It's PDF is given by
 $$f(x;\mu,\sigma,\beta) = \frac{\beta}{2} \exp\left(\frac{\beta}{2} \left(2 \mu + \beta \sigma^2 - 2 x\right)\right)
              \operatorname{erfc} \left(\frac{\mu + \beta \sigma^2 - x}{ \sqrt{2} \sigma}\right)$$</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[10]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">erf</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="k">import</span> <span class="n">erf</span>
 
 <span class="k">def</span> <span class="nf">exgausspdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">mu</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">beta</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; mu - mean of gaussain</span>
@@ -7715,25 +7726,25 @@ In&nbsp;[10]:
 <span class="n">mm</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mm</span><span class="p">:</span>
    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">exgausspdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">mu</span><span class="o">=</span><span class="n">m</span><span class="p">,</span><span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">beta</span><span class="o">=</span><span class="mf">0.25</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">mm</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;mu&#39;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;sigma=1,beta=1/4&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">mm</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;mu&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;sigma=1,beta=1/4&#39;</span><span class="p">);</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">mm</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mm</span><span class="p">:</span>
    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">exgausspdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">mu</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">sigma</span><span class="o">=</span><span class="n">m</span><span class="p">,</span><span class="n">beta</span><span class="o">=</span><span class="mf">0.25</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">mm</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;sigma&#39;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;mu=5,beta=1/4&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">mm</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;sigma&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;mu=5,beta=1/4&#39;</span><span class="p">);</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">mm</span><span class="o">=</span><span class="p">[</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mm</span><span class="p">:</span>
    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">exgausspdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">mu</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">beta</span><span class="o">=</span><span class="n">m</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">mm</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;beta&#39;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;mu=5,sigma=1&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">mm</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;beta&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;mu=5,sigma=1&#39;</span><span class="p">);</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -7741,7 +7752,11 @@ In&nbsp;[10]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -8418,7 +8433,11 @@ ZTAYDIYlyf8A6kdyUly9yfgAAAAASUVORK5CYII=
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -8857,7 +8876,11 @@ QmCC
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -9343,55 +9366,48 @@ EiMSSaAkJCQkJEYkkkBJSEhISIxI/j+/6H02bTL+fQAAAABJRU5ErkJggg==
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The effect of parameters on the shape of distribution can be intuited from their respective role as parameters of the gaussian and exponential distribution. $\beta$ and $\sigma$ control the respective contribution of the exponential and gaussian component. As $\sigma \to 0$ Exgaussian reduces to shifted exponential. Exgaussian has three parameters which offers more modeling flexibility than the distributions we reviewed so far.</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Lognormal-Distribution">Lognormal Distribution<a class="anchor-link" href="#Lognormal-Distribution">&#182;</a></h4>
 </div>
 </div>
 </div>
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Above we have concentrated on the flexibility afforded the probability distribution of the model. Lognormal Distribution is popular due to its easy use, quick fitting and rather straightforward interpretation of its parameters.</p>
 <p>$Y$ has lognormal distribution if $X\sim \mathbf{N}(\mu,\sigma)$ and $Y=\log(X)$, where $\mu$ and $\sigma$ are the familiar  mean and standard deviation.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[11]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.4</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">stats</span><span class="o">.</span><span class="n">lognorm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">m</span><span class="p">)))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.2</span><span class="p">),</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;mu&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;sigma=1&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.2</span><span class="p">),</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;mu&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;sigma=1&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span>  <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">1.4</span><span class="p">,</span><span class="mf">0.1</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">stats</span><span class="o">.</span><span class="n">lognorm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">1.4</span><span class="p">,</span><span class="mf">0.1</span><span class="p">),</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;sigma&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;mu=2&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">1.4</span><span class="p">,</span><span class="mf">0.1</span><span class="p">),</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;sigma&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;mu=2&#39;</span><span class="p">);</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -9399,7 +9415,11 @@ In&nbsp;[11]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -9961,7 +9981,11 @@ RU5ErkJggg==
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -10756,32 +10780,30 @@ kkCgAgICAgKuSgKBCggICAi4KgkEKiAgICDgquT/A8GOFc0lXQbVAAAAAElFTkSuQmCC
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Note that $\mu$ is not the mean of the lognormal distribution. $\mu$ shifts the mode of the distribution but it also contributes to the width of the distribution.</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Coming-Next">Coming Next<a class="anchor-link" href="#Coming-Next">&#182;</a></h4>
 </div>
 </div>
 </div>
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Next time I will show how the distributions look on the log-scale. This will provide more diagnostic view of the various distributions.</p>
+
 </div>
 </div>
 </div>
+ 
+
+
 </html>
